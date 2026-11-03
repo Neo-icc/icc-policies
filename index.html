@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICC 学校制度汇编 · 2026 学年</title>
+<style>
+:root{
+  --ink:#1b2430; --ink2:#3a4759; --muted:#69748a; --faint:#95a0b1;
+  --line:#e3e7ee; --line2:#eef1f5;
+  --bg:#f4f5f7; --paper:#ffffff; --bg2:#fafbfc;
+  --brand:#1f3a5f; --brand2:#2c5588; --brandsoft:#eaf0f7;
+  --warn:#9a6216; --warnbg:#fdf6e9; --warnline:#e6c891;
+  --danger:#ae3b2b; --dangerbg:#fcf2f0; --dangerline:#e8b3aa;
+  --ok:#2c7a58; --okbg:#eef7f2;
+  --sb:300px; --rad:9px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15.5px/1.72 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:#cfe0f5}
+
+/* ---------- 侧栏 ---------- */
+#side{position:fixed;top:0;left:0;width:var(--sb);height:100vh;background:var(--paper);
+  border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:40}
+#side header{padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+#side h1{font-size:14px;margin:0;color:var(--brand);letter-spacing:.2px;font-weight:700}
+#side .sub{font-size:11.5px;color:var(--faint);margin-top:3px}
+#q{margin-top:10px;width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:7px;
+  font-size:12.5px;outline:none;background:var(--bg2);color:var(--ink);transition:.15s}
+#q:focus{border-color:var(--brand2);background:#fff;box-shadow:0 0 0 3px var(--brandsoft)}
+#rolechip{margin-top:9px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+#rolechip button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 0;
+  font-size:11.5px;cursor:pointer;color:var(--ink2);transition:.12s}
+#rolechip button:hover{border-color:var(--brand2);color:var(--brand2)}
+#rolechip button.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+#nav{flex:1;overflow-y:auto;padding:8px 8px 40px;scrollbar-width:thin}
+#nav::-webkit-scrollbar{width:6px}
+#nav::-webkit-scrollbar-thumb{background:#d6dce5;border-radius:3px}
+#nav ul{list-style:none;margin:0;padding:0}
+#nav a{display:block;padding:3px 9px;border-radius:5px;text-decoration:none;color:var(--ink2);
+  font-size:12.8px;line-height:1.45;transition:.1s}
+#nav a:hover{background:var(--brandsoft);color:var(--brand)}
+#nav a.active{background:var(--brand);color:#fff;font-weight:600}
+.nav-l0>li>a{font-weight:700;font-size:13.2px;color:var(--brand);margin-top:8px;padding-top:5px;padding-bottom:5px}
+.nav-l0>li>a:before{content:'';display:inline-block;width:3px;height:12px;background:var(--brand2);
+  border-radius:2px;margin-right:7px;vertical-align:-1px}
+.nav-l1>li>a{padding-left:19px}
+.nav-l2>li>a{padding-left:33px;font-size:12.4px}
+.nav-l3>li>a{padding-left:47px;font-size:12px;color:var(--muted)}
+
+/* ---------- 主区 ---------- */
+main{margin-left:var(--sb);padding:0 0 90px;min-height:100vh}
+#prog{position:fixed;top:0;left:var(--sb);right:0;height:2.5px;background:transparent;z-index:60}
+#prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand2),#4f83c4);
+  transition:width .08s linear}
+#top{position:sticky;top:0;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);padding:8px 26px;display:flex;align-items:center;gap:8px;z-index:30;min-height:44px}
+#top .crumb{font-size:12.5px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#top .crumb b{color:var(--ink2);font-weight:600}
+#top button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:5px 10px;
+  font-size:12px;cursor:pointer;color:var(--ink2);transition:.12s;white-space:nowrap}
+#top button:hover{border-color:var(--brand2);color:var(--brand2);background:var(--brandsoft)}
+#menu-btn{display:none}
+article{max-width:900px;margin:0 auto;padding:22px 30px 40px}
+
+/* ---------- 角色入口 ---------- */
+#hero{max-width:1080px;margin:0 auto;padding:30px 30px 6px}
+#hero h2{border:none;padding:0;margin:0 0 5px;font-size:22px;color:var(--brand);letter-spacing:.5px}
+#hero .lead{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
+.rcard{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;
+  display:flex;flex-direction:column;transition:.16s ease;position:relative;overflow:hidden}
+.rcard:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--line)}
+.rcard[data-role="s"]:before{background:#2e7d9a}
+.rcard[data-role="p"]:before{background:#7a5bb5}
+.rcard[data-role="t"]:before{background:#1f3a5f}
+.rcard[data-role="a"]:before{background:#8a6d3b}
+.rcard:hover{box-shadow:0 6px 22px rgba(20,35,58,.09);transform:translateY(-2px);border-color:#cfd8e5}
+.rhead{display:flex;gap:9px;align-items:center;margin-bottom:11px}
+.rbadge{width:34px;height:34px;border-radius:8px;display:grid;place-items:center;color:#fff;
+  font-weight:700;font-size:14px;flex:none}
+.r-s{background:#2e7d9a}.r-p{background:#7a5bb5}.r-t{background:#1f3a5f}.r-a{background:#8a6d3b}
+.rname{font-weight:700;font-size:14.5px;color:var(--brand);line-height:1.3}
+.rdesc{font-size:11.8px;color:var(--muted);margin-top:2px;line-height:1.45}
+.rlinks{list-style:none;margin:0 0 12px;padding:0;flex:1}
+.rlinks li{font-size:12.4px;margin:5px 0;padding-left:12px;position:relative;line-height:1.5}
+.rlinks li:before{content:'';position:absolute;left:1px;top:.62em;width:4px;height:4px;border-radius:50%;background:#c2cfdf}
+.rlinks a{color:var(--ink2);text-decoration:none}
+.rlinks a:hover{color:var(--brand);text-decoration:underline}
+.rbtn{border:1px solid var(--brand);background:#fff;color:var(--brand);border-radius:7px;
+  padding:7px;font-size:12.5px;cursor:pointer;font-weight:600;transition:.14s}
+.rbtn:hover{background:var(--brand);color:#fff}
+#rolebar{display:none;align-items:center;gap:10px;max-width:1080px;margin:0 auto;padding:12px 30px 0}
+body[data-role] #rolebar{display:flex}
+#rolebar .now{font-size:12.5px;color:var(--muted)}
+#rolebar .now b{color:var(--brand)}
+#rolebar button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;color:var(--ink2)}
+#rolebar button:hover{border-color:var(--brand2);color:var(--brand2)}
+body[data-role] #hero .roles{display:none}
+body[data-role] #hero{padding-bottom:0}
+body[data-role] #hero h2,body[data-role] #hero .lead{display:none}
+
+/* 角色过滤 */
+body[data-role="s"] .blk:not([data-roles*="s"]){display:none}
+body[data-role="p"] .blk:not([data-roles*="p"]){display:none}
+body[data-role="t"] .blk:not([data-roles*="t"]){display:none}
+body[data-role="a"] .blk:not([data-roles*="a"]){display:none}
+body[data-role="s"] #nav li:not([data-roles*="s"]){display:none}
+body[data-role="p"] #nav li:not([data-roles*="p"]){display:none}
+body[data-role="t"] #nav li:not([data-roles*="t"]){display:none}
+body[data-role="a"] #nav li:not([data-roles*="a"]){display:none}
+body[data-role="s"] .bq-vol,body[data-role="p"] .bq-vol{display:none}
+
+/* ---------- 排版 ---------- */
+h1.h1{font-size:24px;color:var(--brand);border-bottom:2px solid var(--brand);padding-bottom:9px;
+  margin:44px 0 18px;text-align:center;letter-spacing:1.2px;font-weight:700}
+h1.h1:first-of-type{margin-top:8px}
+h2{font-size:18.5px;color:var(--brand);margin:30px 0 11px;padding:2px 0 2px 11px;
+  border-left:4px solid var(--brand2);letter-spacing:.3px;font-weight:700}
+h3{font-size:16px;color:var(--brand2);margin:22px 0 8px;padding-bottom:5px;border-bottom:1px dashed var(--line);font-weight:700}
+h4{font-size:14.5px;color:var(--ink2);margin:15px 0 6px;font-weight:700}
+h5{font-size:13.8px;color:var(--ink2);margin:13px 0 5px;font-weight:700;
+  padding-left:9px;border-left:3px solid #ccd8e6}
+h6{font-size:13.2px;color:var(--muted);margin:11px 0 4px;font-weight:700}
+p{margin:7px 0}
+ul{margin:6px 0 6px 2px;padding-left:20px}
+ul ul{margin:2px 0}
+li{margin:2.5px 0;line-height:1.68}
+li>ul{margin:2px 0 2px 4px}
+li::marker{color:var(--faint)}
+strong{color:#132033;font-weight:600}
+em{color:var(--muted);font-style:normal;font-size:.94em}
+a{color:var(--brand2)}
+
+/* 引用块：三种语义 */
+blockquote{margin:10px 0;padding:9px 13px;background:var(--brandsoft);border-left:3px solid #b6c8dd;
+  border-radius:0 6px 6px 0;color:var(--ink2);font-size:13.8px;line-height:1.68}
+blockquote+blockquote{margin-top:-4px}
+blockquote.bq-warn{background:var(--warnbg);border-left-color:var(--warnline);color:#7a5313}
+blockquote.bq-danger{background:var(--dangerbg);border-left-color:var(--dangerline);color:#8a3527}
+blockquote.bq-vol{opacity:.95}
+blockquote.cont{margin-top:-1px;border-top:1px solid rgba(31,58,95,.08);border-radius:0}
+blockquote:has(+blockquote.cont){border-bottom-left-radius:0;border-bottom-right-radius:0}
+blockquote:has(+blockquote.cont)>p:last-child,blockquote:has(+blockquote.cont){margin-bottom:0}
+
+/* 代码 / 流程 */
+code{background:#edf1f6;color:#2b3a4d;padding:1px 5px;border-radius:4px;font-size:.88em;
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Cascadia Mono","Microsoft YaHei",monospace}
+pre{margin:10px 0;padding:10px 13px;background:#f2f5f9;border:1px solid var(--line);
+  border-left:3px solid var(--brand2);border-radius:8px;overflow-x:auto;
+  font-size:12.6px;line-height:1.5;color:#26333f;
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Cascadia Mono","Microsoft YaHei",monospace;
+  white-space:pre;tab-size:2}
+pre code{background:none;color:inherit;padding:0;font-size:inherit;border-radius:0}
+pre::-webkit-scrollbar{height:7px}
+pre::-webkit-scrollbar-thumb{background:#d3dae4;border-radius:4px}
+
+/* 表格 */
+.table-wrap{margin:12px 0;overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.55}
+th,td{border-bottom:1px solid var(--line2);border-right:1px solid var(--line2);padding:7px 10px;
+  text-align:left;vertical-align:top}
+th:last-child,td:last-child{border-right:none}
+tr:last-child td{border-bottom:none}
+th{background:#eff3f8;color:var(--brand);font-weight:700;white-space:nowrap;font-size:12.6px;
+  border-bottom:1px solid #dfe6ef}
+tbody tr:nth-child(even) td{background:#fbfcfd}
+tbody tr:hover td{background:#f4f8fd}
+td strong{color:#132033}
+
+p.ol-item{margin:6px 0 6px 14px;position:relative;padding-left:2px}
+
+/* ---------- 密度：紧凑 ---------- */
+body.compact{font-size:14.5px;line-height:1.58}
+body.compact p{margin:4px 0}
+body.compact li{margin:1px 0;line-height:1.55}
+body.compact ul{margin:4px 0}
+body.compact h2{margin:22px 0 8px;font-size:17.5px}
+body.compact h3{margin:16px 0 6px;font-size:15px}
+body.compact h4{margin:11px 0 4px;font-size:14px}
+body.compact h1.h1{margin:30px 0 13px;font-size:22px}
+body.compact table{font-size:12.3px}
+body.compact th,body.compact td{padding:5px 8px}
+body.compact blockquote{padding:7px 11px;margin:7px 0;font-size:13px}
+body.compact pre{padding:9px 12px;font-size:12px;line-height:1.55;margin:8px 0}
+body.compact article{padding-top:16px}
+
+/* ---------- 搜索 ---------- */
+#results{position:fixed;left:var(--sb);top:0;right:0;bottom:0;background:rgba(255,255,255,.985);
+  z-index:50;overflow-y:auto;padding:26px 8vw;display:none}
+#results.on{display:block}
+#results h2{border:none;padding:0;margin:0 0 12px;font-size:16px;color:var(--muted);font-weight:600}
+.r{border-bottom:1px solid var(--line2);padding:11px 0}
+.r a{color:var(--brand);font-weight:600;text-decoration:none;font-size:14.5px}
+.r a:hover{text-decoration:underline}
+.r .sn{color:var(--muted);font-size:12.5px;margin-top:3px;line-height:1.6}
+mark{background:#ffe9a3;color:inherit;padding:0 1px;border-radius:2px}
+#totop{position:fixed;right:24px;bottom:24px;width:38px;height:38px;border-radius:50%;
+  background:var(--brand);color:#fff;border:none;font-size:16px;cursor:pointer;opacity:0;
+  pointer-events:none;transition:.2s;z-index:35;box-shadow:0 3px 12px rgba(20,35,58,.25)}
+#totop.on{opacity:.92;pointer-events:auto}
+#totop:hover{background:var(--brand2)}
+#mask{display:none;position:fixed;inset:0;background:rgba(18,30,48,.42);z-index:39}
+
+@media (max-width:760px){
+  html,body{overflow-x:hidden;max-width:100vw}
+  main{width:100%;max-width:100vw}
+  #top{padding:8px 12px;gap:6px}
+  #top .crumb{min-width:0}
+  #top button{padding:5px 8px;font-size:11.5px}
+  #hero{padding:16px 14px 0;width:100%}
+  article{padding:14px 14px 40px;width:100%}
+  .roles{grid-template-columns:1fr}
+  #hero h2{font-size:20px}
+  .rcard{padding:14px}
+  #rolechip{grid-template-columns:repeat(5,1fr);gap:3px}
+  #rolechip button{font-size:11px;padding:4px 0}
+  h1.h1{font-size:19px;letter-spacing:.5px}
+  .table-wrap{border-radius:6px}
+  table{font-size:12.4px}
+  th,td{padding:6px 8px}
+  pre{font-size:11.6px}
+}
+@media (max-width:960px){
+  #side{transform:translateX(-100%);transition:.24s;width:86vw;max-width:340px}
+  #side.open{transform:none;box-shadow:0 0 40px rgba(10,20,35,.25)}
+  main{margin-left:0} #prog{left:0} #menu-btn{display:block} #mask.on{display:block}
+  #results{left:0;padding:20px 6vw}
+  article{padding:16px 16px 40px} #hero{padding:20px 16px 0}
+  h1.h1{font-size:21px} h2{font-size:17px}
+}
+@media print{
+  #side,#top,#totop,#results,#mask,#hero,#rolebar,#prog{display:none!important}
+  main{margin:0} article{max-width:none;padding:0}
+  h1.h1{page-break-before:always} a{color:inherit;text-decoration:none}
+  body[data-role] .blk{display:block!important}
+  pre,table,blockquote{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<aside id="side">
+  <header>
+    <h1>ICC 学校制度汇编</h1>
+    <div class="sub">2026 学年 · 融合版 · 草案</div>
+    <input id="q" type="search" placeholder="搜索制度、条目、关键词…" autocomplete="off">
+    <div id="rolechip">
+      <button data-role="">全部</button><button data-role="s">学生</button><button data-role="p">家长</button>
+      <button data-role="t">教师</button><button data-role="a">管理</button>
+    </div>
+  </header>
+  <nav id="nav"><ul class="nav-l0"><li data-roles="s p t a"><a href="#icc-学校制度汇编-公开版" data-id="icc-学校制度汇编-公开版">ICC 学校制度汇编（公开版）</a><ul class="nav-l1"><li data-roles="s p t a"><a href="#说明" data-id="说明">说明</a></li></ul></li><li data-roles="s p t a"><a href="#上卷-成文制度-可执行" data-id="上卷-成文制度-可执行">上卷 · 成文制度（可执行）</a><ul class="nav-l1"><li data-roles="s p t a"><a href="#第一编-学生行为与纪律-2" data-id="第一编-学生行为与纪律-2">第一编  学生行为与纪律</a><ul class="nav-l2"><li data-roles="s p t a"><a href="#1-学生日常行为规范" data-id="1-学生日常行为规范">1. 学生日常行为规范</a></li><li data-roles="s p t a"><a href="#2-学业警示制度" data-id="2-学业警示制度">2. 学业警示制度</a></li><li data-roles="s p t a"><a href="#3-学生违纪处理与教育惩戒办法" data-id="3-学生违纪处理与教育惩戒办法">3. 学生违纪处理与教育惩戒办法</a></li></ul></li><li data-roles="s p t a"><a href="#第二编-考试与考务-2" data-id="第二编-考试与考务-2">第二编  考试与考务</a><ul class="nav-l2"><li data-roles="t a"><a href="#4-考试与成绩管理办法" data-id="4-考试与成绩管理办法">4. 考试与成绩管理办法</a></li><li data-roles="s p t a"><a href="#5-考试入场与迟到处理规定" data-id="5-考试入场与迟到处理规定">5. 考试入场与迟到处理规定</a></li><li data-roles="p t a"><a href="#6-特殊照顾申请判定标准" data-id="6-特殊照顾申请判定标准">6. 特殊照顾申请判定标准</a></li></ul></li><li data-roles="s p t a"><a href="#第三编-教师管理-2" data-id="第三编-教师管理-2">第三编  教师管理</a><ul class="nav-l2"><li data-roles="t a"><a href="#7-教师发展与考核办法" data-id="7-教师发展与考核办法">7. 教师发展与考核办法</a></li><li data-roles="s p t a"><a href="#8-请假-调课与代课管理办法" data-id="8-请假-调课与代课管理办法">8. 请假、调课与代课管理办法</a></li></ul></li><li data-roles="s p t a"><a href="#第四编-家校与升学-2" data-id="第四编-家校与升学-2">第四编  家校与升学</a><ul class="nav-l2"><li data-roles="p t a"><a href="#9-家校沟通规范" data-id="9-家校沟通规范">9. 家校沟通规范</a></li><li data-roles="s p t a"><a href="#10-升学指导工作规范" data-id="10-升学指导工作规范">10. 升学指导工作规范</a></li></ul></li><li data-roles="t a"><a href="#第五编-治理与技术支持-2" data-id="第五编-治理与技术支持-2">第五编  治理与技术支持</a><ul class="nav-l2"><li data-roles="t a"><a href="#11-ai-使用与数据治理规范" data-id="11-ai-使用与数据治理规范">11. AI 使用与数据治理规范</a></li></ul></li></ul></li><li data-roles="t a"><a href="#附录-a-待确认事项清单-10-项" data-id="附录-a-待确认事项清单-10-项">附录 A  待确认事项清单（10 项）</a></li><li data-roles="a"><a href="#附录-b-剩余缺口-3-项" data-id="附录-b-剩余缺口-3-项">附录 B  剩余缺口（3 项）</a></li><li data-roles="a"><a href="#附录-c-来源覆盖与统计" data-id="附录-c-来源覆盖与统计">附录 C  来源覆盖与统计</a></li></ul></nav>
+</aside>
+<div id="mask"></div>
+
+<main>
+  <div id="prog"><i></i></div>
+  <section id="hero">
+    <h2>请选择你的身份</h2>
+    <p class="lead">不同角色需要知道的内容不同。选择后，页面只显示与你相关的规定。</p>
+    <div class="roles"><div class="rcard" data-role="s">
+  <div class="rhead"><span class="rbadge r-s">学</span><div><div class="rname">学生端</div><div class="rdesc">我要参加考试、请假、遵守行为规范</div></div></div>
+  <ul class="rlinks"><li><a href="#5-考试入场与迟到处理规定">考试要带什么、几点到</a></li><li><a href="#1-学生日常行为规范">手机和平板怎么管</a></li><li><a href="#8-请假-调课与代课管理办法">生病了怎么请假</a></li><li><a href="#3-学生违纪处理与教育惩戒办法">违规会有什么后果</a></li><li><a href="#2-学业警示制度">成绩不理想会怎样</a></li></ul>
+  <button class="rbtn" data-role="s">进入学生端</button>
+</div><div class="rcard" data-role="p">
+  <div class="rhead"><span class="rbadge r-p">家</span><div><div class="rname">家长端</div><div class="rdesc">我想知道孩子在学校要遵守什么、我怎么配合</div></div></div>
+  <ul class="rlinks"><li><a href="#5-考试入场与迟到处理规定">孩子考试的时间与规则</a></li><li><a href="#3-学生违纪处理与教育惩戒办法">学校不会做什么（承诺）</a></li><li><a href="#8-请假-调课与代课管理办法">请假与补考怎么走</a></li><li><a href="#2-学业警示制度">成绩与学业警示</a></li><li><a href="#9-家校沟通规范">家校沟通怎么进行</a></li></ul>
+  <button class="rbtn" data-role="p">进入家长端</button>
+</div><div class="rcard" data-role="t">
+  <div class="rhead"><span class="rbadge r-t">教</span><div><div class="rname">教师端</div><div class="rdesc">监考、教学、考核、家校沟通的工作依据</div></div></div>
+  <ul class="rlinks"><li><a href="#5-考试入场与迟到处理规定">监考流程与十不准</a></li><li><a href="#4-考试与成绩管理办法">考试与成绩管理</a></li><li><a href="#8-请假-调课与代课管理办法">请假调课与代课</a></li><li><a href="#7-教师发展与考核办法">教师发展与考核</a></li><li><a href="#11-ai-使用与数据治理规范">AI 使用与数据治理</a></li></ul>
+  <button class="rbtn" data-role="t">进入教师端</button>
+</div><div class="rcard" data-role="a">
+  <div class="rhead"><span class="rbadge r-a">管</span><div><div class="rname">管理者</div><div class="rdesc">全部制度 + 待确认事项与缺口</div></div></div>
+  <ul class="rlinks"><li><a href="#附录">交叉索引（制度↔条目）</a></li><li><a href="#附录">待确认事项（10 项）</a></li><li><a href="#附录">剩余缺口（3 项）</a></li></ul>
+  <button class="rbtn" data-role="a">进入管理者</button>
+</div></div>
+  </section>
+  <div id="rolebar">
+    <div class="now">当前身份：<b id="rolename">全部</b></div>
+    <button id="switch-btn">切换身份</button>
+  </div>
+  <div id="top">
+    <button id="menu-btn">☰ 目录</button>
+    <div class="crumb" id="crumb">ICC 学校制度汇编</div>
+    <button id="density-btn" title="切换阅读密度">紧凑</button>
+    <button id="print-btn">打印</button>
+  </div>
+  <article id="doc">
+<div class="blk" data-roles="s p t a" id="blk-icc-学校制度汇编-公开版"><h1 id="icc-学校制度汇编-公开版" class="h1" data-roles="s p t a">ICC 学校制度汇编（公开版）</h1>
+<p><strong>石家庄外国语学校国际课程中心</strong></p>
+<blockquote>2026 学年版 · 草案</blockquote><blockquote class="cont">本汇编收录 11 份成文制度，按适用对象分为五编。</blockquote><blockquote class="cont"><strong>状态</strong>：全部为草案，须按《制度发布实施方案》走完征求意见、审议、公布、备案程序后方可施行。</blockquote>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-说明"><h2 id="说明" class="h2" data-roles="s p t a">说明</h2>
+<p>本汇编为学校层面制度的<strong>成文条款版</strong>：把散落在会议记录中的规定，整理为可执行、可追溯的制度文本。</p>
+<p>每章开头的「适用 / 状态 / 整合来源」标注了该制度的适用范围与来源范围；条文末尾的「（依据：xxxx-xx-xx 会议）」标注了具体出处。</p>
+<p><strong>使用建议</strong>：</p>
+<p class="ol-item">先看自己所属角色的章节（学生/家长看行为规范与考试；教师看考务与教学管理）；</p>
+<p class="ol-item">涉及争议时，以条文为准，并回溯「依据」中的会议日期核对原文；</p>
+<p class="ol-item">草案中的【待确认】【建议值】需学校确认后才能作为执行依据。</p>
+</div>
+<div class="blk" data-roles="" id="blk-目录"><h2 id="目录" class="h2" data-roles="">目录</h2>
+</div>
+<div class="blk" data-roles="" id="blk-第一编-学生行为与纪律"><h3 id="第一编-学生行为与纪律" class="h3" data-roles="">第一编  学生行为与纪律</h3>
+<ul>
+<li>1. 学生日常行为规范</li>
+<li>2. 学业警示制度</li>
+<li>3. 学生违纪处理与教育惩戒办法</li>
+</ul>
+</div>
+<div class="blk" data-roles="" id="blk-第二编-考试与考务"><h3 id="第二编-考试与考务" class="h3" data-roles="">第二编  考试与考务</h3>
+<ul>
+<li>4. 考试与成绩管理办法</li>
+<li>5. 考试入场与迟到处理规定</li>
+<li>6. 特殊照顾申请判定标准</li>
+</ul>
+</div>
+<div class="blk" data-roles="" id="blk-第三编-教师管理"><h3 id="第三编-教师管理" class="h3" data-roles="">第三编  教师管理</h3>
+<ul>
+<li>7. 教师发展与考核办法</li>
+<li>8. 请假、调课与代课管理办法</li>
+</ul>
+</div>
+<div class="blk" data-roles="" id="blk-第四编-家校与升学"><h3 id="第四编-家校与升学" class="h3" data-roles="">第四编  家校与升学</h3>
+<ul>
+<li>9. 家校沟通规范</li>
+<li>10. 升学指导工作规范</li>
+</ul>
+</div>
+<div class="blk" data-roles="" id="blk-第五编-治理与技术支持"><h3 id="第五编-治理与技术支持" class="h3" data-roles="">第五编  治理与技术支持</h3>
+<ul>
+<li>11. AI 使用与数据治理规范</li>
+</ul>
+</div>
+<div class="blk" data-roles="" id="blk-附录"><h3 id="附录" class="h3" data-roles="">附录</h3>
+<ul>
+<li>A. 待确认事项清单（10 项）</li>
+<li>B. 剩余缺口（3 项）</li>
+<li>C. 来源覆盖与统计</li>
+</ul>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-上卷-成文制度-可执行"><h1 id="上卷-成文制度-可执行" class="h1" data-roles="s p t a">上卷 · 成文制度（可执行）</h1>
+<blockquote>本卷为条款式制度文本，适用于直接执行与培训。每章标注原制度编号，与单项文件对照。</blockquote>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-第一编-学生行为与纪律-2"><h2 id="第一编-学生行为与纪律-2" class="h2" data-roles="s p t a">第一编  学生行为与纪律</h2>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-1-学生日常行为规范"><h3 id="1-学生日常行为规范" class="h3" data-roles="s p t a">1. 学生日常行为规范</h3>
+<p><em>〔原编号 P1-2〕</em></p>
+<blockquote><strong>适用</strong>：全体在读学生</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 B1–B16（2025-09 至 2026-10）</blockquote><blockquote class="cont"><strong>配套文件</strong>：《学生违纪处理与教育惩戒办法》（本规范规定"应当怎样"，该办法规定"违规怎么办"）</blockquote>
+<h4 id="第一章-仪容仪表" class="h4" data-roles="s p t a">第一章 仪容仪表</h4>
+<p><strong>第一条 校服</strong></p>
+<p>教室内<strong>所有学生必须着装完整校服</strong>。</p>
+<p><strong>禁止</strong>：外套内穿帽衫、棒球服、半袖T恤等非校服内搭。</p>
+<p>（依据：2025-10-28 会议）</p>
+<p><strong>第二条 集合场合</strong></p>
+<p>升旗、集会等正式场合：<strong>脱帽、不使用手机</strong>。</p>
+<p>（依据：2026-03-31 会议）</p>
+<h4 id="第二章-电子产品" class="h4" data-roles="s p t a">第二章 电子产品</h4>
+<p><strong>第三条 手机：禁止入校原则</strong></p>
+<ul>
+<li>学生<strong>不得携带手机进入校园</strong></li>
+<li>发现使用即<strong>暂扣</strong>，由班主任登记保管并交还家长</li>
+<li>重点巡查区域：楼梯口、走廊、洗手间</li>
+</ul>
+<p>（依据：2026-01-12 会议）</p>
+<p><strong>第四条 平板（iPad）</strong></p>
+<ul>
+<li>iPad 为<strong>教学工具</strong>，仅在教师指定环节使用</li>
+<li>课堂内<strong>不得</strong>用于聊天、发图、游戏、刷视频</li>
+<li>违规者：<strong>收缴设备 + 记入当周周反馈的课堂表现栏</strong></li>
+<li><strong>有前科的学生</strong>，进入该教师课堂前先交 iPad，改用纸质笔记本</li>
+</ul>
+<p>（依据：2025-11-11、2026-03-10、2026-04-13 会议）</p>
+<p><strong>第五条 耳机与智能穿戴</strong></p>
+<p>课堂内<strong>不得佩戴耳机</strong>；智能手表、手环<strong>不得在考试及课堂使用</strong>。</p>
+<h4 id="第三章-晚自习" class="h4" data-roles="s p t a">第三章 晚自习</h4>
+<p><strong>第六条 参加要求</strong></p>
+<ul>
+<li>高二年级<strong>强制参加</strong>晚自习；特殊情况可请假，但<strong>原则上不得缺席</strong></li>
+<li><strong>IG 基础段不得缺勤</strong>，禁止利用该时段提前离校或外出游玩</li>
+</ul>
+<p>（依据：2025-11-04、2026-01-08 会议）</p>
+<p><strong>第七条 教室安排</strong></p>
+<ul>
+<li>高二、高三<strong>不得滞留原教室</strong>，必须前往指定晚自习教室</li>
+<li>违规高发区（阅览室、511、503）加强巡视</li>
+</ul>
+<p>（依据：2026-03-10 会议）</p>
+<p><strong>第八条 出入时限</strong></p>
+<ul>
+<li>第一节晚自习结束前：<strong>FIG / IG 学生不得外出</strong></li>
+<li>高二、高三：<strong>19:00 前不得外出</strong></li>
+<li>特殊情况提前离校须<strong>班主任签字确认</strong></li>
+</ul>
+<p>（依据：2026-01-08、2025-11-11 会议）</p>
+<p><strong>第九条 自习纪律</strong></p>
+<ul>
+<li>禁止随意走动与闲聊</li>
+<li>值班教师<strong>每 20–30 分钟巡视一次</strong>，检查外出签字情况</li>
+<li>值班结束：点名设备、手机、iPad 及签到表<strong>须放回 518 教室</strong></li>
+</ul>
+<p>（依据：2025-11-04、2025-09-04、2026-05-19 会议）</p>
+<h4 id="第四章-校园秩序" class="h4" data-roles="s p t a">第四章 校园秩序</h4>
+<p><strong>第十条 外卖</strong></p>
+<p><strong>禁止外卖入校</strong>。学生可选择在校就餐或外出就餐（限规定时段）。</p>
+<p>（依据：2026-03-02 会议）</p>
+<p><strong>第十一条 电梯</strong></p>
+<p>电梯使用<strong>严禁开口子</strong>，任何年级、任何理由不得例外。教师须严格监督。</p>
+<p>（依据：2026-09-14 会议）</p>
+<p><strong>第十二条 校园行为</strong></p>
+<ul>
+<li>禁止在走廊、楼梯追逐打闹</li>
+<li>禁止骑电动车进入校园</li>
+<li>禁止在教室用餐（学校统一安排区域除外）</li>
+</ul>
+<p>（依据：2026-09-22 会议）</p>
+<h4 id="第五章-课堂常规" class="h4" data-roles="s p t a">第五章 课堂常规</h4>
+<p><strong>第十三条 出勤</strong></p>
+<p>按时到课。迟到须在教室门口报告，经教师允许后入座。</p>
+<p><strong>第十四条 课堂要求</strong></p>
+<ul>
+<li>桌面只留当堂所需文具与教材</li>
+<li>不得下棋、玩牌等非学习活动</li>
+<li>不得背对教师、趴桌睡觉</li>
+</ul>
+<p>（依据：2026-03-10 会议）</p>
+<p><strong>第十五条 作业</strong></p>
+<ul>
+<li>作业发布平台<strong>统一为钉钉家校本</strong>（详见《家校沟通规范》）</li>
+<li>作业按时提交；长期请假者由教师单独布置补充任务，<strong>不纳入作业达标考核</strong></li>
+</ul>
+<p>（依据：2026-09-21、2025-10-14 会议）</p>
+<h4 id="第六章-外出与集体活动" class="h4" data-roles="s p t a">第六章 外出与集体活动</h4>
+<p><strong>第十六条 外出登记</strong></p>
+<ul>
+<li>学生外出<strong>需签字并注明原因</strong></li>
+<li><strong>屡次违规者限制后续晚自习资格</strong></li>
+</ul>
+<p>（依据：2025-09-04 会议）</p>
+<p><strong>第十七条 集体活动</strong></p>
+<ul>
+<li>校外活动期间<strong>不得离队</strong>、<strong>不准点外卖</strong></li>
+<li>外出活动<strong>当晚必须返校</strong>，<strong>禁止私自留宿酒店</strong>；名单交酒店备案</li>
+</ul>
+<p>（依据：2025-11-18、2026-03-30 会议）</p>
+<p><strong>第十八条 活动准备</strong></p>
+<p>参加校外活动前须参加行前指导会，明确安全要求与禁止事项。</p>
+<h4 id="第七章-卫生与公共财物" class="h4" data-roles="s p t a">第七章 卫生与公共财物</h4>
+<p><strong>第十九条 教室卫生</strong></p>
+<ul>
+<li>个人座位周边垃圾自行清理</li>
+<li>值日按班级安排执行</li>
+<li>考场使用后须恢复整洁（桌椅归位、无纸屑）</li>
+</ul>
+<p><strong>第二十条 公物爱护</strong></p>
+<p>故意损坏公物须照价赔偿，并纳入行为记录。</p>
+<h4 id="第八章-附则" class="h4" data-roles="s p t a">第八章 附则</h4>
+<p><strong>第二十一条 违规处理</strong></p>
+<p>违反本规范的，按《学生违纪处理与教育惩戒办法》分级处理，<strong>不得体罚、不得变相体罚、不得因学业成绩惩戒</strong>。</p>
+<p><strong>第二十二条 解释与修订</strong></p>
+<p>本规范由教学管理部门解释；修订须经征求意见、校长办公会审议后公布。</p>
+<p><strong>附：本规范与"处理办法"的分工</strong></p>
+<div class="table-wrap"><table>
+<tr><th>文件</th><th>回答的问题</th></tr>
+<tr><td>本规范</td><td>学生<strong>应当</strong>怎样做（行为标准）</td></tr>
+<tr><td>违纪处理与教育惩戒办法</td><td>违反了<strong>怎么办</strong>（处理程序与后果）</td></tr>
+</table></div>
+<p><em>起草说明：听记中大量行为要求散落在各班、各年级的通知里（校服、手机、晚自习、外卖、电梯），本篇统一为全校一致标准，避免"这个班管那个班不管"。</em></p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-2-学业警示制度"><h3 id="2-学业警示制度" class="h3" data-roles="s p t a">2. 学业警示制度</h3>
+<p><em>〔原编号 P3-2〕</em></p>
+<blockquote><strong>适用</strong>：Pre-IG（FIG/PreIG）、IG、A-Level（AS/A2）全体学生</blockquote><blockquote class="cont"><strong>状态</strong>：草案 · 三处【建议值】需学校确认</blockquote><blockquote class="cont"><strong>为什么必须有这份文件</strong>：现有《考试与成绩管理办法》《学生违纪处理与教育惩戒办法》《考试规则（学生家长版）》<strong>九次引用"学业警示"</strong>，但从未有成文制度——学生被警示时无据可依，家长质疑时无法回应</blockquote><blockquote class="cont"><strong>启用时点</strong>：2026 年秋季期中考试后（依 2026-10-12 会议决议）</blockquote>
+<h4 id="第一章-总则" class="h4" data-roles="s p t a">第一章 总则</h4>
+<p><strong>第一条 目的</strong></p>
+<p>学业警示不是处分，是<strong>提前预警 + 配套支持</strong>。它的作用是让学生在问题变严重之前被看见、被帮助。</p>
+<p><strong>第二条 三条原则</strong></p>
+<p class="ol-item"><strong>数据触发</strong>——依据可核对的成绩、出勤、作业数据，不凭印象</p>
+<p class="ol-item"><strong>先支持后结论</strong>——发出警示的同时，必须给出具体支持措施</p>
+<p class="ol-item"><strong>可解除</strong>——达到改进目标即可撤销，不长期挂账</p>
+<p><strong>第三条 与纪律处分的区别</strong></p>
+<div class="table-wrap"><table>
+<tr><th></th><th>学业警示</th><th>纪律处分</th></tr>
+<tr><td>对象</td><td>学习状态</td><td>行为违规</td></tr>
+<tr><td>依据</td><td>成绩/出勤/作业数据</td><td>校规校纪</td></tr>
+<tr><td>目的</td><td>干预与支持</td><td>纠正与约束</td></tr>
+<tr><td>记录</td><td>学业档案</td><td>行为档案</td></tr>
+</table></div>
+<blockquote><strong>注意</strong>：不得因学业成绩施加纪律处分（《教育惩戒规则》第 12 条第 5 项）。两者必须分开。</blockquote>
+<h4 id="第二章-三级警示" class="h4" data-roles="s p t a">第二章 三级警示</h4>
+<h5 id="一-黄色警示-关注" class="h5" data-roles="s p t a">一、黄色警示（关注）</h5>
+<p><strong>触发条件（满足任一）</strong></p>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>阈值【建议值】</th></tr>
+<tr><td>期中/期末总评</td><td>低于该年级合格线，或较上次<strong>下降 ≥ 2 个等级</strong></td></tr>
+<tr><td>单科</td><td>低于该科合格线</td></tr>
+<tr><td>出勤</td><td>学期缺勤率 <strong>≥ 10%</strong></td></tr>
+<tr><td>作业完成率</td><td>连续 <strong>3 周低于 80%</strong></td></tr>
+<tr><td>考试缺考</td><td><strong>旷考</strong>（未请假缺考，直接触发）</td></tr>
+</table></div>
+<p><strong>处理动作</strong></p>
+<ul>
+<li>班主任 + 学科教师会商，形成《学业支持计划》</li>
+<li>与学生一对一谈话（记录要点）</li>
+<li>家长<strong>书面知晓</strong>（钉钉 + 回执）</li>
+<li>安排：补课、答疑、分层辅导</li>
+</ul>
+<p><strong>复评</strong>：<strong>4 周</strong>后复评，达标则解除</p>
+<h5 id="二-红色警示-重点干预" class="h5" data-roles="s p t a">二、红色警示（重点干预）</h5>
+<p><strong>触发条件（满足任一）</strong></p>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>阈值【建议值】</th></tr>
+<tr><td>连续两次考试</td><td>均处于黄色警示状态</td></tr>
+<tr><td>单科</td><td>连续两次低于合格线</td></tr>
+<tr><td>出勤</td><td>学期缺勤率 <strong>≥ 20%</strong></td></tr>
+<tr><td>作业完成率</td><td>连续 <strong>6 周低于 60%</strong></td></tr>
+<tr><td>黄牌期间</td><td>未完成《学业支持计划》</td></tr>
+</table></div>
+<p><strong>处理动作</strong></p>
+<ul>
+<li>年级负责人牵头，教研组参与制定<strong>专项提升方案</strong></li>
+<li>家长<strong>面谈</strong>（不能只发通知）</li>
+<li>明确：目标、措施、责任人、验收时间</li>
+<li>涉及升学的，升学指导介入评估影响</li>
+</ul>
+<p><strong>复评</strong>：<strong>6 周</strong>后复评</p>
+<h5 id="三-留级警示-重大调整" class="h5" data-roles="s p t a">三、留级警示（重大调整）</h5>
+<p><strong>触发条件（同时满足）</strong></p>
+<ul>
+<li>连续两次红色警示，且复评未达标</li>
+<li>或单科成绩低于该科最低要求【待定】</li>
+<li>或年度缺勤率 ≥ 30%</li>
+</ul>
+<p><strong>处理动作</strong></p>
+<ul>
+<li>校长办公会审议</li>
+<li>家长面谈 + 书面告知</li>
+<li>拟定方案：留级 / 调整层级 / 转轨（如转其他课程方向）</li>
+<li>须告知申诉权利</li>
+</ul>
+<p><strong>复评</strong>：按调整后学期评估</p>
+<h4 id="第三章-数据来源与采集" class="h4" data-roles="s p t a">第三章 数据来源与采集</h4>
+<p><strong>第四条 数据三源</strong></p>
+<div class="table-wrap"><table>
+<tr><th>数据</th><th>来源</th><th>采集频率</th><th>责任人</th></tr>
+<tr><td>学业成绩</td><td>云谷平台</td><td>每次大考后</td><td>教务</td></tr>
+<tr><td>出勤</td><td>钉钉考勤 / 晚自习签到</td><td>每周</td><td>班主任</td></tr>
+<tr><td>作业完成率</td><td>钉钉家校本</td><td>每周</td><td>任课教师</td></tr>
+</table></div>
+<p><strong>第五条 数据质量要求</strong></p>
+<ul>
+<li>必须<strong>去重、校验版本</strong>（同一考试多次录入以最终版为准）</li>
+<li>缺考按"缺考"记录，<strong>不等同于低分</strong></li>
+<li>数据异常（如系统故障）须标注，不作为警示依据</li>
+</ul>
+<h4 id="第四章-作业红黄牌-与学业警示的关系" class="h4" data-roles="s p t a">第四章 作业红黄牌（与学业警示的关系）</h4>
+<p><strong>第六条 定位</strong></p>
+<p>作业红黄牌是<strong>周频次的过程性提醒</strong>，比学业警示更轻、更快，用于<strong>早期干预</strong>。</p>
+<p><strong>第七条 规则【建议值】</strong></p>
+<div class="table-wrap"><table>
+<tr><th>牌</th><th>触发</th><th>处理</th></tr>
+<tr><td><strong>黄牌</strong></td><td>单周作业完成率 &lt; 80%</td><td>任课教师提醒 + 记录周反馈</td></tr>
+<tr><td><strong>红牌</strong></td><td>连续两周黄牌，或单周 &lt; 60%</td><td>班主任介入 + 家长知晓</td></tr>
+<tr><td><strong>累计红牌</strong></td><td>一学期累计 3 次红牌</td><td><strong>转化为黄色学业警示</strong></td></tr>
+</table></div>
+<blockquote>设计意图：把"每周的小问题"和"学期的重大问题"连起来，避免小问题拖成大问题。</blockquote>
+<h4 id="第五章-流程" class="h4" data-roles="s p t a">第五章 流程</h4>
+<pre><code>
+数据采集（教务/班主任/任课教师）
+        ↓
+年级学业分析会（每学期 2 次：期中后、期末后）
+        ↓
+初步名单 → 复核数据（剔除异常）
+        ↓
+确定级别（黄 / 红 / 留级）
+        ↓
+通知与支持（班主任 + 学科教师 + 家长）
+        ↓
+复评（黄 4 周 / 红 6 周）
+        ↓
+解除 或 升级
+</code></pre>
+<p><strong>第八条 时限</strong></p>
+<ul>
+<li>成绩发布后 <strong>10 个工作日内</strong>完成警示发放</li>
+<li>家长通知后 <strong>5 个工作日内</strong>完成第一次干预安排</li>
+</ul>
+<h4 id="第六章-支持措施-必须给-不能只警示" class="h4" data-roles="s p t a">第六章 支持措施（必须给，不能只警示）</h4>
+<p><strong>第九条 支持选项</strong></p>
+<div class="table-wrap"><table>
+<tr><th>级别</th><th>可用支持</th></tr>
+<tr><td>黄</td><td>课后答疑、分层作业、学科补课、周反馈跟踪</td></tr>
+<tr><td>红</td><td>一对一辅导、专项提升计划、调整学习小组、升学指导会商</td></tr>
+<tr><td>留级</td><td>课程调整、转轨方案、心理支持</td></tr>
+</table></div>
+<p><strong>第十条 支持的责任人</strong></p>
+<p>每份支持计划须写明：<strong>谁负责、做什么、什么时候验收</strong>。没有责任人的支持计划视为未落实。</p>
+<h4 id="第七章-家长沟通" class="h4" data-roles="s p t a">第七章 家长沟通</h4>
+<p><strong>第十一条 告知方式</strong></p>
+<div class="table-wrap"><table>
+<tr><th>级别</th><th>方式</th><th>留痕</th></tr>
+<tr><td>黄</td><td>钉钉通知 + 电子回执</td><td>系统记录</td></tr>
+<tr><td>红</td><td>电话 + 面谈</td><td>谈话记录 + 家长签字</td></tr>
+<tr><td>留级</td><td>面谈 + 书面告知书</td><td>签字原件存档</td></tr>
+</table></div>
+<p><strong>第十二条 沟通口径</strong></p>
+<ul>
+<li>只陈述<strong>数据事实</strong>与<strong>具体行动</strong></li>
+<li>不使用"这孩子不行""没希望"这类判断性语言</li>
+<li>不与其他学生横向比较</li>
+<li>明确告知<strong>解除条件</strong></li>
+</ul>
+<h4 id="第八章-记录-复评与申诉" class="h4" data-roles="s p t a">第八章 记录、复评与申诉</h4>
+<p><strong>第十三条 记录</strong></p>
+<ul>
+<li>警示记录进入<strong>学业档案</strong>（非行为档案）</li>
+<li>解除后标注"已解除"，不删除（保留过程证据）</li>
+</ul>
+<p><strong>第十四条 复评</strong></p>
+<ul>
+<li>按第二章时限复评</li>
+<li>复评依据：成绩变化、出勤、作业完成率、教师观察</li>
+<li>达标即解除，并在家长群/家长处同步</li>
+</ul>
+<p><strong>第十五条 申诉</strong></p>
+<p>学生或家长对警示有异议，可在<strong>收到通知后 10 个工作日内</strong>向年级负责人提出，由年级组织复核；对复核结果不服，可向教学管理部门申诉。</p>
+<h4 id="第九章-附则" class="h4" data-roles="s p t a">第九章 附则</h4>
+<p><strong>第十六条 生效</strong></p>
+<p>本制度自公布之日起施行，期中考试后首次执行。</p>
+<p><strong>第十七条 待确认事项（三处）</strong></p>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>事项</th><th>建议</th></tr>
+<tr><td>1</td><td>各年级"合格线"的具体标准</td><td>按 IGCSE A<em>–G / A-Level A</em>–E 换算，需各教研组给出</td></tr>
+<tr><td>2</td><td>单科"最低要求"（留级触发）</td><td>建议不低于 E/4 分，需确认</td></tr>
+<tr><td>3</td><td>缺勤率统计口径</td><td>是否含请假？建议"含请假但单列"</td></tr>
+</table></div>
+<h4 id="附-一页判定表" class="h4" data-roles="s p t a">附：一页判定表</h4>
+<div class="table-wrap"><table>
+<tr><th>指标</th><th>黄</th><th>红</th><th>留级</th></tr>
+<tr><td>成绩</td><td>低于合格线 / 降 2 级</td><td>连续 2 次黄</td><td>连续 2 次红未改善</td></tr>
+<tr><td>单科</td><td>低于合格线</td><td>连续 2 次低于</td><td>低于最低要求</td></tr>
+<tr><td>缺勤率</td><td>≥ 10%</td><td>≥ 20%</td><td>≥ 30%</td></tr>
+<tr><td>作业完成率</td><td>连续 3 周 &lt; 80%</td><td>连续 6 周 &lt; 60%</td><td>—</td></tr>
+<tr><td>旷考</td><td>直接黄</td><td>—</td><td>—</td></tr>
+<tr><td>红黄牌</td><td>累计 3 次红牌 → 黄</td><td>—</td><td>—</td></tr>
+</table></div>
+<p><em>起草说明：本制度把听记中零散出现的"标黄科目""红黄牌""留级警示"三类表述统一为一个三级体系，并明确它<strong>不是处分</strong>——这一点过去在讨论中常被混淆。</em></p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-3-学生违纪处理与教育惩戒办法"><h3 id="3-学生违纪处理与教育惩戒办法" class="h3" data-roles="s p t a">3. 学生违纪处理与教育惩戒办法</h3>
+<p><em>〔原编号 P0-1〕</em></p>
+<blockquote><strong>制定依据</strong>：《中小学教育惩戒规则（试行）》（教育部令第 49 号，2021-03-01 施行）</blockquote><blockquote class="cont"><strong>状态</strong>：草案，待征求意见后提交校长办公会审议、报主管教育部门备案</blockquote><blockquote class="cont"><strong>重要提示</strong>：按第 6 条，<strong>未经公布的校规校纪不得施行</strong>。本办法须正式发布后方可作为处理依据。</blockquote>
+<h4 id="第一章-总则-2" class="h4" data-roles="s p t a">第一章 总则</h4>
+<p><strong>第一条 目的</strong></p>
+<p>规范学生违纪处理，保障学生合法权益，同时保障教师依法履行教育管理职责。</p>
+<p><strong>第二条 三项原则</strong></p>
+<p class="ol-item"><strong>教育性</strong>——处理的目的在纠正行为，不在惩罚本身</p>
+<p class="ol-item"><strong>相称性</strong>——措施与学生过错程度相适应，不因个别学生违规而牵连全体</p>
+<p class="ol-item"><strong>可预期</strong>——事先告知、标准公开、一视同仁</p>
+<p><strong>第三条 与学业成绩脱钩</strong></p>
+<p>不得因学业成绩实施教育惩戒（法规第 12 条第 5 项明令禁止）。</p>
+<h4 id="第二章-分级处理" class="h4" data-roles="s p t a">第二章 分级处理</h4>
+<h5 id="一级-当场处理-教师可直接实施" class="h5" data-roles="s p t a">一级：当场处理（教师可直接实施）</h5>
+<div class="table-wrap"><table>
+<tr><th>措施</th><th>适用</th><th>告知</th></tr>
+<tr><td>点名批评</td><td>课堂轻微违纪</td><td>可适当方式告知家长</td></tr>
+<tr><td>责令赔礼道歉、口头/书面检讨</td><td>影响他人</td><td>同上</td></tr>
+<tr><td>增加额外教学任务或班级公益服务</td><td>屡提醒不改</td><td>同上</td></tr>
+<tr><td><strong>教室内站立，限一节课时间内</strong></td><td>课堂秩序类</td><td>同上</td></tr>
+<tr><td>课后教导（留堂谈话）</td><td>课后跟进</td><td>同上</td></tr>
+</table></div>
+<blockquote class="bq-warn">⚠️ <strong>站立时间的红线</strong>：只能"<strong>一节课堂教学时间内、教室内</strong>"。超过一节课、站到教室外、烈日下站立，均构成"超过正常限度的罚站"（法规第 12 条第 2 项）。</blockquote>
+<h5 id="二级-校内处理-须告知家长" class="h5" data-roles="s p t a">二级：校内处理（须告知家长）</h5>
+<ul>
+<li>由德育/年级负责人训导</li>
+<li>承担校内公益服务任务</li>
+<li>参加专门的校规校纪、行为规则教育</li>
+<li><strong>暂停或限制参加校外集体活动</strong>（研学、外出实践、集体参观等）</li>
+<li>书面警告 + 约谈家长（沿用学校 2026-01-14 已有做法）</li>
+</ul>
+<h5 id="三级-校级处理-须事先告知家长-学生与家长可申诉" class="h5" data-roles="s p t a">三级：校级处理（须事先告知家长，学生与家长可申诉）</h5>
+<ul>
+<li><strong>停课/停学不超过一周</strong>，要求家长在家教育管教</li>
+<li>法治副校长或法治辅导员训诫</li>
+<li>专门教育场所 + 专业心理辅导/行为干预</li>
+<li>纪律处分：警告、严重警告、记过、留校察看（高中阶段可至开除学籍）</li>
+</ul>
+<blockquote>三级处理须<strong>听取学生陈述与申辩</strong>；学生或家长申请听证的，学校应当组织听证（法规第 14 条）。</blockquote>
+<h4 id="第三章-禁止行为清单-逐条对应法规第-12-条" class="h4" data-roles="s p t a">第三章 禁止行为清单（逐条对应法规第 12 条）</h4>
+<p><strong>以下行为一律禁止，发现即按师德失范处理：</strong></p>
+<p class="ol-item">❌ <strong>击打、刺扎</strong>等直接造成身体痛苦的<strong>体罚</strong></p>
+<p class="ol-item">❌ <strong>超过正常限度的罚站、反复抄写、强制做不适的动作或姿势</strong>（如<strong>蹲起、俯卧撑</strong>）、<strong>刻意孤立</strong>——均属<strong>变相体罚</strong></p>
+<p class="ol-item">❌ <strong>辱骂</strong>，或以歧视性、侮辱性言行侵犯人格尊严</p>
+<p class="ol-item">❌ 因<strong>个人或少数人</strong>违规而惩罚<strong>全体</strong>学生</p>
+<p class="ol-item">❌ 因<strong>学业成绩</strong>实施惩戒</p>
+<p class="ol-item">❌ 因<strong>个人情绪、好恶</strong>实施或选择性实施惩戒</p>
+<p class="ol-item">❌ <strong>指派学生对其他学生</strong>实施惩戒</p>
+<p class="ol-item">❌ 其他侵害学生权利的行为</p>
+<blockquote><strong>特别说明</strong>：2026-01-08 会议记录中出现"再犯采取体罚措施如蹲起、俯卧撑或罚站"的表述，<strong>与上述禁止条款直接冲突，即刻废止</strong>。</blockquote><blockquote class="cont">其中「教室内一节课内的站立」可以作为措施保留，<strong>蹲起与俯卧撑不得作为惩戒手段</strong>。</blockquote>
+<h4 id="第四章-程序要求" class="h4" data-roles="s p t a">第四章 程序要求</h4>
+<p><strong>第四条 告知</strong></p>
+<ul>
+<li>一级：可适当方式告知家长</li>
+<li>二级：<strong>应当及时</strong>告知家长</li>
+<li>三级：<strong>应当事先</strong>告知家长</li>
+</ul>
+<p><strong>第五条 记录</strong></p>
+<p>所有二级及以上处理须书面记录：时间、事由、措施、告知家长情况、学生回应，纳入学生行为档案。</p>
+<p><strong>第六条 申诉</strong></p>
+<p>学生对三级处理或纪律处分不服，可在<strong>15 个工作日内</strong>向学校学生申诉委员会提出申诉；对申诉结果不服，可向主管教育部门申请复核。</p>
+<p><strong>第七条 恢复</strong></p>
+<p>学生诚恳认错、积极改正的，可<strong>提前解除</strong>处理（法规第 13、14 条）。</p>
+<h4 id="第五章-与现行校规的衔接" class="h4" data-roles="s p t a">第五章 与现行校规的衔接</h4>
+<div class="table-wrap"><table>
+<tr><th>现行做法（会议决议）</th><th>归入级别</th><th>说明</th></tr>
+<tr><td>手机"禁止入校"，发现即没收</td><td>一级 + 违规物品暂扣</td><td><strong>暂扣须登记、妥善保管，适当时候交还家长</strong>（法规第 11 条）</td></tr>
+<tr><td>违规使用 iPad/耳机：收缴 + 记入周反馈</td><td>一级</td><td>同上</td></tr>
+<tr><td>校服不规范</td><td>一级</td><td>以提醒整改为主</td></tr>
+<tr><td>晚自习缺席、外出未签字</td><td>二级</td><td>可限制参加校外集体活动</td></tr>
+<tr><td>严重违纪（如打架、欺凌）</td><td>三级</td><td>须事先告知家长、可申诉</td></tr>
+<tr><td>屡次违规限制晚自习资格</td><td>二级</td><td>须书面告知理由与期限</td></tr>
+</table></div>
+<h4 id="第六章-生效与解释" class="h4" data-roles="s p t a">第六章 生效与解释</h4>
+<ul>
+<li>本办法经征求意见、校长办公会审议后公布施行，并报主管教育部门备案</li>
+<li>本办法与上级法规冲突时，以上级法规为准</li>
+<li>解释权归学校教学管理部门</li>
+</ul>
+<p><strong>附：起草说明</strong></p>
+<p>本办法由听记台账（2024-07 至 2026-10，267 场会议）中散落的纪律处理做法汇总而成，并逐条对齐《中小学教育惩戒规则（试行）》。<strong>核心变化</strong>：删除体罚表述、明确站立时间上限、把"没收"改为"暂扣并交还家长"、建立三级告知与申诉程序。</p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-第二编-考试与考务-2"><h2 id="第二编-考试与考务-2" class="h2" data-roles="s p t a">第二编  考试与考务</h2>
+</div>
+<div class="blk" data-roles="t a" id="blk-4-考试与成绩管理办法"><h3 id="4-考试与成绩管理办法" class="h3" data-roles="t a">4. 考试与成绩管理办法</h3>
+<p><em>〔原编号 P1-1〕</em></p>
+<blockquote><strong>适用</strong>：校内期中/期末考试；国际统考的校内备考环节（报考、送考、成绩发布以考试局规定为准）</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 A1–A20（2025-11 至 2026-10）</blockquote><blockquote class="cont"><strong>配套文件</strong>：《考试入场与迟到处理规定》《学生违纪处理与教育惩戒办法》《校内考试教师工作指导手册》</blockquote>
+<h4 id="第一章-命题与出卷" class="h4" data-roles="s p t a">第一章 命题与出卷</h4>
+<p><strong>第一条 统一卷头</strong></p>
+<p>校内考试试卷<strong>必须使用带学校新 logo 的统一卷头</strong>，杜绝无标题、无科目信息的试卷。</p>
+<p>（依据：2025-11-04 会议）</p>
+<p><strong>第二条 背对背出卷（教考分离）</strong></p>
+<ul>
+<li>试卷由<strong>非本班授课教师</strong>命题，授课教师不直接参与</li>
+<li>教考分离 ≠ 信息隔离：出卷教师须与授课教师完成<strong>学情沟通</strong>，提交《学情同步表》</li>
+<li>时间节点：考前 3 周学情沟通会 → 考前 2 周双向细目表 → 考前 1 周试卷初稿与审校</li>
+</ul>
+<p><strong>第三条 必备材料</strong></p>
+<p>每次校内考试须提交：</p>
+<p class="ol-item"><strong>背对背出卷记录表</strong></p>
+<p class="ol-item"><strong>试卷分析表</strong>（考后填写）</p>
+<p><strong>第四条 提交时限</strong></p>
+<p>期中试卷相关材料须于<strong>考后指定日期上午前</strong>提交（本学期为 11 月 4 日上午），由教研组长汇总。</p>
+<p>（依据：2026-10-20 会议）</p>
+<h4 id="第二章-试卷安全" class="h4" data-roles="s p t a">第二章 试卷安全</h4>
+<p><strong>第五条 全程保密</strong></p>
+<ul>
+<li>命题、审阅、印制、存放全过程保密，仅限必要人员接触</li>
+<li><strong>电子稿不得通过非保密渠道传输</strong>（含个人微信、公共网盘）</li>
+<li>纸质稿专人保管、定点存放</li>
+<li>考后由学科教师统一回收、登记、保管，防止流出</li>
+</ul>
+<p><strong>第六条 交接留痕</strong></p>
+<p>学科教师须提前将<strong>试卷、份数、考试时间、考后保管要求</strong>书面交接给监考教师。</p>
+<p>（依据：2026-10-13《校内考试教师工作指导手册》）</p>
+<h4 id="第三章-考试实施" class="h4" data-roles="s p t a">第三章 考试实施</h4>
+<p><strong>第七条 入场与迟到</strong></p>
+<p>按《考试入场与迟到处理规定》执行，两轨（校内/统考）不得混用。</p>
+<p><strong>第八条 监考</strong></p>
+<p>按《监考教师须知》执行。<strong>考试期间学生不得单独行动</strong>，须由老师陪同方可离开考场。</p>
+<p>（依据：2026-10-26 会议）</p>
+<p><strong>第九条 突发情况</strong></p>
+<p>考场异常（疾病、设备、环境）须<strong>当日书面记录</strong>，由考务备案。</p>
+<h4 id="第四章-阅卷-成绩与发布" class="h4" data-roles="s p t a">第四章 阅卷、成绩与发布</h4>
+<p><strong>第十条 阅卷与闭环</strong></p>
+<p>出题、判卷、成绩分析须形成闭环，用于指导后续教学。</p>
+<p>（依据：2026-01-08 会议）</p>
+<p><strong>第十一条 模考成绩发布时限</strong></p>
+<ul>
+<li><strong>每周五上午</strong>为最晚发布当周模考成绩的时间（便于班主任下午同步家长）</li>
+<li>超时未发布须向年级负责人说明</li>
+</ul>
+<p>（依据：2026-04-20 会议）</p>
+<p><strong>第十二条 模考的有效性</strong></p>
+<p>学生<strong>在家中自行完成的模考成绩无效</strong>，必须返校参加方可计入档案。</p>
+<p>（依据：2025-11-11 会议）</p>
+<p><strong>第十三条 考试公平的边界</strong></p>
+<p>教师<strong>不得直接建议学生弃考某科</strong>；弃科决策须由申请老师依据 offer 条件提供依据，教学团队仅执行标准要求。</p>
+<p>（依据：2025-10-23 会议）</p>
+<h4 id="第五章-试卷查阅与数据安全" class="h4" data-roles="s p t a">第五章 试卷查阅与数据安全</h4>
+<p><strong>第十四条 试卷查阅四级审批</strong></p>
+<p>学生/家长查看原始试卷，须走 <strong>OA「爱德思考试试卷查看」专项审批</strong>：</p>
+<pre><code>
+学生（或家长）发起 → 班主任审核 → 组长审批 → 任课教师发放
+</code></pre>
+<ul>
+<li><strong>成绩发布后</strong>方可申请</li>
+<li>全程留痕，任课教师不得私下提供试卷</li>
+</ul>
+<p>（依据：2026-03-09、03-10、07-15 会议）</p>
+<p><strong>第十五条 数据使用限制</strong></p>
+<p>内部成绩分析可包含得分率、分布等数据，但<strong>不得对外出具收费版标准化报告</strong>。</p>
+<p>（依据：2026-03-09 会议）</p>
+<h4 id="第六章-成绩的使用" class="h4" data-roles="s p t a">第六章 成绩的使用</h4>
+<p><strong>第十六条 预估分</strong></p>
+<ul>
+<li>学校可依规开具预估分</li>
+<li>预估分<strong>必须以学生后续达成为前提</strong>，开具时须书面告知该条件</li>
+<li>香港方向申请：预估分<strong>最高提两档</strong>；<strong>严禁校外私自申请</strong>，所有香港申请必须通过学校官方渠道（UCAS 中心号 / Bus Code）提交并盖章</li>
+</ul>
+<p>（依据：2026-03-12、2026-09-28 会议）</p>
+<p><strong>第十七条 报考信息核对</strong></p>
+<p>报考信息实行<strong>三方核对</strong>：考务 + 教学 + 升学；高三考试后由三方共同复核，降低错误率。</p>
+<p>（依据：2026-03-23、03-24 会议）</p>
+<p><strong>第十八条 与学业警示衔接</strong></p>
+<p>校内考试成绩是学业警示制度的触发依据；学业警示等级（黄/红/留级）按当年度《学业警示制度》执行，<strong>期中考试后启用新制度</strong>。</p>
+<p>（依据：2026-10-12、2026-10-19 会议）</p>
+<p><strong>第十九条 与选拔衔接</strong></p>
+<p>巅峰计划（APEX）期末选拔以<strong>前 20 名</strong>为硬性留存标准，未达标者自动退出。【待确认：是否仅限该计划】</p>
+<p>（依据：2025-11-11 会议）</p>
+<h4 id="第七章-附则" class="h4" data-roles="s p t a">第七章 附则</h4>
+<ul>
+<li>本办法自公布之日起施行，与上级法规或考试局规定冲突时以上位规定为准</li>
+<li>修订由教学管理部门提出，经校长办公会审议后发布</li>
+</ul>
+<p><strong>附：与现有文件的关系</strong></p>
+<div class="table-wrap"><table>
+<tr><th>现有文件</th><th>状态</th></tr>
+<tr><td>《学生考试准则》《监考教师须知》《行为准则》</td><td>继续有效，作为执行细则</td></tr>
+<tr><td>《校内考试教师工作指导手册》</td><td>继续有效，作为命题与教研指引</td></tr>
+<tr><td>本办法</td><td><strong>上位管理办法</strong>，统一授权与流程</td></tr>
+</table></div>
+<p><em>起草说明：本办法把听记中散落的 20 条考试与成绩规定归并为一份，明确了授权链（谁能批、谁留痕、谁复盘），避免同一件事在不同会议上有不同标准。</em></p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-5-考试入场与迟到处理规定"><h3 id="5-考试入场与迟到处理规定" class="h3" data-roles="s p t a">5. 考试入场与迟到处理规定</h3>
+<p><em>〔原编号 P0-2〕</em></p>
+<blockquote><strong>适用</strong>：校内期中/期末考试、国际统考（Edexcel / AQA）</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>目的</strong>：终结目前"10 分钟 / 15 分钟 / 30 分钟"三种口径并存的局面</blockquote>
+<h4 id="一-两条轨道-两套标准" class="h4" data-roles="s p t a">一、两条轨道，两套标准</h4>
+<p>学校同时承办两类考试，<strong>规则不同，必须先确认考试类型再执行</strong>。</p>
+<div class="table-wrap"><table>
+<tr><th>项目</th><th><strong>校内考试</strong>（期中/期末）</th><th><strong>国际统考</strong>（Edexcel / AQA）</th></tr>
+<tr><td>学生到场</td><td>考前 20 分钟离开教室</td><td>考前 45 分钟到考场外等候</td></tr>
+<tr><td>允许入场</td><td>考前 <strong>10 分钟</strong>开始入场</td><td>考前 <strong>40 分钟</strong>开始入场</td></tr>
+<tr><td>必须已在场内</td><td>—</td><td>考前 <strong>30 分钟</strong>（考试局记录）</td></tr>
+<tr><td>身份证</td><td>不需要</td><td><strong>必须</strong>，且有效期 &gt; 6 个月</td></tr>
+<tr><td><strong>迟到处理</strong></td><td><strong>迟到 10 分钟以内</strong>可入场；超过不得入场</td><td><strong>开考后一律不得入场</strong></td></tr>
+</table></div>
+<p><strong>执行依据</strong>：《期中期末考试学生行为准则-2026修订版》《学生考试准则-202410》《监考教师须知-202410》</p>
+<h4 id="二-迟到处理流程" class="h4" data-roles="s p t a">二、迟到处理流程</h4>
+<h5 id="校内考试" class="h5" data-roles="s p t a">校内考试</h5>
+<div class="table-wrap"><table>
+<tr><th>迟到时长</th><th>处理</th><th>记录</th></tr>
+<tr><td>≤ 10 分钟</td><td>准许入场，不补时</td><td>监考教师登记迟到时间</td></tr>
+<tr><td>&gt; 10 分钟</td><td><strong>不得入场</strong>，按<strong>缺考</strong>处理</td><td>记入考场记录，当日内报班主任</td></tr>
+<tr><td>缺考</td><td>依《期中期末考试学生行为准则》第六章处理</td><td>班主任联系家长确认原因</td></tr>
+</table></div>
+<h5 id="国际统考" class="h5" data-roles="s p t a">国际统考</h5>
+<div class="table-wrap"><table>
+<tr><th>情况</th><th>处理</th></tr>
+<tr><td>开考后到达</td><td><strong>一律不得参加本场考试</strong>（无例外，考试局规定）</td></tr>
+<tr><td>未参加</td><td>按缺考记录；<strong>考前 72 小时内不接受任何变更，不允许临时缺考</strong></td></tr>
+</table></div>
+<h4 id="三-需要废止的旧口径" class="h4" data-roles="s p t a">三、需要废止的旧口径</h4>
+<p><strong>2026-04-27 会议记录</strong>：</p>
+<blockquote>"30 分钟至开考前可允许迟到学生进入，但开考后禁止入场"</blockquote>
+<p><strong>问题</strong>：该表述有两种读法——</p>
+<p class="ol-item">「考前 30 分钟起，允许迟到学生进入」（与统考"提前 30 分钟必须到场"呼应）</p>
+<p class="ol-item">「迟到不超过 30 分钟可进入」（与学生准则冲突）</p>
+<p><strong>处理建议</strong>：</p>
+<ul>
+<li>若为读法 1 → 改写为「<strong>统考开考后不得入场；考前 30 分钟须已在场内</strong>」</li>
+<li>若为读法 2 → <strong>废止</strong>，与学生准则冲突，不得执行</li>
+<li>无论哪种，<strong>不得作为校内考试的执行依据</strong></li>
+</ul>
+<h4 id="四-特殊情形的处理" class="h4" data-roles="s p t a">四、特殊情形的处理</h4>
+<div class="table-wrap"><table>
+<tr><th>情形</th><th>处理</th><th>权限</th></tr>
+<tr><td>突发疾病（考场内）</td><td>立即联系考务，按应急流程处理；如厕原则上允许但<strong>不补时</strong></td><td>监考教师 + 考务</td></tr>
+<tr><td>交通意外/极端天气</td><td>由<strong>考务负责人</strong>现场判定是否属"不可抗力"，并<strong>书面记录</strong></td><td>考务负责人</td></tr>
+<tr><td>证件缺失（统考）</td><td><strong>不得入场</strong>，联系考务确认是否有补救途径</td><td>考务</td></tr>
+<tr><td>走错考场</td><td>由巡考引导，时间损失不补</td><td>巡考</td></tr>
+</table></div>
+<blockquote>所有特殊情形须<strong>当日书面记录</strong>（时间、事由、判定人、处理结果），避免事后争议。</blockquote>
+<h4 id="五-告知与公示" class="h4" data-roles="s p t a">五、告知与公示</h4>
+<p class="ol-item"><strong>考前一周</strong>：班主任在班级群、家长群同步本次考试的<strong>类型与到场时间</strong></p>
+<p class="ol-item"><strong>考场门口</strong>：张贴考试信息（科目、时间、中心号）与<strong>迟到处理规则</strong></p>
+<p class="ol-item"><strong>对外材料</strong>：使用《考试须知（学生与家长版）》，其中已标明两轨差异</p>
+<h4 id="六-与现有文件的衔接" class="h4" data-roles="s p t a">六、与现有文件的衔接</h4>
+<div class="table-wrap"><table>
+<tr><th>现有文件</th><th>本规定的作用</th></tr>
+<tr><td>《学生考试准则-202410》</td><td>保留；其中"迟到 15 分钟"<strong>更新为"开考后不得入场"</strong></td></tr>
+<tr><td>《期中期末考试学生行为准则-2026修订版》</td><td>保留；"迟到 10 分钟"继续适用于校内考试</td></tr>
+<tr><td>《监考教师须知-202410》</td><td>保留；补充"开考后到达不得参加"的登记要求</td></tr>
+<tr><td>2026-04-27 会议记录</td><td><strong>本规定发布后不再作为执行依据</strong></td></tr>
+</table></div>
+<p><strong>附：起草说明</strong></p>
+<p>本规定汇总自 267 场听记中与入场时间相关的全部表述，消除三处互斥口径。<strong>建议发布时同步修订《学生考试准则》第 8 条</strong>，避免旧文件继续流通。</p>
+</div>
+<div class="blk" data-roles="p t a" id="blk-6-特殊照顾申请判定标准"><h3 id="6-特殊照顾申请判定标准" class="h3" data-roles="p t a">6. 特殊照顾申请判定标准</h3>
+<p><em>〔原编号 P0-3〕</em></p>
+<blockquote><strong>适用</strong>：Edexcel / AQA 等国际统考；校内考试的"因病/因事缺考"另按《行为准则》第六章执行</blockquote><blockquote class="cont"><strong>状态</strong>：草案 · 外部考试局条款以官方最新文件为准（标注【待考务确认】处需核对后定稿）</blockquote><blockquote class="cont"><strong>解决的现实问题</strong>：同一类情况，10-19 会议同意家长申请、10-26 会议又判定"未达标准"，缺一把尺子</blockquote>
+<h4 id="一-什么是特殊照顾" class="h4" data-roles="s p t a">一、什么是特殊照顾</h4>
+<p>指考生因<strong>突发或不可控事件</strong>（疾病、伤害、丧亲、重大意外等）导致考试表现受影响时，由<strong>学校作为考试中心</strong>向考试局提出申请，由考试局裁定是否给予成绩调整。</p>
+<p><strong>关键认知</strong>：</p>
+<ul>
+<li>申请主体是<strong>学校</strong>，不是家长个人</li>
+<li>裁定权在<strong>考试局</strong>，学校不能承诺结果</li>
+<li>它的定位是<strong>补救异常事件</strong>，不是"考不好再争取一次"</li>
+</ul>
+<h4 id="二-学校予以受理的情形" class="h4" data-roles="s p t a">二、学校予以受理的情形</h4>
+<p>满足以下任一条，且能提供证明材料，学校<strong>受理并转报</strong>：</p>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>情形</th><th>举例</th><th>最低材料</th></tr>
+<tr><td>1</td><td><strong>考试期间突发疾病/身体不适</strong></td><td>高烧、急性肠胃炎、生理期剧痛、突发过敏</td><td>校医记录 或 当天就诊记录</td></tr>
+<tr><td>2</td><td><strong>考试前后发生意外伤害</strong></td><td>骨折、扭伤（影响书写）、需急诊</td><td>医院诊断证明</td></tr>
+<tr><td>3</td><td><strong>近亲重病或去世</strong></td><td>直系亲属重病、丧事</td><td>家长书面说明 + 必要证明</td></tr>
+<tr><td>4</td><td><strong>经诊断的心理健康问题</strong></td><td>确诊焦虑/抑郁，考试期间发作</td><td>专业机构诊断书</td></tr>
+<tr><td>5</td><td><strong>考场环境重大异常</strong></td><td>施工噪音、设备故障、突发停电</td><td>考务现场记录（<strong>由学校主动发起，家长无需申请</strong>）</td></tr>
+<tr><td>6</td><td><strong>其他不可抗力</strong></td><td>自然灾害、公共事件</td><td>由考务负责人判定并记录</td></tr>
+</table></div>
+<h4 id="三-不予受理的情形-明确列出-避免反复争论" class="h4" data-roles="s p t a">三、不予受理的情形（明确列出，避免反复争论）</h4>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>情形</th><th>理由</th></tr>
+<tr><td>1</td><td><strong>迟到、走错考场</strong></td><td>时间损失属个人可控范围</td></tr>
+<tr><td>2</td><td><strong>未携带身份证/违规物品被拦</strong></td><td>属规则执行，非突发事件</td></tr>
+<tr><td>3</td><td><strong>备考不足、考前焦虑（未确诊）</strong></td><td>不构成"异常事件"</td></tr>
+<tr><td>4</td><td><strong>自行决定不参加</strong></td><td>应按弃考流程处理，不适用特殊照顾</td></tr>
+<tr><td>5</td><td><strong>考前 72 小时内临时变更申请</strong></td><td>考试局硬性规定，本校无法受理</td></tr>
+<tr><td>6</td><td><strong>考试中离座上厕所</strong></td><td><strong>不属特殊照顾范畴</strong>（该类情况按考务记录处理，不补时）</td></tr>
+<tr><td>7</td><td><strong>成绩不理想、未达预期</strong></td><td>不属申请范围</td></tr>
+</table></div>
+<blockquote>🔴 <strong>第 6 条是 10 月争议的核心</strong>：有学生因如厕延误 10–15 分钟，家长援引特殊照顾政策。<strong>结论：如厕属正常考试流程内事件，且有记录可查，不构成特殊照顾事由</strong>。学校应在考前把这条讲清楚，而不是事后争论。</blockquote>
+<h4 id="四-材料要求" class="h4" data-roles="s p t a">四、材料要求</h4>
+<h5 id="医疗类" class="h5" data-roles="s p t a">医疗类</h5>
+<ul>
+<li><strong>三甲医院</strong>（或考试局认可机构）出具的诊断证明/就诊记录</li>
+<li>须体现：就诊时间、诊断结论、对考试能力的影响说明</li>
+<li><strong>不接受</strong>：事后补开的"情况说明"、非医疗机构证明、家长自述</li>
+</ul>
+<h5 id="非医疗类" class="h5" data-roles="s p t a">非医疗类</h5>
+<ul>
+<li>家长书面申请（说明事件、时间、对考试的影响）</li>
+<li>相应证明：如丧事证明、事故记录</li>
+<li><strong>第三方佐证</strong>（如班主任观察记录、校医记录）</li>
+</ul>
+<h5 id="校内事件类-学校主动" class="h5" data-roles="s p t a">校内事件类（学校主动）</h5>
+<ul>
+<li>由考务出具<strong>现场记录</strong>（时间、地点、异常内容、处理人）</li>
+<li>此类由学校<strong>主动</strong>向考试局报备，家长无需申请</li>
+</ul>
+<h4 id="五-时限与流程" class="h4" data-roles="s p t a">五、时限与流程</h4>
+<h5 id="时间线" class="h5" data-roles="s p t a">时间线</h5>
+<div class="table-wrap"><table>
+<tr><th>节点</th><th>动作</th><th>责任人</th></tr>
+<tr><td>事件发生<strong>当天</strong></td><td>学生/家长告知班主任；考务同步记录</td><td>班主任 / 监考教师</td></tr>
+<tr><td><strong>次日</strong></td><td>家长提交书面申请 + 材料</td><td>家长</td></tr>
+<tr><td><strong>2 个工作日内</strong></td><td>班主任初核 → 转考务</td><td>班主任</td></tr>
+<tr><td><strong>3 个工作日内</strong></td><td>考务核对考试局要求，判断是否符合受理条件</td><td>考务（Nicole）</td></tr>
+<tr><td>符合 → 提交考试局</td><td>按考试局规定时限提交【待考务确认：各考试局截止时间】</td><td>考务</td></tr>
+<tr><td>不符合 → 书面回复家长</td><td>说明不予受理的具体条款</td><td>考务 + 班主任</td></tr>
+</table></div>
+<blockquote class="bq-warn">⚠️ <strong>外部硬约束</strong>：考前 72 小时内不接受任何考试变更，且不允许临时缺考。<strong>跨过这个时间点，学校没有操作空间。</strong></blockquote>
+<h5 id="责任分工" class="h5" data-roles="s p t a">责任分工</h5>
+<div class="table-wrap"><table>
+<tr><th>角色</th><th>职责</th></tr>
+<tr><td><strong>班主任</strong></td><td>第一时间知情、收集材料、安抚家长、解释规则</td></tr>
+<tr><td><strong>考务（Nicole）</strong></td><td>判定是否符合考试局受理条件、提交申请、跟进结果</td></tr>
+<tr><td><strong>学科教师</strong></td><td>提供该生平时成绩与课堂表现作为佐证</td></tr>
+<tr><td><strong>升学指导</strong></td><td>评估对申请/预估分的影响，同步家长</td></tr>
+</table></div>
+<h4 id="六-对外沟通口径-统一话术" class="h4" data-roles="s p t a">六、对外沟通口径（统一话术）</h4>
+<p><strong>受理时</strong>：</p>
+<blockquote>"学校已将情况整理并提交考试局，最终结果由考试局裁定。我们会持续跟进，有结论第一时间通知您。"</blockquote>
+<p><strong>不予受理时</strong>：</p>
+<blockquote>"根据考试局规定和学校《特殊照顾判定标准》第 X 条，这类情况不在受理范围内。具体原因是……（陈述事实，不评判）"</blockquote>
+<p><strong>家长情绪激烈时</strong>：</p>
+<blockquote>只陈述<strong>事实与判定依据</strong>，不解释过程、不过度道歉、不做结果承诺。</blockquote>
+<h4 id="七-与相邻制度的边界" class="h4" data-roles="s p t a">七、与相邻制度的边界</h4>
+<div class="table-wrap"><table>
+<tr><th>制度</th><th>区别</th></tr>
+<tr><td><strong>弃考/退考</strong></td><td>主动放弃该场考试，按弃考截止时间与费用规则处理；<strong>不是</strong>特殊照顾</td></tr>
+<tr><td><strong>补考（校内）</strong></td><td>校内考试因病/因事缺考，按《行为准则》第六章请假流程申请补考</td></tr>
+<tr><td><strong>作弊/违规</strong></td><td>特殊情况不能豁免违规后果；但可作为处理时的参考情节</td></tr>
+<tr><td><strong>心理支持</strong></td><td>有心理健康需求的学生走辅导机制，与成绩申请分开处理</td></tr>
+</table></div>
+<h4 id="八-一页判定表-可直接贴墙用" class="h4" data-roles="s p t a">八、一页判定表（可直接贴墙用）</h4>
+<pre><code>
+学生提出特殊情况
+        │
+        ├─ 是否属于「突发/不可控」事件？ ── 否 → 不受理（说明原因）
+        │        │ 是
+        ├─ 是否有可核验的证明材料？ ── 否 → 先补材料，限期 2 个工作日
+        │        │ 是
+        ├─ 是否在考前 72 小时之外？ ── 否 → 学校无操作空间，如实告知
+        │        │ 是
+        ├─ 是否属于「不予受理」7 类之一？ ── 是 → 书面回复家长
+        │        │ 否
+        └─ 考务提交考试局 → 跟进结果 → 通知家长
+</code></pre>
+<p><strong>附：起草说明</strong></p>
+<p>本标准依据 2026-10-19、10-20、10-26 三次会议中关于特殊照顾的讨论整理，结合《学生考试准则-202410》"考前 72 小时"约束。<strong>外部考试局的具体受理范围与截止时间需由考务核对官方文件后填入【待考务确认】处</strong>，此处不作臆测。</p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-第三编-教师管理-2"><h2 id="第三编-教师管理-2" class="h2" data-roles="s p t a">第三编  教师管理</h2>
+</div>
+<div class="blk" data-roles="t a" id="blk-7-教师发展与考核办法"><h3 id="7-教师发展与考核办法" class="h3" data-roles="t a">7. 教师发展与考核办法</h3>
+<p><em>〔原编号 P2-2〕</em></p>
+<blockquote><strong>适用</strong>：全体教师、教研组长、带教教师</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 D1–D18（2025-12 至 2026-10）</blockquote><blockquote class="cont"><strong>配套</strong>：《校内考试教师工作指导手册》《学生违纪处理与教育惩戒办法》</blockquote>
+<h4 id="第一章-准入-新教师上岗标准" class="h4" data-roles="s p t a">第一章 准入：新教师上岗标准</h4>
+<p><strong>第一条 双考核</strong></p>
+<p>新教师须完成<strong>笔试 + 试讲</strong>双重考核，标准与其他教师一致。</p>
+<p>（依据：2026-03-30 会议）</p>
+<p><strong>第二条 正式授课前的准备流程</strong></p>
+<p>正式独立授课前，须完成：</p>
+<div class="table-wrap"><table>
+<tr><th>项目</th><th>要求</th></tr>
+<tr><td>听课</td><td><strong>每周不少于 5 次</strong>，并提交听课记录</td></tr>
+<tr><td>备课</td><td>提交<strong>详细教案</strong>（含教学步骤、提问设计、巡视安排）</td></tr>
+<tr><td>Demo 课</td><td>录制并提交 demo 课</td></tr>
+<tr><td>自评</td><td>撰写自评报告</td></tr>
+<tr><td>评课</td><td>接受管理者<strong>推门听课</strong>与复盘</td></tr>
+</table></div>
+<p>（依据：2025-12-29、2026-07-14 会议）</p>
+<p><strong>第三条 过关清单</strong></p>
+<p>以下五项全部通过，方可独立承担出卷、监考等任务；未通过前须由教研组长复审把关。</p>
+<ul>
+<li>[ ] 笔试通过</li>
+<li>[ ] 试讲通过</li>
+<li>[ ] 听课记录达标（累计时长与篇数）</li>
+<li>[ ] 教案审核通过</li>
+<li>[ ] Demo 课 + 评课通过</li>
+</ul>
+<h4 id="第二章-带教-老带新" class="h4" data-roles="s p t a">第二章 带教（老带新）</h4>
+<p><strong>第四条 分层准入、动态延续</strong></p>
+<ul>
+<li>带教关系按教师实际需求配置，<strong>不搞一刀切</strong></li>
+<li><strong>禁止制度性排除外教参与</strong></li>
+<li>带教效果按学期评估，可延续或调整</li>
+</ul>
+<p>（依据：2026-06-22 会议）</p>
+<p><strong>第五条 带教内容</strong></p>
+<ul>
+<li>教学常规（备课、上课、作业、反馈）</li>
+<li>教材与考纲解读</li>
+<li>学情分析与分层</li>
+<li>家校沟通口径</li>
+</ul>
+<p><strong>第六条 师徒结对的技术手段</strong></p>
+<p>面对面教研时使用 <strong>AI 听记</strong>记录，事后一起看要点，避免"说过就忘"。</p>
+<p>（依据：2026-09-01 会议）</p>
+<h4 id="第三章-听课与教研" class="h4" data-roles="s p t a">第三章 听课与教研</h4>
+<p><strong>第七条 无课教师集体听课</strong></p>
+<p><strong>所有无课教师必须集体参与听课</strong>，不得以备课为由缺席。</p>
+<p>（依据：2026-03-25 会议）</p>
+<p><strong>第八条 听课质量要求</strong></p>
+<p>听课反馈不得流于形式（"备课认真、教态自然"这类模板话不作数）。反馈须包含：</p>
+<p class="ol-item">一个<strong>具体</strong>的教学片段（原话/动作）</p>
+<p class="ol-item">一个<strong>可操作</strong>的改进建议</p>
+<p class="ol-item">一条<strong>可验证</strong>的观察指标</p>
+<p><strong>第九条 组会规范</strong></p>
+<p>组会须有明确主线与核心观点，<strong>避免流水账式汇报</strong>。</p>
+<p>（依据：2026-09-09 会议）</p>
+<h4 id="第四章-教案与教研成果" class="h4" data-roles="s p t a">第四章 教案与教研成果</h4>
+<p><strong>第十条 教案要求</strong></p>
+<p>必修：教学步骤、提问设计、巡视安排、板书/课件要点、作业布置。</p>
+<p>（依据：2025-12-29 会议）</p>
+<p><strong>第十一条 闭环</strong></p>
+<p>教案等教研成果必须形成「<strong>使用—反馈—迭代</strong>」闭环，避免资源浪费。</p>
+<p>（依据：2026-03-30 会议）</p>
+<p><strong>第十二条 共享</strong></p>
+<p>同年级同科目教案须组内共享；更新时<strong>用颜色标注改动</strong>并附反思。</p>
+<h4 id="第五章-绩效与考核" class="h4" data-roles="s p t a">第五章 绩效与考核</h4>
+<p><strong>第十三条 绩效系统</strong></p>
+<p><strong>钉钉绩效系统</strong>正式启用，用于：</p>
+<ul>
+<li>教师日常工作记录</li>
+<li>试用期考核</li>
+<li>成长轨迹追踪</li>
+</ul>
+<p><strong>正能量优先</strong>：鼓励优先记录正向行为，循序渐进使用，避免变成"抓错工具"。</p>
+<p>（依据：2026-03-24 会议）</p>
+<p><strong>第十四条 考核维度</strong></p>
+<ul>
+<li><strong>不局限于工时</strong>，结合任务完成质量与重要性综合评定</li>
+<li>教师 KPI 应依据<strong>教学成果</strong>，而非仅课堂表现</li>
+</ul>
+<p>（依据：2026-05-18、2026-03-09 会议）</p>
+<p><strong>第十五条 管理薄弱教师</strong></p>
+<p>对管理薄弱教师启动<strong>专项培训并纳入考核</strong>，不是单纯批评。</p>
+<p>（依据：2026-03-23 会议）</p>
+<p><strong>第十六条 实习生管理</strong></p>
+<p>实习生不配合的，带教老师须<strong>及时向人事（Jessica）反馈</strong>，启动正式谈话流程。</p>
+<p>（依据：2026-03-31 会议）</p>
+<p><strong>第十七条 考核结果的使用</strong></p>
+<p>考核结果用于：转正、课时安排、带教资格、管理岗位评估；不作为公开排名的依据。</p>
+<h4 id="第六章-教师行为红线" class="h4" data-roles="s p t a">第六章 教师行为红线</h4>
+<p><strong>第十八条 六条红线（违反按师德失范处理）</strong></p>
+<p class="ol-item">❌ <strong>体罚或变相体罚</strong>（含蹲起、俯卧撑、超时罚站、刻意孤立）</p>
+<p class="ol-item">❌ <strong>因学业成绩</strong>实施惩戒</p>
+<p class="ol-item">❌ 在<strong>公共场合议论学生及其家庭</strong></p>
+<p class="ol-item">❌ <strong>私下承诺</strong>升学结果、录取、降分</p>
+<p class="ol-item">❌ 向家长透露<strong>其他学生</strong>的成绩、表现、家庭情况</p>
+<p class="ol-item">❌ 私下换课、私自带课不报备</p>
+<p>（依据：2026-06-09、2026-06-29、2026-10-26、2026-10-12 会议及《教育惩戒规则》第 12 条）</p>
+<p><strong>第十九条 课堂底线</strong></p>
+<p><strong>无论出勤人数多少，教师必须按时上课，不得取消</strong>。</p>
+<p>（依据：2026-06-09 会议）</p>
+<h4 id="第七章-教师发展" class="h4" data-roles="s p t a">第七章 教师发展</h4>
+<p><strong>第二十条 个人发展计划</strong></p>
+<p>每位教师须制定<strong>三年核心能力发展目标</strong>，由教研组长确认，纳入学期评估。</p>
+<p><strong>第二十一条 进阶路径</strong></p>
+<ul>
+<li>新教师 → 独立授课（过关清单）</li>
+<li>成熟教师 → 带教资格（带教评估通过）</li>
+<li>骨干教师 → 跨年级/跨组授课、教研引领</li>
+</ul>
+<p><strong>第二十二条 培训</strong></p>
+<ul>
+<li>每学期至少一次全员教学方法培训</li>
+<li>新教师至少一次系统性入职培训（备课、监考、家校沟通、AI 工具）</li>
+</ul>
+<h4 id="第八章-附则-2" class="h4" data-roles="s p t a">第八章 附则</h4>
+<p><strong>第二十三条 生效</strong></p>
+<p>本办法自公布之日起施行，与《教育惩戒规则》等上位规定冲突时以上位为准。</p>
+<p><strong>第二十四条 附：教研组长月度检查清单</strong></p>
+<ul>
+<li>[ ] 组内新教师听课记录是否达标</li>
+<li>[ ] 教案是否有更新标记与反思</li>
+<li>[ ] 组会是否按主线推进（非流水账）</li>
+<li>[ ] 补课反馈是否含三项</li>
+<li>[ ] 是否有未报备的换课/代课</li>
+</ul>
+<p><em>起草说明：听记中关于教师发展的要求散落在述职、巡查、教研会议里，本篇按"准入—带教—日常—考核—红线"五段归并，重点是把"新教师过关清单"和"红线六条"写实，其余保持弹性。</em></p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-8-请假-调课与代课管理办法"><h3 id="8-请假-调课与代课管理办法" class="h3" data-roles="s p t a">8. 请假、调课与代课管理办法</h3>
+<p><em>〔原编号 P1-3〕</em></p>
+<blockquote><strong>适用</strong>：全体学生与教师</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 C1–C10 及考试/教学相关请假条款（2025-09 至 2026-10）</blockquote><blockquote class="cont"><strong>目标</strong>：解决"请假谁批、调课怎么走、代课怎么算"三个高频争议</blockquote>
+<h4 id="第一章-学生请假" class="h4" data-roles="s p t a">第一章 学生请假</h4>
+<p><strong>第一条 基本要求</strong></p>
+<ul>
+<li>请假须由<strong>家长提出</strong>，不得由学生自行请假</li>
+<li><strong>家长不再代为随意销假</strong>，以增强规则约束力</li>
+</ul>
+<p>（依据：2025-12-10 会议）</p>
+<p><strong>第二条 病假</strong></p>
+<ul>
+<li>家长<strong>至少提前一天</strong>向班主任请假</li>
+<li>提交<strong>三甲医院</strong>就诊证明或病假单（急症可当日联系、次日补交）</li>
+<li>连续病假 3 天以上，须提供诊断证明与复课建议</li>
+</ul>
+<p><strong>第三条 事假</strong></p>
+<ul>
+<li>家长<strong>至少提前一天</strong>请假并说明事由</li>
+<li>重要事假（升学面试、考试）须提供相应证明</li>
+</ul>
+<p><strong>第四条 考试期间请假</strong></p>
+<p>按《期中期末考试学生行为准则》第六章执行：</p>
+<div class="table-wrap"><table>
+<tr><th>情形</th><th>后果</th></tr>
+<tr><td>因病/因事获批</td><td>可参加学校统一补考</td></tr>
+<tr><td><strong>未请假擅自缺考（旷考）</strong></td><td><strong>不予补考</strong>，依《ICC 学业警示制度》给予<strong>黄色警告</strong></td></tr>
+<tr><td>未参加考试</td><td>成绩单该栏记「<strong>缺考</strong>」，影响学期总评与成绩档案</td></tr>
+</table></div>
+<p><strong>第五条 请假审批权</strong></p>
+<div class="table-wrap"><table>
+<tr><th>时长</th><th>审批人</th></tr>
+<tr><td>≤ 1 天</td><td>班主任</td></tr>
+<tr><td>2–3 天</td><td>班主任 + 年级负责人</td></tr>
+<tr><td>&gt; 3 天</td><td>年级负责人 + 教学主管</td></tr>
+<tr><td>考试期间</td><td>班主任 + 考务（涉及补考安排）</td></tr>
+</table></div>
+<h4 id="第二章-教师请假与调休" class="h4" data-roles="s p t a">第二章 教师请假与调休</h4>
+<p><strong>第六条 审批权下放</strong></p>
+<p>教师请假审批权<strong>下放至教研组长</strong>。</p>
+<p>（依据：2026-01-12 会议）</p>
+<p><strong>第七条 临时调休</strong></p>
+<p><strong>2 小时以内</strong>的临时调休，可通过<strong>评论形式</strong>提交，无需走正式审批流程。</p>
+<p>超过 2 小时须走 OA 审批。</p>
+<p><strong>第八条 打卡时间</strong></p>
+<ul>
+<li>当前执行：<strong>9:30</strong> 为打卡截止</li>
+<li>调整后标准：<strong>冬季学期 9:30，夏季学期 8:30</strong></li>
+<li>以每学期开学通知为准</li>
+</ul>
+<p>（依据：2026-06-15 会议）</p>
+<h4 id="第三章-调课与换课" class="h4" data-roles="s p t a">第三章 调课与换课</h4>
+<p><strong>第九条 禁止私下换课</strong></p>
+<p><strong>所有换课、调课必须经教务 / OA 审批</strong>，禁止教师之间私下协商解决。</p>
+<p>（依据：2026-10-12 会议）</p>
+<p><strong>第十条 跨学科调课</strong></p>
+<p>跨学科调课必须走 OA 审批，由<strong>班主任、教学主管共同确认</strong>后执行。</p>
+<p>（依据：2026-01-12 会议）</p>
+<p><strong>第十一条 调课申请的必备信息</strong></p>
+<ul>
+<li>原课时间、调整后时间</li>
+<li>调整原因</li>
+<li>涉及班级与学生</li>
+<li>承接教师确认</li>
+</ul>
+<p><strong>第十二条 学生课表异动</strong></p>
+<p>学生转班、换课、调层级仍走既有 OA 表单（班次课程异动 Change Schedule or Class），审批通过后由教务同步课表。</p>
+<h4 id="第四章-代课与顶岗" class="h4" data-roles="s p t a">第四章 代课与顶岗</h4>
+<p><strong>第十三条 校外教师缺勤时的顶岗</strong></p>
+<p>校外老师缺勤需内部顶岗的，须提交 <strong>OA 替课/换课审批</strong>，即时生效。</p>
+<p>（依据：2026-10-12 会议）</p>
+<p><strong>第十四条 代课报酬</strong></p>
+<ul>
+<li>代课若进行了<strong>实质性备课与教学</strong>（如代为执教完整课时），可按更高标准或正常课时费核算</li>
+<li><strong>须经 OA 审批留痕</strong>，否则不予认定</li>
+<li>未实际授课的"看班"按值班处理</li>
+</ul>
+<p>（依据：2026-10-12 会议）</p>
+<p><strong>第十五条 监考加班</strong></p>
+<div class="table-wrap"><table>
+<tr><th>身份</th><th>处理</th></tr>
+<tr><td>班主任</td><td>计<strong>加班费</strong>纳入当月工资</td></tr>
+<tr><td>非班主任</td><td>须在<strong>本月之内调休完</strong>；未休完按加班费计入工资</td></tr>
+</table></div>
+<p>（依据：《监考教师须知-202410》）</p>
+<h4 id="第五章-补课申请" class="h4" data-roles="s p t a">第五章 补课申请</h4>
+<p><strong>第十六条 审批通道</strong></p>
+<p>补课走 OA「补课申请」通道（已有独立选项），填写：</p>
+<ul>
+<li>补课科目、课时</li>
+<li>形式（一对一 / 一对二）</li>
+<li><strong>抄送菲欧娜及教学老师</strong></li>
+</ul>
+<p>（依据：2026-05-11 会议）</p>
+<p><strong>第十七条 小语种补课</strong></p>
+<p>日语、德语、俄语等小语种补课<strong>单独设 OA 选项</strong>。</p>
+<p>（依据：2026-05-11 会议）</p>
+<p><strong>第十八条 补课反馈</strong></p>
+<p>所有补课反馈<strong>必须包含三项</strong>：课堂内容描述、学生表现、作业点评。</p>
+<p>（依据：2026-04-20 会议）</p>
+<p><strong>第十九条 收费口径</strong></p>
+<ul>
+<li>一对一/一对二：<strong>每人每小时 150 元</strong></li>
+<li>超 6 人班：<strong>每小时 100 元/人</strong></li>
+<li>具体以当学期通知为准【待财务确认】</li>
+</ul>
+<p>（依据：2026-06-30、2026-09-28 会议）</p>
+<h4 id="第六章-值班" class="h4" data-roles="s p t a">第六章 值班</h4>
+<p><strong>第二十条 晚自习值班</strong></p>
+<ul>
+<li>值班教师<strong>必须在 503 坐班</strong>，不得长期滞留办公室或 518</li>
+<li><strong>每 20–30 分钟巡视一次</strong>，检查外出签字情况</li>
+<li>楼层负责人<strong>每 30 分钟巡查</strong>并记录，结束拍照发群</li>
+</ul>
+<p>（依据：2026-01-06、2025-09-04 会议）</p>
+<p><strong>第二十一条 值班交接</strong></p>
+<p>点名设备、手机、iPad、签到表<strong>须放回 518 教室</strong>，不得留在原教室。</p>
+<p>（依据：2026-05-19 会议）</p>
+<h4 id="第七章-附则-2" class="h4" data-roles="s p t a">第七章 附则</h4>
+<p><strong>第二十二条 生效</strong></p>
+<p>本办法自公布之日起施行。与既有 OA 表单冲突处，以本办法为准并同步更新表单。</p>
+<p><strong>第二十三条 表单清单</strong></p>
+<p>本办法涉及的表单（需在 OA 中可查）：</p>
+<div class="table-wrap"><table>
+<tr><th>表单</th><th>用途</th></tr>
+<tr><td>请假 Leave</td><td>教师请假</td></tr>
+<tr><td>加班 Overtime</td><td>监考/活动加班</td></tr>
+<tr><td>班次课程异动 Change Schedule or Class</td><td>学生调课</td></tr>
+<tr><td>替课/换课审批</td><td>教师调课、顶岗</td></tr>
+<tr><td>补课申请</td><td>补课（含小语种）</td></tr>
+<tr><td>晚自习异动</td><td>学生晚自习调整</td></tr>
+</table></div>
+<p><em>起草说明：听记中关于请假与调课的表述分散在 10 余次会议里，且存在"组长口头批"与"必须 OA"并存的情况。本办法的核心是<strong>按事项定审批人、按事项定表单</strong>，减少临场判断。</em></p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-第四编-家校与升学-2"><h2 id="第四编-家校与升学-2" class="h2" data-roles="s p t a">第四编  家校与升学</h2>
+</div>
+<div class="blk" data-roles="p t a" id="blk-9-家校沟通规范"><h3 id="9-家校沟通规范" class="h3" data-roles="p t a">9. 家校沟通规范</h3>
+<p><em>〔原编号 P1-4〕</em></p>
+<blockquote><strong>适用</strong>：全体班主任、任课教师、升学指导</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 F1–F14（2025-12 至 2026-10）</blockquote><blockquote class="cont"><strong>目标</strong>：统一对外出口，减少"同一个通知三种说法"</blockquote>
+<h4 id="第一章-渠道与出口" class="h4" data-roles="s p t a">第一章 渠道与出口</h4>
+<p><strong>第一条 作业：唯一出口是钉钉家校本</strong></p>
+<ul>
+<li>全校作业发布<strong>统一使用钉钉家校本</strong></li>
+<li><strong>严禁</strong>在微信、钉钉群、其他小程序之间来回切换</li>
+<li>家长只需记住一个入口</li>
+</ul>
+<p>（依据：2026-09-21 会议）</p>
+<p><strong>第二条 必须配套教程</strong></p>
+<p>发布作业前须提供<strong>家校本操作教程</strong>（图文或视频），清晰展示：进入链接 → 查找文本 → 录音/拍照 → 提交。</p>
+<blockquote>经验判据：家长对数字化工具的抵触，多数源于<strong>指引缺失</strong>，不是能力不足。</blockquote><blockquote class="cont">（依据：2026-09-21 会议）</blockquote>
+<p><strong>第三条 渠道分工</strong></p>
+<div class="table-wrap"><table>
+<tr><th>渠道</th><th>用途</th><th>禁忌</th></tr>
+<tr><td>钉钉家校本</td><td>作业发布与提交</td><td>不得用微信群替代</td></tr>
+<tr><td>钉钉班级群</td><td>正式通知、材料</td><td>不得发布未审核信息</td></tr>
+<tr><td>班主任微信群</td><td>提醒、催促</td><td>不得发布成绩、排名</td></tr>
+<tr><td>电话</td><td>紧急事项、个性化沟通</td><td>不得用于群发通知</td></tr>
+</table></div>
+<p><strong>第四条 双渠道提醒</strong></p>
+<p>重要节点（报名、缴费、考试）须在<strong>钉钉群 + 班主任微信群双渠道</strong>同步发送。</p>
+<p>（依据：2026-09-21 会议）</p>
+<h4 id="第二章-通知规范" class="h4" data-roles="s p t a">第二章 通知规范</h4>
+<p><strong>第五条 提醒节奏</strong></p>
+<ul>
+<li>首次通知：事项发布当日</li>
+<li><strong>二次提醒：截止前 2 天</strong>（如 17 日提醒 18 日截止）</li>
+<li>逾期未完成：由班主任单独跟进，不在群里点名</li>
+</ul>
+<p>（依据：2026-09-21 会议）</p>
+<p><strong>第六条 弃考/报考提醒</strong></p>
+<p>报考完成后<strong>一周内</strong>，由考务（Nicole）在班主任群发布下一节点提醒，<strong>班主任转发至家长群</strong>。</p>
+<p>（依据：2026-04-20 会议）</p>
+<p><strong>第七条 通知内容</strong></p>
+<p>必含：<strong>做什么、什么时候截止、在哪做、出问题找谁</strong>。</p>
+<p>不使用"尽快""抓紧"等模糊表述。</p>
+<h4 id="第三章-周反馈" class="h4" data-roles="s p t a">第三章 周反馈</h4>
+<p><strong>第八条 频率与内容</strong></p>
+<p>每周向家长反馈一次，内容包含：</p>
+<p class="ol-item">作业完成率</p>
+<p class="ol-item">课堂表现（含违规使用电子设备等记录）</p>
+<p class="ol-item">本周学习重点与下周提醒</p>
+<p>（依据：2026-09-02、2025-11-11 会议）</p>
+<p><strong>第九条 审核</strong></p>
+<p>教师填写 → 组长审核 → 统一发送。<strong>未经审核不得直接发给家长</strong>。</p>
+<p><strong>第十条 作业验收</strong></p>
+<p>假期/离校作业须在<strong>返校后验收</strong>，并在当周周反馈中向家长通报。</p>
+<p>（依据：2026-04-28 会议）</p>
+<h4 id="第四章-家长会" class="h4" data-roles="s p t a">第四章 家长会</h4>
+<p><strong>第十一条 定位</strong></p>
+<p>家长会用于：同步教学理念、作业量标准、学习方法指导；面向<strong>全体家长</strong>，不用于公布排名。</p>
+<p>（依据：2026-09-07、2026-04-20 会议）</p>
+<p><strong>第十二条 分层沟通</strong></p>
+<p>对学业风险学生，可在家长会前后安排<strong>一对一分层沟通</strong>，内容聚焦：现状事实 → 具体动作 → 时间节点。</p>
+<p><strong>第十三条 班级公约</strong></p>
+<p>班级公约由班主任在周五班会宣导并张贴，<strong>无需家长逐个签字</strong>。</p>
+<p>（依据：2026-03-10 会议）</p>
+<h4 id="第五章-家长接入与材料" class="h4" data-roles="s p t a">第五章 家长接入与材料</h4>
+<p><strong>第十四条 系统接入</strong></p>
+<p>家长<strong>须接入钉钉系统</strong>，以便连接学校云谷平台，保障信息一致。</p>
+<p>（依据：2025-12-25 会议）</p>
+<p><strong>第十五条 入学材料</strong></p>
+<p>学生手册作为<strong>入学必备材料</strong>，家长须<strong>阅读并签字确认</strong>。</p>
+<p>（依据：2025-12-29 会议）</p>
+<p><strong>第十六条 档案与邮寄</strong></p>
+<p>所有升学档案材料<strong>由学校统一准备与封装</strong>，家长不得自行放入未经审核的文件。</p>
+<p>（依据：2026-10-26 会议）</p>
+<h4 id="第六章-隐私与沟通红线" class="h4" data-roles="s p t a">第六章 隐私与沟通红线</h4>
+<p><strong>第十七条 不得泄露他人信息</strong></p>
+<ul>
+<li>不得向家长透露<strong>其他学生</strong>的成绩、表现、家庭情况</li>
+<li><strong>信息隐私是红线</strong>，学校不为教师个人判断背书</li>
+</ul>
+<p>（依据：2026-10-26 会议）</p>
+<p><strong>第十八条 不得公开排名</strong></p>
+<p>家长会、群里<strong>不公布学生排名</strong>，只反馈个人相对自身的变化。</p>
+<p><strong>第十九条 不得私下承诺</strong></p>
+<p>所有升学相关事项<strong>必须在指定钉钉群内公开沟通，禁止私下承诺</strong>。</p>
+<p>（依据：2026-06-29 会议）</p>
+<p><strong>第二十条 沟通口径</strong></p>
+<p>处理家长投诉或争议时：</p>
+<ul>
+<li><strong>只陈述事实与判定结果</strong></li>
+<li>不解释过程、不过度道歉</li>
+<li>不做结果承诺</li>
+</ul>
+<p>（依据：2026-10-19、2026-10-26 会议）</p>
+<h4 id="第七章-响应时效" class="h4" data-roles="s p t a">第七章 响应时效</h4>
+<p><strong>第二十一条 班主任响应</strong></p>
+<p>班主任职责底线：<strong>对家长的响应速度必须达标</strong>——工作时间内 <strong>4 小时内</strong>回复（含"已收到，稍后详答"）。</p>
+<p>（依据：2026-09-14 会议）</p>
+<p><strong>第二十二条 转办</strong></p>
+<p>超出职责范围的诉求，班主任须在 <strong>1 个工作日内</strong>转交对应负责人，并告知家长已转办。</p>
+<h4 id="第八章-附则-3" class="h4" data-roles="s p t a">第八章 附则</h4>
+<p><strong>第二十三条 生效</strong></p>
+<p>本规范自公布之日起施行。</p>
+<p><strong>第二十四条 附：家长最常问的 5 个问题（建议统一话术）</strong></p>
+<div class="table-wrap"><table>
+<tr><th>问题</th><th>标准答复要点</th></tr>
+<tr><td>作业在哪看？</td><td>钉钉 → 家校本（附教程链接）</td></tr>
+<tr><td>成绩怎么查？</td><td>云谷平台；如需看试卷走 OA 审批</td></tr>
+<tr><td>孩子请假怎么办？</td><td>家长提前一天联系班主任</td></tr>
+<tr><td>考试时间？</td><td>见班级群通知，考前一周发布</td></tr>
+<tr><td>想找科任老师？</td><td>通过班主任转达，不私加联系方式</td></tr>
+</table></div>
+<p><em>起草说明：听记中家校沟通的规则分散且多有重复（作业平台、提醒频次、周反馈），本篇统一为可执行的流程，并把"隐私红线"和"口径一致"单列——这两条是过去争议最多的。</em></p>
+</div>
+<div class="blk" data-roles="s p t a" id="blk-10-升学指导工作规范"><h3 id="10-升学指导工作规范" class="h3" data-roles="s p t a">10. 升学指导工作规范</h3>
+<p><em>〔原编号 P2-1〕</em></p>
+<blockquote><strong>适用</strong>：升学指导教师、班主任、学科教师、学生与家长</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 G1–G10 及报考、推荐信、文书相关条款（2025-09 至 2026-10）</blockquote><blockquote class="cont"><strong>目标</strong>：把"谁能说、说什么、怎么留痕"定下来，减少家长对口径的质疑</blockquote>
+<h4 id="第一章-总则-3" class="h4" data-roles="s p t a">第一章 总则</h4>
+<p><strong>第一条 定位</strong></p>
+<p>升学指导是<strong>学校提供的专业服务</strong>，不是个人代办。所有对外表述代表学校，不代表个人。</p>
+<p><strong>第二条 三条底线</strong></p>
+<div class="table-wrap"><table>
+<tr><th>底线</th><th>内容</th><th>依据</th></tr>
+<tr><td><strong>公开留痕</strong></td><td>所有升学事项必须在<strong>指定钉钉群内</strong>沟通，<strong>禁止私下承诺</strong></td><td>2026-06-29</td></tr>
+<tr><td><strong>真实</strong></td><td>推荐信、活动记录、成绩材料<strong>不得造假</strong></td><td>2026-10-17</td></tr>
+<tr><td><strong>不自作主张</strong></td><td>弃科、改目标、改申请方案须经流程，不得教师个人拍板</td><td>2025-10-23</td></tr>
+</table></div>
+<h4 id="第二章-沟通与留痕" class="h4" data-roles="s p t a">第二章 沟通与留痕</h4>
+<p><strong>第三条 沟通渠道</strong></p>
+<ul>
+<li>建立<strong>固定的升学沟通群</strong>（按年级或按申请方向）</li>
+<li>咨询、方案调整、材料确认<strong>全部在群内进行</strong></li>
+<li>一对一沟通后，须在群内<strong>同步结论</strong>（一句话即可）</li>
+</ul>
+<p><strong>第四条 禁止事项</strong></p>
+<ul>
+<li>❌ 私下向家长承诺录取结果、降分、保录</li>
+<li>❌ 以个人名义对外出具推荐、证明材料</li>
+<li>❌ 在群内讨论其他学生的申请情况</li>
+</ul>
+<p><strong>第五条 可追溯</strong></p>
+<p>所有关键决策（定校、改方向、弃科）须留下：<strong>谁提出 → 谁确认 → 何时定</strong>。</p>
+<h4 id="第三章-申请渠道与规范" class="h4" data-roles="s p t a">第三章 申请渠道与规范</h4>
+<p><strong>第六条 必须走学校官方渠道</strong></p>
+<ul>
+<li>所有申请通过学校<strong>官方渠道</strong>提交（UCAS 中心号 / Bus Code）</li>
+<li><strong>严禁学生或家长在校外私自申请</strong></li>
+<li>学校盖章是申请有效性的前提</li>
+</ul>
+<p>（依据：2026-09-28 会议）</p>
+<p><strong>第七条 香港方向特别规定</strong></p>
+<ul>
+<li>预估分<strong>最高提两档</strong>，超出须书面说明理由</li>
+<li>必须通过学校渠道提交并盖章</li>
+<li>学校需掌握录取数据以做背书</li>
+</ul>
+<p>（依据：2026-09-28 会议）</p>
+<p><strong>第八条 预估分的条件性</strong></p>
+<p>开具预估分时须<strong>书面告知</strong>：预估分以学生后续达成实际成绩为前提。</p>
+<p>（依据：2026-03-12 会议）</p>
+<p><strong>第九条 外部信息核实</strong></p>
+<p>不得采信外部机构的绝对化说法（如"必须全科实考"）。<strong>学校更看重来源学校的信誉度</strong>；对外统一由升学指导核实后表述。</p>
+<p>（依据：2025-12-03 会议）</p>
+<h4 id="第四章-弃科与选科" class="h4" data-roles="s p t a">第四章 弃科与选科</h4>
+<p><strong>第十条 教师不得直接建议弃考</strong></p>
+<p>学科教师<strong>不得直接建议学生弃考某科</strong>。弃科决策须由<strong>申请老师依据 offer 条件</strong>提供依据，教学团队仅负责执行标准要求。</p>
+<p>（依据：2025-10-23 会议）</p>
+<p><strong>第十一条 弃科的时间风险</strong></p>
+<p>弃科建议若在一模后才提出，易与<strong>考试缴费截止时间冲突</strong>。因此：</p>
+<ul>
+<li>弃科评估须在<strong>报考截止前</strong>完成</li>
+<li>涉及费用变化的，按考试局弃考规则执行（逾期不退）</li>
+</ul>
+<p>（依据：2026-04-20 会议）</p>
+<p><strong>第十二条 弃考流程</strong></p>
+<p>见《考试与成绩管理办法》。弃考/加考统一走 <strong>OA → 爱德思考试异动</strong>。</p>
+<h4 id="第五章-文书与推荐信" class="h4" data-roles="s p t a">第五章 文书与推荐信</h4>
+<p><strong>第十三条 真实性</strong></p>
+<ul>
+<li>推荐信内容<strong>必须真实</strong>，任何造假都会导致严重后果</li>
+<li>实习/活动证明须由组织方出具，教师不得代写事实性内容</li>
+</ul>
+<p>（依据：2026-10-17 会议）</p>
+<p><strong>第十四条 定制化要求</strong></p>
+<p>重点院校（如 LSE 金融）文书<strong>必须定制化</strong>，不得与其他学校共用通用 PS。</p>
+<p>（依据：2026-03-09 会议）</p>
+<p><strong>第十五条 可解释性</strong></p>
+<p>PS 中提到的任何内容，学生<strong>必须能用英文清晰阐述</strong>，避免面试时无法解释。</p>
+<p>（依据：2025-12-29 会议）</p>
+<p><strong>第十六条 交付周期</strong></p>
+<p>文书交付引入时间约束（建议 <strong>5–10 个工作日</strong>），通过系统设置提醒与强制节点，避免无限拖延。</p>
+<p>（依据：2026-10-15 会议）</p>
+<h4 id="第六章-时间轴与节点" class="h4" data-roles="s p t a">第六章 时间轴与节点</h4>
+<p><strong>第十七条 申请时间轴</strong></p>
+<p>每届学生须在<strong>高二下</strong>形成申请时间轴，明确：</p>
+<ul>
+<li>语言考试节点（雅思/托福）</li>
+<li>文书初稿、定稿</li>
+<li>推荐信邀约</li>
+<li>各校截止日期</li>
+</ul>
+<p><strong>第十八条 提交节奏</strong></p>
+<ul>
+<li>建议在<strong>首轮截止前</strong>（约 11 月中旬）提交，但不必过早</li>
+<li>早申/滚动录取院校单独标注</li>
+</ul>
+<p>（依据：2026-03-09 会议）</p>
+<p><strong>第十九条 定校确认</strong></p>
+<p>定校名单须在 <strong>OA 审批系统中正式确认</strong>后方可执行。</p>
+<p>（依据：2025-09-22 会议）</p>
+<h4 id="第七章-材料与档案" class="h4" data-roles="s p t a">第七章 材料与档案</h4>
+<p><strong>第二十条 统一封装</strong></p>
+<p>所有申请档案材料由<strong>学校统一准备与封装</strong>，家长不得自行放入未经审核的文件。</p>
+<p>（依据：2026-10-26 会议）</p>
+<p><strong>第二十一条 归档</strong></p>
+<p>毕业生档案按《档案管理要求》统一归档、盖章、邮寄；电子件同步存档。</p>
+<h4 id="第八章-与相邻制度的衔接" class="h4" data-roles="s p t a">第八章 与相邻制度的衔接</h4>
+<div class="table-wrap"><table>
+<tr><th>事项</th><th>走哪份文件</th></tr>
+<tr><td>特殊照顾（Special Consideration）</td><td>《特殊照顾申请判定标准》</td></tr>
+<tr><td>弃考/加考</td><td>《考试与成绩管理办法》</td></tr>
+<tr><td>与家长沟通的口径</td><td>《家校沟通规范》第六章</td></tr>
+<tr><td>学生行为/纪律</td><td>《学生违纪处理与教育惩戒办法》</td></tr>
+</table></div>
+<h4 id="第九章-附则-2" class="h4" data-roles="s p t a">第九章 附则</h4>
+<p><strong>第二十二条 生效</strong></p>
+<p>本规范自公布之日起施行。对外发布材料须经教学管理部门审核。</p>
+<p><strong>第二十三条 附：升学沟通标准话术</strong></p>
+<div class="table-wrap"><table>
+<tr><th>场景</th><th>标准表述</th></tr>
+<tr><td>家长问"能保录吗"</td><td>"学校提供申请指导，录取由大学决定，我们不做任何录取承诺。"</td></tr>
+<tr><td>家长问"能不能校外申请"</td><td>"所有申请须通过学校官方渠道提交并盖章，校外私申学校无法背书。"</td></tr>
+<tr><td>家长问"预估分能再高吗"</td><td>"预估分上限为两档，且需学生后续达成相应成绩。"</td></tr>
+<tr><td>家长问"老师能帮忙写推荐信吗"</td><td>"推荐信由了解学生的教师出具，内容必须真实，不能代写事实。"</td></tr>
+</table></div>
+<p><em>起草说明：听记中升学相关的规则集中在 2026-03、2026-09 两轮讨论，本条把"渠道唯一、留痕、真实"三条作为骨架，其余为执行细则。</em></p>
+</div>
+<div class="blk" data-roles="t a" id="blk-第五编-治理与技术支持-2"><h2 id="第五编-治理与技术支持-2" class="h2" data-roles="t a">第五编  治理与技术支持</h2>
+</div>
+<div class="blk" data-roles="t a" id="blk-11-ai-使用与数据治理规范"><h3 id="11-ai-使用与数据治理规范" class="h3" data-roles="t a">11. AI 使用与数据治理规范</h3>
+<p><em>〔原编号 P2-3〕</em></p>
+<blockquote><strong>适用</strong>：全体教职员工、学生（涉及作业与考试部分）</blockquote><blockquote class="cont"><strong>状态</strong>：草案</blockquote><blockquote class="cont"><strong>整合来源</strong>：听记台账 I1–I6 及学术诚信条款（2026-09 至 2026-10）</blockquote><blockquote class="cont"><strong>目标</strong>：让 AI 用得住、用得起、不惹事——把"能用什么、不能用什么、出了事谁负责"写清楚</blockquote>
+<h4 id="第一章-总则-4" class="h4" data-roles="s p t a">第一章 总则</h4>
+<p><strong>第一条 定位</strong></p>
+<p>AI 是<strong>提升效率的工具</strong>，不替代教师判断，不替代学生的独立思考。</p>
+<p><strong>第二条 三句话原则</strong></p>
+<p class="ol-item"><strong>引用要能追</strong>：用 AI 得到的结论，必须能指回来源</p>
+<p class="ol-item"><strong>判断要人做</strong>：AI 可以生成，教师必须复核</p>
+<p class="ol-item"><strong>数据要干净</strong>：喂给 AI 的数据先做治理，否则结论不可信</p>
+<h4 id="第二章-使用原则" class="h4" data-roles="s p t a">第二章 使用原则</h4>
+<p><strong>第三条 必须保留来源</strong></p>
+<p>使用 AI 生成的事实性内容，<strong>必须要求其给出引用来源</strong>；无来源的数据不得直接进入对外材料。</p>
+<p>（依据：2026-09-21 会议）</p>
+<p><strong>第四条 先思考，后润色</strong></p>
+<p>不得让 AI <strong>代替</strong>你形成总结或方案。正确顺序是：</p>
+<pre><code>
+自己先独立思考、理出结构 → 用 AI 润色/查漏 → 自己再终审
+</code></pre>
+<p>（依据：2026-10-20 会议）</p>
+<p><strong>第五条 人机边界</strong></p>
+<ul>
+<li>AI 可起草，<strong>责任人必须是具体的人</strong></li>
+<li>对外发布的任何材料（家长通知、报告、文书），<strong>署名者承担全部责任</strong></li>
+</ul>
+<h4 id="第三章-可用与禁用场景" class="h4" data-roles="s p t a">第三章 可用与禁用场景</h4>
+<p><strong>第六条 教师可用场景</strong></p>
+<div class="table-wrap"><table>
+<tr><th>场景</th><th>允许</th><th>要求</th></tr>
+<tr><td>备课素材整理</td><td>✅</td><td>须核对学科准确性</td></tr>
+<tr><td>听课记录整理与归因</td><td>✅</td><td>结论须基于原始记录</td></tr>
+<tr><td>试卷分析（错因归类）</td><td>✅</td><td>须人工抽查核分</td></tr>
+<tr><td>家长通知起草</td><td>✅</td><td>须按《家校沟通规范》口径改写</td></tr>
+<tr><td>数据汇总与统计</td><td>✅</td><td>原始数据须先治理</td></tr>
+<tr><td>学生个性化建议初稿</td><td>✅</td><td><strong>不得直接发给家长</strong>，须教师改写</td></tr>
+</table></div>
+<p><strong>第七条 教师禁用场景</strong></p>
+<div class="table-wrap"><table>
+<tr><th>场景</th><th>禁止理由</th></tr>
+<tr><td>❌ 直接生成学生评语并发送家长</td><td>缺少真实观察，易失真</td></tr>
+<tr><td>❌ 用 AI 判定学生纪律问题</td><td>涉及权益，须人判</td></tr>
+<tr><td>❌ 把学生成绩、名单、家庭信息上传公共 AI</td><td>隐私泄露</td></tr>
+<tr><td>❌ 用 AI 生成推荐信事实性内容</td><td>造假风险</td></tr>
+<tr><td>❌ 用 AI 结果替代评分标准判分</td><td>学术公平</td></tr>
+</table></div>
+<p><strong>第八条 学生使用边界</strong></p>
+<ul>
+<li>允许：语言润色、思路启发、知识点讲解、错题变式</li>
+<li><strong>禁止</strong>：提交由 AI 或其他工具<strong>代答</strong>的内容（适用一切书面与口试环节）</li>
+<li>违规按《学生违纪处理与教育惩戒办法》处理</li>
+</ul>
+<p>（依据：《校内考试教师工作指导手册》学术诚信条款）</p>
+<h4 id="第四章-数据治理-前置条件" class="h4" data-roles="s p t a">第四章 数据治理（前置条件）</h4>
+<p><strong>第九条 三步治理</strong></p>
+<p>接入 AI 前，数据必须完成：</p>
+<p class="ol-item"><strong>去重</strong>——同一份文件不重复入库</p>
+<p class="ol-item"><strong>版本校验</strong>——剔除过期版本（如钉钉里的旧文件）</p>
+<p class="ol-item"><strong>结构化整理</strong>——统一命名、分类、字段</p>
+<blockquote>判据：<strong>数据不干净，AI 输出必然不可信。</strong> 这一步不做，后面全是返工。</blockquote>
+<p>（依据：2026-09-21、2026-09-24 会议）</p>
+<p><strong>第十条 数据分级</strong></p>
+<div class="table-wrap"><table>
+<tr><th>级别</th><th>内容</th><th>AI 处理</th></tr>
+<tr><td>L1 公开</td><td>招生简章、课程介绍</td><td>可自由使用</td></tr>
+<tr><td>L2 内部</td><td>教案、会议纪要、教研材料</td><td>可用，须内部工具</td></tr>
+<tr><td>L3 敏感</td><td>学生成绩、考勤、家庭情况、心理记录</td><td><strong>仅限校内环境</strong>，须脱敏</td></tr>
+<tr><td>L4 禁止</td><td>身份证号、银行信息、医疗诊断原件</td><td><strong>禁止进入任何 AI 工具</strong></td></tr>
+</table></div>
+<p><strong>第十一条 最小必要</strong></p>
+<p>只提供完成任务所必需的数据，不做"全量上传看看能干什么"。</p>
+<h4 id="第五章-工具与权限" class="h4" data-roles="s p t a">第五章 工具与权限</h4>
+<p><strong>第十二条 工具准入</strong></p>
+<ul>
+<li>学校统一评估并授权的 AI 工具方可使用</li>
+<li>个人擅自采购、注册、接入的，责任自负，且不得处理 L3 以上数据</li>
+</ul>
+<p><strong>第十三条 账号管理</strong></p>
+<ul>
+<li>学校账号专人专用，不得共享</li>
+<li>离职人员账号须在办理离职时同步停用</li>
+</ul>
+<p><strong>第十四条 云谷与钉钉</strong></p>
+<ul>
+<li>教学数据以云谷、钉钉为准，AI 工具只做加工，不另建数据源</li>
+<li>两套系统间的一致性由教务负责核对</li>
+</ul>
+<p>（依据：2026-09-21 会议）</p>
+<h4 id="第六章-记录-审计与责任" class="h4" data-roles="s p t a">第六章 记录、审计与责任</h4>
+<p><strong>第十五条 留痕</strong></p>
+<p>涉及 L3 数据的 AI 处理，须记录：<strong>谁、什么时间、用什么工具、处理了什么、结论是什么</strong>。</p>
+<p><strong>第十六条 抽查</strong></p>
+<p>每学期至少抽查一次 AI 生成材料的准确性（重点：成绩统计、学生评语、家长通知）。</p>
+<p><strong>第十七条 责任</strong></p>
+<ul>
+<li>使用人：对内容真实性负责</li>
+<li>审核人（组长/主管）：对发布合规性负责</li>
+<li>学校：对工具选型与数据边界负责</li>
+</ul>
+<h4 id="第七章-附则-3" class="h4" data-roles="s p t a">第七章 附则</h4>
+<p><strong>第十八条 生效</strong></p>
+<p>本规范自公布之日起施行，遇新工具或新法规及时修订。</p>
+<p><strong>第十九条 附：一页速查</strong></p>
+<pre><code>
+能问 AI 的：
+  ✅ 帮我查这个概念的准确定义（要求给来源）
+  ✅ 把这份听课记录归纳成三条要点（我自己再核）
+  ✅ 这份家长通知改得更清楚一点（不改变事实）
+
+不能问 AI 的：
+  ❌ 这个学生该不该处分？
+  ❌ 帮我写这个孩子的期末评语，直接发家长
+  ❌ 这是全班成绩单，帮我分析（未脱敏）
+</code></pre>
+<p><em>起草说明：听记中 AI 相关讨论集中在 2026-09（工具选型、数据治理）与 2026-10（AI 使用边界），本篇把散落的"要用 AI""AI 不能乱用"两类表述落成可执行的红线，重点是<strong>分级</strong>与<strong>责任到人</strong>。</em></p>
+</div>
+<div class="blk" data-roles="t a" id="blk-附录-a-待确认事项清单-10-项"><h1 id="附录-a-待确认事项清单-10-项" class="h1" data-roles="t a">附录 A  待确认事项清单（10 项）</h1>
+<blockquote>填实后方可定稿发布。每项标注责任方。</blockquote>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>事项</th><th>出自</th><th>责任方</th></tr>
+<tr><td>1</td><td>各年级合格线具体标准</td><td>上卷·学业警示</td><td>各教研组</td></tr>
+<tr><td>2</td><td>单科最低要求（留级触发线）</td><td>上卷·学业警示</td><td>教学主管</td></tr>
+<tr><td>3</td><td>缺勤率统计口径（是否含请假）</td><td>上卷·学业警示</td><td>教务</td></tr>
+<tr><td>4</td><td>迟到标准最终确认</td><td>上卷·入场规定</td><td>考务 + 教学</td></tr>
+<tr><td>5</td><td>考前 30 分钟内允许入场的准确含义</td><td>上卷·入场规定</td><td>考务</td></tr>
+<tr><td>6</td><td>特殊照顾申请时限（考试局规定）</td><td>上卷·特殊照顾</td><td>考务</td></tr>
+<tr><td>7</td><td>补课收费标准（150 元/人/小时）</td><td>上卷·请假调课</td><td>财务 + 校长</td></tr>
+<tr><td>8</td><td>巅峰计划前 20 名硬性留存的适用范围</td><td>上卷·考试管理</td><td>升学 + 校长</td></tr>
+<tr><td>9</td><td>素质课是否适用同一考试规则</td><td>—</td><td>教学主管</td></tr>
+<tr><td>10</td><td>各制度统一生效日期</td><td>—</td><td>校长办公会</td></tr>
+</table></div>
+</div>
+<div class="blk" data-roles="a" id="blk-附录-b-剩余缺口-3-项"><h1 id="附录-b-剩余缺口-3-项" class="h1" data-roles="a">附录 B  剩余缺口（3 项）</h1>
+<div class="table-wrap"><table>
+<tr><th>#</th><th>缺口</th><th>现状</th><th>需要谁提供</th></tr>
+<tr><td>1</td><td>教师 KPI 具体标准</td><td>只有原则（依教学成果），无维度与权重</td><td>教学主管 + 人事</td></tr>
+<tr><td>2</td><td>补课收费与分成细则</td><td>散见 150/100 元，无正式定价文件</td><td>财务</td></tr>
+<tr><td>3</td><td>家长进校报备流程</td><td>会议提及已建新规则，未见文件</td><td>校办</td></tr>
+</table></div>
+</div>
+<div class="blk" data-roles="a" id="blk-附录-c-来源覆盖与统计"><h1 id="附录-c-来源覆盖与统计" class="h1" data-roles="a">附录 C  来源覆盖与统计</h1>
+<div class="table-wrap"><table>
+<tr><th>来源</th><th>覆盖范围</th><th>条目/规模</th></tr>
+<tr><td>听记笔记（全量版）</td><td>2025-09-22 至 2026-10-21，N001–N194</td><td>194 条笔记</td></tr>
+<tr><td>AI 听记（台账）</td><td>2024-07-11 至 2026-10-29，267 条</td><td>110 条制度条目</td></tr>
+<tr><td>成文文件</td><td>制度 PDF/DOCX 原件</td><td>11 份制度 + 2 本手册</td></tr>
+</table></div>
+<p><em>本汇编融合自：《ICC 制度汇编》11 份成文制度 + 《学校制度性内容汇编（全量版）》194 条听记笔记 + 267 场会议记录。</em></p>
+<p><em>上卷执行以正式发布文件为准；下卷仅作记录与追溯之用。</em></p></div>
+  </article>
+</main>
+
+<div id="results"><h2>搜索结果</h2><div id="rlist"></div></div>
+<button id="totop" title="回到顶部">↑</button>
+
+<script>
+const INDEX = [{"id": "icc-学校制度汇编-公开版", "t": "ICC 学校制度汇编（公开版）", "s": "ICC 学校制度汇编（公开版） 石家庄外国语学校国际课程中心 2026 学年版 · 草案 本汇编收录 11 份成文制度，按适用对象分为五编。 状态 ：全部为草案，须按《制度发布实施方案》走完征求意见、审议、公布、备案程序后方可施行。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "说明", "t": "说明", "s": "说明 本汇编为学校层面制度的 成文条款版 ：把散落在会议记录中的规定，整理为可执行、可追溯的制度文本。 每章开头的「适用 / 状态 / 整合来源」标注了该制度的适用范围与来源范围；条文末尾的「（依据：xxxx-xx-xx 会议）」标注了具体出处。 使用建议 ： 先看自己所属角色的章节（学生/家长看行为规范与考试；教师看考务与教学管理）； 涉及争议时，以条文为准，并回溯「依据」中的会议日期核对原文； 草案中的【待确认】【建议值】需学校确认后才能作为执行依据。 <div class=\"blk\" data-roles=\"\"", "r": "s p t a"}, {"id": "目录", "t": "目录", "s": "目录 <div class=\"blk\" data-roles=\"\"", "r": ""}, {"id": "第一编-学生行为与纪律", "t": "第一编  学生行为与纪律", "s": "第一编 学生行为与纪律 1. 学生日常行为规范 2. 学业警示制度 3. 学生违纪处理与教育惩戒办法 <div class=\"blk\" data-roles=\"\"", "r": ""}, {"id": "第二编-考试与考务", "t": "第二编  考试与考务", "s": "第二编 考试与考务 4. 考试与成绩管理办法 5. 考试入场与迟到处理规定 6. 特殊照顾申请判定标准 <div class=\"blk\" data-roles=\"\"", "r": ""}, {"id": "第三编-教师管理", "t": "第三编  教师管理", "s": "第三编 教师管理 7. 教师发展与考核办法 8. 请假、调课与代课管理办法 <div class=\"blk\" data-roles=\"\"", "r": ""}, {"id": "第四编-家校与升学", "t": "第四编  家校与升学", "s": "第四编 家校与升学 9. 家校沟通规范 10. 升学指导工作规范 <div class=\"blk\" data-roles=\"\"", "r": ""}, {"id": "第五编-治理与技术支持", "t": "第五编  治理与技术支持", "s": "第五编 治理与技术支持 11. AI 使用与数据治理规范 <div class=\"blk\" data-roles=\"\"", "r": ""}, {"id": "附录", "t": "附录", "s": "附录 A. 待确认事项清单（10 项） B. 剩余缺口（3 项） C. 来源覆盖与统计 <div class=\"blk\" data-roles=\"s p t a\"", "r": ""}, {"id": "上卷-成文制度-可执行", "t": "上卷 · 成文制度（可执行）", "s": "上卷 · 成文制度（可执行） 本卷为条款式制度文本，适用于直接执行与培训。每章标注原制度编号，与单项文件对照。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "第一编-学生行为与纪律-2", "t": "第一编  学生行为与纪律", "s": "第一编 学生行为与纪律 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "1-学生日常行为规范", "t": "1. 学生日常行为规范", "s": "1. 学生日常行为规范 〔原编号 P1-2〕 适用 ：全体在读学生 状态 ：草案 整合来源 ：听记台账 B1–B16（2025-09 至 2026-10） 配套文件 ：《学生违纪处理与教育惩戒办法》（本规范规定\"应当怎样\"，该办法规定\"违规怎么办\"） <h4", "r": "s p t a"}, {"id": "第一章-仪容仪表", "t": "第一章 仪容仪表", "s": "第一章 仪容仪表 第一条 校服 教室内 所有学生必须着装完整校服 。 禁止 ：外套内穿帽衫、棒球服、半袖T恤等非校服内搭。 （依据：2025-10-28 会议） 第二条 集合场合 升旗、集会等正式场合： 脱帽、不使用手机 。 （依据：2026-03-31 会议） <h4", "r": "s p t a"}, {"id": "第二章-电子产品", "t": "第二章 电子产品", "s": "第二章 电子产品 第三条 手机：禁止入校原则 学生 不得携带手机进入校园 发现使用即 暂扣 ，由班主任登记保管并交还家长 重点巡查区域：楼梯口、走廊、洗手间 （依据：2026-01-12 会议） 第四条 平板（iPad） iPad 为 教学工具 ，仅在教师指定环节使用 课堂内 不得 用于聊天、发图、游戏、刷视频 违规者： 收缴设备 + 记入当周周反馈的课堂表现栏 有前科的学生 ，进入该教师课堂前先交 iPad，改用纸质笔记本 （依据：2025-11-11、2026-03-10、2026-04-13 会议） 第五条 耳机与智能穿戴 课堂内 不得佩戴耳机 ；智能手表、手环 不得在考试及课堂使用 。 <h4", "r": "s p t a"}, {"id": "第三章-晚自习", "t": "第三章 晚自习", "s": "第三章 晚自习 第六条 参加要求 高二年级 强制参加 晚自习；特殊情况可请假，但 原则上不得缺席 IG 基础段不得缺勤 ，禁止利用该时段提前离校或外出游玩 （依据：2025-11-04、2026-01-08 会议） 第七条 教室安排 高二、高三 不得滞留原教室 ，必须前往指定晚自习教室 违规高发区（阅览室、511、503）加强巡视 （依据：2026-03-10 会议） 第八条 出入时限 第一节晚自习结束前： FIG / IG 学生不得外出 高二、高三： 19:00 前不得外出 特殊情况提前离校须 班主任签字确认 （依据：2026-01-08、2025-11-11 会议） 第九条 自习纪律 禁止随意走动与闲聊 值班教师 每 20–30 分钟巡视一次 ，检查外出签字情况 值班结束：点名设备、手机、iPad 及签到表 须放回 518 教室 （依据：2025-11-04、2025-09-04、20", "r": "s p t a"}, {"id": "第四章-校园秩序", "t": "第四章 校园秩序", "s": "第四章 校园秩序 第十条 外卖 禁止外卖入校 。学生可选择在校就餐或外出就餐（限规定时段）。 （依据：2026-03-02 会议） 第十一条 电梯 电梯使用 严禁开口子 ，任何年级、任何理由不得例外。教师须严格监督。 （依据：2026-09-14 会议） 第十二条 校园行为 禁止在走廊、楼梯追逐打闹 禁止骑电动车进入校园 禁止在教室用餐（学校统一安排区域除外） （依据：2026-09-22 会议） <h4", "r": "s p t a"}, {"id": "第五章-课堂常规", "t": "第五章 课堂常规", "s": "第五章 课堂常规 第十三条 出勤 按时到课。迟到须在教室门口报告，经教师允许后入座。 第十四条 课堂要求 桌面只留当堂所需文具与教材 不得下棋、玩牌等非学习活动 不得背对教师、趴桌睡觉 （依据：2026-03-10 会议） 第十五条 作业 作业发布平台 统一为钉钉家校本 （详见《家校沟通规范》） 作业按时提交；长期请假者由教师单独布置补充任务， 不纳入作业达标考核 （依据：2026-09-21、2025-10-14 会议） <h4", "r": "s p t a"}, {"id": "第六章-外出与集体活动", "t": "第六章 外出与集体活动", "s": "第六章 外出与集体活动 第十六条 外出登记 学生外出 需签字并注明原因 屡次违规者限制后续晚自习资格 （依据：2025-09-04 会议） 第十七条 集体活动 校外活动期间 不得离队 、 不准点外卖 外出活动 当晚必须返校 ， 禁止私自留宿酒店 ；名单交酒店备案 （依据：2025-11-18、2026-03-30 会议） 第十八条 活动准备 参加校外活动前须参加行前指导会，明确安全要求与禁止事项。 <h4", "r": "s p t a"}, {"id": "第七章-卫生与公共财物", "t": "第七章 卫生与公共财物", "s": "第七章 卫生与公共财物 第十九条 教室卫生 个人座位周边垃圾自行清理 值日按班级安排执行 考场使用后须恢复整洁（桌椅归位、无纸屑） 第二十条 公物爱护 故意损坏公物须照价赔偿，并纳入行为记录。 <h4", "r": "s p t a"}, {"id": "第八章-附则", "t": "第八章 附则", "s": "第八章 附则 第二十一条 违规处理 违反本规范的，按《学生违纪处理与教育惩戒办法》分级处理， 不得体罚、不得变相体罚、不得因学业成绩惩戒 。 第二十二条 解释与修订 本规范由教学管理部门解释；修订须经征求意见、校长办公会审议后公布。 附：本规范与\"处理办法\"的分工 文件 回答的问题 本规范 学生 应当 怎样做（行为标准） 违纪处理与教育惩戒办法 违反了 怎么办 （处理程序与后果） 起草说明：听记中大量行为要求散落在各班、各年级的通知里（校服、手机、晚自习、外卖、电梯），本篇统一为全校一致标准，避免\"这个班管那个班不管\"。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "2-学业警示制度", "t": "2. 学业警示制度", "s": "2. 学业警示制度 〔原编号 P3-2〕 适用 ：Pre-IG（FIG/PreIG）、IG、A-Level（AS/A2）全体学生 状态 ：草案 · 三处【建议值】需学校确认 为什么必须有这份文件 ：现有《考试与成绩管理办法》《学生违纪处理与教育惩戒办法》《考试规则（学生家长版）》 九次引用\"学业警示\" ，但从未有成文制度——学生被警示时无据可依，家长质疑时无法回应 启用时点 ：2026 年秋季期中考试后（依 2026-10-12 会议决议） <h4", "r": "s p t a"}, {"id": "第一章-总则", "t": "第一章 总则", "s": "第一章 总则 第一条 目的 学业警示不是处分，是 提前预警 + 配套支持 。它的作用是让学生在问题变严重之前被看见、被帮助。 第二条 三条原则 数据触发 ——依据可核对的成绩、出勤、作业数据，不凭印象 先支持后结论 ——发出警示的同时，必须给出具体支持措施 可解除 ——达到改进目标即可撤销，不长期挂账 第三条 与纪律处分的区别 学业警示 纪律处分 对象 学习状态 行为违规 依据 成绩/出勤/作业数据 校规校纪 目的 干预与支持 纠正与约束 记录 学业档案 行为档案 注意 ：不得因学业成绩施加纪律处分（《教育惩戒规则》第 12 条第 5 项）。两者必须分开。 <h4", "r": "s p t a"}, {"id": "第二章-三级警示", "t": "第二章 三级警示", "s": "第二章 三级警示 <h5", "r": "s p t a"}, {"id": "一-黄色警示-关注", "t": "一、黄色警示（关注）", "s": "一、黄色警示（关注） 触发条件（满足任一） 指标 阈值【建议值】 期中/期末总评 低于该年级合格线，或较上次 下降 ≥ 2 个等级 单科 低于该科合格线 出勤 学期缺勤率 ≥ 10% 作业完成率 连续 3 周低于 80% 考试缺考 旷考 （未请假缺考，直接触发） 处理动作 班主任 + 学科教师会商，形成《学业支持计划》 与学生一对一谈话（记录要点） 家长 书面知晓 （钉钉 + 回执） 安排：补课、答疑、分层辅导 复评 ： 4 周 后复评，达标则解除 <h5", "r": "s p t a"}, {"id": "二-红色警示-重点干预", "t": "二、红色警示（重点干预）", "s": "二、红色警示（重点干预） 触发条件（满足任一） 指标 阈值【建议值】 连续两次考试 均处于黄色警示状态 单科 连续两次低于合格线 出勤 学期缺勤率 ≥ 20% 作业完成率 连续 6 周低于 60% 黄牌期间 未完成《学业支持计划》 处理动作 年级负责人牵头，教研组参与制定 专项提升方案 家长 面谈 （不能只发通知） 明确：目标、措施、责任人、验收时间 涉及升学的，升学指导介入评估影响 复评 ： 6 周 后复评 <h5", "r": "s p t a"}, {"id": "三-留级警示-重大调整", "t": "三、留级警示（重大调整）", "s": "三、留级警示（重大调整） 触发条件（同时满足） 连续两次红色警示，且复评未达标 或单科成绩低于该科最低要求【待定】 或年度缺勤率 ≥ 30% 处理动作 校长办公会审议 家长面谈 + 书面告知 拟定方案：留级 / 调整层级 / 转轨（如转其他课程方向） 须告知申诉权利 复评 ：按调整后学期评估 <h4", "r": "s p t a"}, {"id": "第三章-数据来源与采集", "t": "第三章 数据来源与采集", "s": "第三章 数据来源与采集 第四条 数据三源 数据 来源 采集频率 责任人 学业成绩 云谷平台 每次大考后 教务 出勤 钉钉考勤 / 晚自习签到 每周 班主任 作业完成率 钉钉家校本 每周 任课教师 第五条 数据质量要求 必须 去重、校验版本 （同一考试多次录入以最终版为准） 缺考按\"缺考\"记录， 不等同于低分 数据异常（如系统故障）须标注，不作为警示依据 <h4", "r": "s p t a"}, {"id": "第四章-作业红黄牌-与学业警示的关系", "t": "第四章 作业红黄牌（与学业警示的关系）", "s": "第四章 作业红黄牌（与学业警示的关系） 第六条 定位 作业红黄牌是 周频次的过程性提醒 ，比学业警示更轻、更快，用于 早期干预 。 第七条 规则【建议值】 牌 触发 处理 黄牌 单周作业完成率 < 80% 任课教师提醒 + 记录周反馈 红牌 连续两周黄牌，或单周 < 60% 班主任介入 + 家长知晓 累计红牌 一学期累计 3 次红牌 转化为黄色学业警示 设计意图：把\"每周的小问题\"和\"学期的重大问题\"连起来，避免小问题拖成大问题。 <h4", "r": "s p t a"}, {"id": "第五章-流程", "t": "第五章 流程", "s": "第五章 流程 数据采集（教务/班主任/任课教师） ↓ 年级学业分析会（每学期 2 次：期中后、期末后） ↓ 初步名单 → 复核数据（剔除异常） ↓ 确定级别（黄 / 红 / 留级） ↓ 通知与支持（班主任 + 学科教师 + 家长） ↓ 复评（黄 4 周 / 红 6 周） ↓ 解除 或 升级 第八条 时限 成绩发布后 10 个工作日内 完成警示发放 家长通知后 5 个工作日内 完成第一次干预安排 <h4", "r": "s p t a"}, {"id": "第六章-支持措施-必须给-不能只警示", "t": "第六章 支持措施（必须给，不能只警示）", "s": "第六章 支持措施（必须给，不能只警示） 第九条 支持选项 级别 可用支持 黄 课后答疑、分层作业、学科补课、周反馈跟踪 红 一对一辅导、专项提升计划、调整学习小组、升学指导会商 留级 课程调整、转轨方案、心理支持 第十条 支持的责任人 每份支持计划须写明： 谁负责、做什么、什么时候验收 。没有责任人的支持计划视为未落实。 <h4", "r": "s p t a"}, {"id": "第七章-家长沟通", "t": "第七章 家长沟通", "s": "第七章 家长沟通 第十一条 告知方式 级别 方式 留痕 黄 钉钉通知 + 电子回执 系统记录 红 电话 + 面谈 谈话记录 + 家长签字 留级 面谈 + 书面告知书 签字原件存档 第十二条 沟通口径 只陈述 数据事实 与 具体行动 不使用\"这孩子不行\"\"没希望\"这类判断性语言 不与其他学生横向比较 明确告知 解除条件 <h4", "r": "s p t a"}, {"id": "第八章-记录-复评与申诉", "t": "第八章 记录、复评与申诉", "s": "第八章 记录、复评与申诉 第十三条 记录 警示记录进入 学业档案 （非行为档案） 解除后标注\"已解除\"，不删除（保留过程证据） 第十四条 复评 按第二章时限复评 复评依据：成绩变化、出勤、作业完成率、教师观察 达标即解除，并在家长群/家长处同步 第十五条 申诉 学生或家长对警示有异议，可在 收到通知后 10 个工作日内 向年级负责人提出，由年级组织复核；对复核结果不服，可向教学管理部门申诉。 <h4", "r": "s p t a"}, {"id": "第九章-附则", "t": "第九章 附则", "s": "第九章 附则 第十六条 生效 本制度自公布之日起施行，期中考试后首次执行。 第十七条 待确认事项（三处） # 事项 建议 1 各年级\"合格线\"的具体标准 按 IGCSE A –G / A-Level A –E 换算，需各教研组给出 2 单科\"最低要求\"（留级触发） 建议不低于 E/4 分，需确认 3 缺勤率统计口径 是否含请假？建议\"含请假但单列\" <h4", "r": "s p t a"}, {"id": "附-一页判定表", "t": "附：一页判定表", "s": "附：一页判定表 指标 黄 红 留级 成绩 低于合格线 / 降 2 级 连续 2 次黄 连续 2 次红未改善 单科 低于合格线 连续 2 次低于 低于最低要求 缺勤率 ≥ 10% ≥ 20% ≥ 30% 作业完成率 连续 3 周 < 80% 连续 6 周 < 60% — 旷考 直接黄 — — 红黄牌 累计 3 次红牌 → 黄 — — 起草说明：本制度把听记中零散出现的\"标黄科目\"\"红黄牌\"\"留级警示\"三类表述统一为一个三级体系，并明确它 不是处分 ——这一点过去在讨论中常被混淆。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "3-学生违纪处理与教育惩戒办法", "t": "3. 学生违纪处理与教育惩戒办法", "s": "3. 学生违纪处理与教育惩戒办法 〔原编号 P0-1〕 制定依据 ：《中小学教育惩戒规则（试行）》（教育部令第 49 号，2021-03-01 施行） 状态 ：草案，待征求意见后提交校长办公会审议、报主管教育部门备案 重要提示 ：按第 6 条， 未经公布的校规校纪不得施行 。本办法须正式发布后方可作为处理依据。 <h4", "r": "s p t a"}, {"id": "第一章-总则-2", "t": "第一章 总则", "s": "第一章 总则 第一条 目的 规范学生违纪处理，保障学生合法权益，同时保障教师依法履行教育管理职责。 第二条 三项原则 教育性 ——处理的目的在纠正行为，不在惩罚本身 相称性 ——措施与学生过错程度相适应，不因个别学生违规而牵连全体 可预期 ——事先告知、标准公开、一视同仁 第三条 与学业成绩脱钩 不得因学业成绩实施教育惩戒（法规第 12 条第 5 项明令禁止）。 <h4", "r": "s p t a"}, {"id": "第二章-分级处理", "t": "第二章 分级处理", "s": "第二章 分级处理 <h5", "r": "s p t a"}, {"id": "一级-当场处理-教师可直接实施", "t": "一级：当场处理（教师可直接实施）", "s": "一级：当场处理（教师可直接实施） 措施 适用 告知 点名批评 课堂轻微违纪 可适当方式告知家长 责令赔礼道歉、口头/书面检讨 影响他人 同上 增加额外教学任务或班级公益服务 屡提醒不改 同上 教室内站立，限一节课时间内 课堂秩序类 同上 课后教导（留堂谈话） 课后跟进 同上 ⚠️ 站立时间的红线 ：只能\" 一节课堂教学时间内、教室内 \"。超过一节课、站到教室外、烈日下站立，均构成\"超过正常限度的罚站\"（法规第 12 条第 2 项）。 <h5", "r": "s p t a"}, {"id": "二级-校内处理-须告知家长", "t": "二级：校内处理（须告知家长）", "s": "二级：校内处理（须告知家长） 由德育/年级负责人训导 承担校内公益服务任务 参加专门的校规校纪、行为规则教育 暂停或限制参加校外集体活动 （研学、外出实践、集体参观等） 书面警告 + 约谈家长（沿用学校 2026-01-14 已有做法） <h5", "r": "s p t a"}, {"id": "三级-校级处理-须事先告知家长-学生与家长可申诉", "t": "三级：校级处理（须事先告知家长，学生与家长可申诉）", "s": "三级：校级处理（须事先告知家长，学生与家长可申诉） 停课/停学不超过一周 ，要求家长在家教育管教 法治副校长或法治辅导员训诫 专门教育场所 + 专业心理辅导/行为干预 纪律处分：警告、严重警告、记过、留校察看（高中阶段可至开除学籍） 三级处理须 听取学生陈述与申辩 ；学生或家长申请听证的，学校应当组织听证（法规第 14 条）。 <h4", "r": "s p t a"}, {"id": "第三章-禁止行为清单-逐条对应法规第-12-条", "t": "第三章 禁止行为清单（逐条对应法规第 12 条）", "s": "第三章 禁止行为清单（逐条对应法规第 12 条） 以下行为一律禁止，发现即按师德失范处理： ❌ 击打、刺扎 等直接造成身体痛苦的 体罚 ❌ 超过正常限度的罚站、反复抄写、强制做不适的动作或姿势 （如 蹲起、俯卧撑 ）、 刻意孤立 ——均属 变相体罚 ❌ 辱骂 ，或以歧视性、侮辱性言行侵犯人格尊严 ❌ 因 个人或少数人 违规而惩罚 全体 学生 ❌ 因 学业成绩 实施惩戒 ❌ 因 个人情绪、好恶 实施或选择性实施惩戒 ❌ 指派学生对其他学生 实施惩戒 ❌ 其他侵害学生权利的行为 特别说明 ：2026-01-08 会议记录中出现\"再犯采取体罚措施如蹲起、俯卧撑或罚站\"的表述， 与上述禁止条款直接冲突，即刻废止 。 其中「教室内一节课内的站立」可以作为措施保留， 蹲起与俯卧撑不得作为惩戒手段 。 <h4", "r": "s p t a"}, {"id": "第四章-程序要求", "t": "第四章 程序要求", "s": "第四章 程序要求 第四条 告知 一级：可适当方式告知家长 二级： 应当及时 告知家长 三级： 应当事先 告知家长 第五条 记录 所有二级及以上处理须书面记录：时间、事由、措施、告知家长情况、学生回应，纳入学生行为档案。 第六条 申诉 学生对三级处理或纪律处分不服，可在 15 个工作日内 向学校学生申诉委员会提出申诉；对申诉结果不服，可向主管教育部门申请复核。 第七条 恢复 学生诚恳认错、积极改正的，可 提前解除 处理（法规第 13、14 条）。 <h4", "r": "s p t a"}, {"id": "第五章-与现行校规的衔接", "t": "第五章 与现行校规的衔接", "s": "第五章 与现行校规的衔接 现行做法（会议决议） 归入级别 说明 手机\"禁止入校\"，发现即没收 一级 + 违规物品暂扣 暂扣须登记、妥善保管，适当时候交还家长 （法规第 11 条） 违规使用 iPad/耳机：收缴 + 记入周反馈 一级 同上 校服不规范 一级 以提醒整改为主 晚自习缺席、外出未签字 二级 可限制参加校外集体活动 严重违纪（如打架、欺凌） 三级 须事先告知家长、可申诉 屡次违规限制晚自习资格 二级 须书面告知理由与期限 <h4", "r": "s p t a"}, {"id": "第六章-生效与解释", "t": "第六章 生效与解释", "s": "第六章 生效与解释 本办法经征求意见、校长办公会审议后公布施行，并报主管教育部门备案 本办法与上级法规冲突时，以上级法规为准 解释权归学校教学管理部门 附：起草说明 本办法由听记台账（2024-07 至 2026-10，267 场会议）中散落的纪律处理做法汇总而成，并逐条对齐《中小学教育惩戒规则（试行）》。 核心变化 ：删除体罚表述、明确站立时间上限、把\"没收\"改为\"暂扣并交还家长\"、建立三级告知与申诉程序。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "第二编-考试与考务-2", "t": "第二编  考试与考务", "s": "第二编 考试与考务 <div class=\"blk\" data-roles=\"t a\"", "r": "s p t a"}, {"id": "4-考试与成绩管理办法", "t": "4. 考试与成绩管理办法", "s": "4. 考试与成绩管理办法 〔原编号 P1-1〕 适用 ：校内期中/期末考试；国际统考的校内备考环节（报考、送考、成绩发布以考试局规定为准） 状态 ：草案 整合来源 ：听记台账 A1–A20（2025-11 至 2026-10） 配套文件 ：《考试入场与迟到处理规定》《学生违纪处理与教育惩戒办法》《校内考试教师工作指导手册》 <h4", "r": "t a"}, {"id": "第一章-命题与出卷", "t": "第一章 命题与出卷", "s": "第一章 命题与出卷 第一条 统一卷头 校内考试试卷 必须使用带学校新 logo 的统一卷头 ，杜绝无标题、无科目信息的试卷。 （依据：2025-11-04 会议） 第二条 背对背出卷（教考分离） 试卷由 非本班授课教师 命题，授课教师不直接参与 教考分离 ≠ 信息隔离：出卷教师须与授课教师完成 学情沟通 ，提交《学情同步表》 时间节点：考前 3 周学情沟通会 → 考前 2 周双向细目表 → 考前 1 周试卷初稿与审校 第三条 必备材料 每次校内考试须提交： 背对背出卷记录表 试卷分析表 （考后填写） 第四条 提交时限 期中试卷相关材料须于 考后指定日期上午前 提交（本学期为 11 月 4 日上午），由教研组长汇总。 （依据：2026-10-20 会议） <h4", "r": "s p t a"}, {"id": "第二章-试卷安全", "t": "第二章 试卷安全", "s": "第二章 试卷安全 第五条 全程保密 命题、审阅、印制、存放全过程保密，仅限必要人员接触 电子稿不得通过非保密渠道传输 （含个人微信、公共网盘） 纸质稿专人保管、定点存放 考后由学科教师统一回收、登记、保管，防止流出 第六条 交接留痕 学科教师须提前将 试卷、份数、考试时间、考后保管要求 书面交接给监考教师。 （依据：2026-10-13《校内考试教师工作指导手册》） <h4", "r": "s p t a"}, {"id": "第三章-考试实施", "t": "第三章 考试实施", "s": "第三章 考试实施 第七条 入场与迟到 按《考试入场与迟到处理规定》执行，两轨（校内/统考）不得混用。 第八条 监考 按《监考教师须知》执行。 考试期间学生不得单独行动 ，须由老师陪同方可离开考场。 （依据：2026-10-26 会议） 第九条 突发情况 考场异常（疾病、设备、环境）须 当日书面记录 ，由考务备案。 <h4", "r": "s p t a"}, {"id": "第四章-阅卷-成绩与发布", "t": "第四章 阅卷、成绩与发布", "s": "第四章 阅卷、成绩与发布 第十条 阅卷与闭环 出题、判卷、成绩分析须形成闭环，用于指导后续教学。 （依据：2026-01-08 会议） 第十一条 模考成绩发布时限 每周五上午 为最晚发布当周模考成绩的时间（便于班主任下午同步家长） 超时未发布须向年级负责人说明 （依据：2026-04-20 会议） 第十二条 模考的有效性 学生 在家中自行完成的模考成绩无效 ，必须返校参加方可计入档案。 （依据：2025-11-11 会议） 第十三条 考试公平的边界 教师 不得直接建议学生弃考某科 ；弃科决策须由申请老师依据 offer 条件提供依据，教学团队仅执行标准要求。 （依据：2025-10-23 会议） <h4", "r": "s p t a"}, {"id": "第五章-试卷查阅与数据安全", "t": "第五章 试卷查阅与数据安全", "s": "第五章 试卷查阅与数据安全 第十四条 试卷查阅四级审批 学生/家长查看原始试卷，须走 OA「爱德思考试试卷查看」专项审批 ： 学生（或家长）发起 → 班主任审核 → 组长审批 → 任课教师发放 成绩发布后 方可申请 全程留痕，任课教师不得私下提供试卷 （依据：2026-03-09、03-10、07-15 会议） 第十五条 数据使用限制 内部成绩分析可包含得分率、分布等数据，但 不得对外出具收费版标准化报告 。 （依据：2026-03-09 会议） <h4", "r": "s p t a"}, {"id": "第六章-成绩的使用", "t": "第六章 成绩的使用", "s": "第六章 成绩的使用 第十六条 预估分 学校可依规开具预估分 预估分 必须以学生后续达成为前提 ，开具时须书面告知该条件 香港方向申请：预估分 最高提两档 ； 严禁校外私自申请 ，所有香港申请必须通过学校官方渠道（UCAS 中心号 / Bus Code）提交并盖章 （依据：2026-03-12、2026-09-28 会议） 第十七条 报考信息核对 报考信息实行 三方核对 ：考务 + 教学 + 升学；高三考试后由三方共同复核，降低错误率。 （依据：2026-03-23、03-24 会议） 第十八条 与学业警示衔接 校内考试成绩是学业警示制度的触发依据；学业警示等级（黄/红/留级）按当年度《学业警示制度》执行， 期中考试后启用新制度 。 （依据：2026-10-12、2026-10-19 会议） 第十九条 与选拔衔接 巅峰计划（APEX）期末选拔以 前 20 名 为硬性留存标准，未达标者自动退出", "r": "s p t a"}, {"id": "第七章-附则", "t": "第七章 附则", "s": "第七章 附则 本办法自公布之日起施行，与上级法规或考试局规定冲突时以上位规定为准 修订由教学管理部门提出，经校长办公会审议后发布 附：与现有文件的关系 现有文件 状态 《学生考试准则》《监考教师须知》《行为准则》 继续有效，作为执行细则 《校内考试教师工作指导手册》 继续有效，作为命题与教研指引 本办法 上位管理办法 ，统一授权与流程 起草说明：本办法把听记中散落的 20 条考试与成绩规定归并为一份，明确了授权链（谁能批、谁留痕、谁复盘），避免同一件事在不同会议上有不同标准。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "5-考试入场与迟到处理规定", "t": "5. 考试入场与迟到处理规定", "s": "5. 考试入场与迟到处理规定 〔原编号 P0-2〕 适用 ：校内期中/期末考试、国际统考（Edexcel / AQA） 状态 ：草案 目的 ：终结目前\"10 分钟 / 15 分钟 / 30 分钟\"三种口径并存的局面 <h4", "r": "s p t a"}, {"id": "一-两条轨道-两套标准", "t": "一、两条轨道，两套标准", "s": "一、两条轨道，两套标准 学校同时承办两类考试， 规则不同，必须先确认考试类型再执行 。 项目 校内考试 （期中/期末） 国际统考 （Edexcel / AQA） 学生到场 考前 20 分钟离开教室 考前 45 分钟到考场外等候 允许入场 考前 10 分钟 开始入场 考前 40 分钟 开始入场 必须已在场内 — 考前 30 分钟 （考试局记录） 身份证 不需要 必须 ，且有效期 > 6 个月 迟到处理 迟到 10 分钟以内 可入场；超过不得入场 开考后一律不得入场 执行依据 ：《期中期末考试学生行为准则-2026修订版》《学生考试准则-202410》《监考教师须知-202410》 <h4", "r": "s p t a"}, {"id": "二-迟到处理流程", "t": "二、迟到处理流程", "s": "二、迟到处理流程 <h5", "r": "s p t a"}, {"id": "校内考试", "t": "校内考试", "s": "校内考试 迟到时长 处理 记录 ≤ 10 分钟 准许入场，不补时 监考教师登记迟到时间 > 10 分钟 不得入场 ，按 缺考 处理 记入考场记录，当日内报班主任 缺考 依《期中期末考试学生行为准则》第六章处理 班主任联系家长确认原因 <h5", "r": "s p t a"}, {"id": "国际统考", "t": "国际统考", "s": "国际统考 情况 处理 开考后到达 一律不得参加本场考试 （无例外，考试局规定） 未参加 按缺考记录； 考前 72 小时内不接受任何变更，不允许临时缺考 <h4", "r": "s p t a"}, {"id": "三-需要废止的旧口径", "t": "三、需要废止的旧口径", "s": "三、需要废止的旧口径 2026-04-27 会议记录 ： \"30 分钟至开考前可允许迟到学生进入，但开考后禁止入场\" 问题 ：该表述有两种读法—— 「考前 30 分钟起，允许迟到学生进入」（与统考\"提前 30 分钟必须到场\"呼应） 「迟到不超过 30 分钟可进入」（与学生准则冲突） 处理建议 ： 若为读法 1 → 改写为「 统考开考后不得入场；考前 30 分钟须已在场内 」 若为读法 2 → 废止 ，与学生准则冲突，不得执行 无论哪种， 不得作为校内考试的执行依据 <h4", "r": "s p t a"}, {"id": "四-特殊情形的处理", "t": "四、特殊情形的处理", "s": "四、特殊情形的处理 情形 处理 权限 突发疾病（考场内） 立即联系考务，按应急流程处理；如厕原则上允许但 不补时 监考教师 + 考务 交通意外/极端天气 由 考务负责人 现场判定是否属\"不可抗力\"，并 书面记录 考务负责人 证件缺失（统考） 不得入场 ，联系考务确认是否有补救途径 考务 走错考场 由巡考引导，时间损失不补 巡考 所有特殊情形须 当日书面记录 （时间、事由、判定人、处理结果），避免事后争议。 <h4", "r": "s p t a"}, {"id": "五-告知与公示", "t": "五、告知与公示", "s": "五、告知与公示 考前一周 ：班主任在班级群、家长群同步本次考试的 类型与到场时间 考场门口 ：张贴考试信息（科目、时间、中心号）与 迟到处理规则 对外材料 ：使用《考试须知（学生与家长版）》，其中已标明两轨差异 <h4", "r": "s p t a"}, {"id": "六-与现有文件的衔接", "t": "六、与现有文件的衔接", "s": "六、与现有文件的衔接 现有文件 本规定的作用 《学生考试准则-202410》 保留；其中\"迟到 15 分钟\" 更新为\"开考后不得入场\" 《期中期末考试学生行为准则-2026修订版》 保留；\"迟到 10 分钟\"继续适用于校内考试 《监考教师须知-202410》 保留；补充\"开考后到达不得参加\"的登记要求 2026-04-27 会议记录 本规定发布后不再作为执行依据 附：起草说明 本规定汇总自 267 场听记中与入场时间相关的全部表述，消除三处互斥口径。 建议发布时同步修订《学生考试准则》第 8 条 ，避免旧文件继续流通。 <div class=\"blk\" data-roles=\"p t a\"", "r": "s p t a"}, {"id": "6-特殊照顾申请判定标准", "t": "6. 特殊照顾申请判定标准", "s": "6. 特殊照顾申请判定标准 〔原编号 P0-3〕 适用 ：Edexcel / AQA 等国际统考；校内考试的\"因病/因事缺考\"另按《行为准则》第六章执行 状态 ：草案 · 外部考试局条款以官方最新文件为准（标注【待考务确认】处需核对后定稿） 解决的现实问题 ：同一类情况，10-19 会议同意家长申请、10-26 会议又判定\"未达标准\"，缺一把尺子 <h4", "r": "p t a"}, {"id": "一-什么是特殊照顾", "t": "一、什么是特殊照顾", "s": "一、什么是特殊照顾 指考生因 突发或不可控事件 （疾病、伤害、丧亲、重大意外等）导致考试表现受影响时，由 学校作为考试中心 向考试局提出申请，由考试局裁定是否给予成绩调整。 关键认知 ： 申请主体是 学校 ，不是家长个人 裁定权在 考试局 ，学校不能承诺结果 它的定位是 补救异常事件 ，不是\"考不好再争取一次\" <h4", "r": "s p t a"}, {"id": "二-学校予以受理的情形", "t": "二、学校予以受理的情形", "s": "二、学校予以受理的情形 满足以下任一条，且能提供证明材料，学校 受理并转报 ： # 情形 举例 最低材料 1 考试期间突发疾病/身体不适 高烧、急性肠胃炎、生理期剧痛、突发过敏 校医记录 或 当天就诊记录 2 考试前后发生意外伤害 骨折、扭伤（影响书写）、需急诊 医院诊断证明 3 近亲重病或去世 直系亲属重病、丧事 家长书面说明 + 必要证明 4 经诊断的心理健康问题 确诊焦虑/抑郁，考试期间发作 专业机构诊断书 5 考场环境重大异常 施工噪音、设备故障、突发停电 考务现场记录（ 由学校主动发起，家长无需申请 ） 6 其他不可抗力 自然灾害、公共事件 由考务负责人判定并记录 <h4", "r": "s p t a"}, {"id": "三-不予受理的情形-明确列出-避免反复争论", "t": "三、不予受理的情形（明确列出，避免反复争论）", "s": "三、不予受理的情形（明确列出，避免反复争论） # 情形 理由 1 迟到、走错考场 时间损失属个人可控范围 2 未携带身份证/违规物品被拦 属规则执行，非突发事件 3 备考不足、考前焦虑（未确诊） 不构成\"异常事件\" 4 自行决定不参加 应按弃考流程处理，不适用特殊照顾 5 考前 72 小时内临时变更申请 考试局硬性规定，本校无法受理 6 考试中离座上厕所 不属特殊照顾范畴 （该类情况按考务记录处理，不补时） 7 成绩不理想、未达预期 不属申请范围 🔴 第 6 条是 10 月争议的核心 ：有学生因如厕延误 10–15 分钟，家长援引特殊照顾政策。 结论：如厕属正常考试流程内事件，且有记录可查，不构成特殊照顾事由 。学校应在考前把这条讲清楚，而不是事后争论。 <h4", "r": "s p t a"}, {"id": "四-材料要求", "t": "四、材料要求", "s": "四、材料要求 <h5", "r": "s p t a"}, {"id": "医疗类", "t": "医疗类", "s": "医疗类 三甲医院 （或考试局认可机构）出具的诊断证明/就诊记录 须体现：就诊时间、诊断结论、对考试能力的影响说明 不接受 ：事后补开的\"情况说明\"、非医疗机构证明、家长自述 <h5", "r": "s p t a"}, {"id": "非医疗类", "t": "非医疗类", "s": "非医疗类 家长书面申请（说明事件、时间、对考试的影响） 相应证明：如丧事证明、事故记录 第三方佐证 （如班主任观察记录、校医记录） <h5", "r": "s p t a"}, {"id": "校内事件类-学校主动", "t": "校内事件类（学校主动）", "s": "校内事件类（学校主动） 由考务出具 现场记录 （时间、地点、异常内容、处理人） 此类由学校 主动 向考试局报备，家长无需申请 <h4", "r": "s p t a"}, {"id": "五-时限与流程", "t": "五、时限与流程", "s": "五、时限与流程 <h5", "r": "s p t a"}, {"id": "时间线", "t": "时间线", "s": "时间线 节点 动作 责任人 事件发生 当天 学生/家长告知班主任；考务同步记录 班主任 / 监考教师 次日 家长提交书面申请 + 材料 家长 2 个工作日内 班主任初核 → 转考务 班主任 3 个工作日内 考务核对考试局要求，判断是否符合受理条件 考务（Nicole） 符合 → 提交考试局 按考试局规定时限提交【待考务确认：各考试局截止时间】 考务 不符合 → 书面回复家长 说明不予受理的具体条款 考务 + 班主任 ⚠️ 外部硬约束 ：考前 72 小时内不接受任何考试变更，且不允许临时缺考。 跨过这个时间点，学校没有操作空间。 <h5", "r": "s p t a"}, {"id": "责任分工", "t": "责任分工", "s": "责任分工 角色 职责 班主任 第一时间知情、收集材料、安抚家长、解释规则 考务（Nicole） 判定是否符合考试局受理条件、提交申请、跟进结果 学科教师 提供该生平时成绩与课堂表现作为佐证 升学指导 评估对申请/预估分的影响，同步家长 <h4", "r": "s p t a"}, {"id": "六-对外沟通口径-统一话术", "t": "六、对外沟通口径（统一话术）", "s": "六、对外沟通口径（统一话术） 受理时 ： \"学校已将情况整理并提交考试局，最终结果由考试局裁定。我们会持续跟进，有结论第一时间通知您。\" 不予受理时 ： \"根据考试局规定和学校《特殊照顾判定标准》第 X 条，这类情况不在受理范围内。具体原因是……（陈述事实，不评判）\" 家长情绪激烈时 ： 只陈述 事实与判定依据 ，不解释过程、不过度道歉、不做结果承诺。 <h4", "r": "s p t a"}, {"id": "七-与相邻制度的边界", "t": "七、与相邻制度的边界", "s": "七、与相邻制度的边界 制度 区别 弃考/退考 主动放弃该场考试，按弃考截止时间与费用规则处理； 不是 特殊照顾 补考（校内） 校内考试因病/因事缺考，按《行为准则》第六章请假流程申请补考 作弊/违规 特殊情况不能豁免违规后果；但可作为处理时的参考情节 心理支持 有心理健康需求的学生走辅导机制，与成绩申请分开处理 <h4", "r": "s p t a"}, {"id": "八-一页判定表-可直接贴墙用", "t": "八、一页判定表（可直接贴墙用）", "s": "八、一页判定表（可直接贴墙用） 学生提出特殊情况 │ ├─ 是否属于「突发/不可控」事件？ ── 否 → 不受理（说明原因） │ │ 是 ├─ 是否有可核验的证明材料？ ── 否 → 先补材料，限期 2 个工作日 │ │ 是 ├─ 是否在考前 72 小时之外？ ── 否 → 学校无操作空间，如实告知 │ │ 是 ├─ 是否属于「不予受理」7 类之一？ ── 是 → 书面回复家长 │ │ 否 └─ 考务提交考试局 → 跟进结果 → 通知家长 附：起草说明 本标准依据 2026-10-19、10-20、10-26 三次会议中关于特殊照顾的讨论整理，结合《学生考试准则-202410》\"考前 72 小时\"约束。 外部考试局的具体受理范围与截止时间需由考务核对官方文件后填入【待考务确认】处 ，此处不作臆测。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "第三编-教师管理-2", "t": "第三编  教师管理", "s": "第三编 教师管理 <div class=\"blk\" data-roles=\"t a\"", "r": "s p t a"}, {"id": "7-教师发展与考核办法", "t": "7. 教师发展与考核办法", "s": "7. 教师发展与考核办法 〔原编号 P2-2〕 适用 ：全体教师、教研组长、带教教师 状态 ：草案 整合来源 ：听记台账 D1–D18（2025-12 至 2026-10） 配套 ：《校内考试教师工作指导手册》《学生违纪处理与教育惩戒办法》 <h4", "r": "t a"}, {"id": "第一章-准入-新教师上岗标准", "t": "第一章 准入：新教师上岗标准", "s": "第一章 准入：新教师上岗标准 第一条 双考核 新教师须完成 笔试 + 试讲 双重考核，标准与其他教师一致。 （依据：2026-03-30 会议） 第二条 正式授课前的准备流程 正式独立授课前，须完成： 项目 要求 听课 每周不少于 5 次 ，并提交听课记录 备课 提交 详细教案 （含教学步骤、提问设计、巡视安排） Demo 课 录制并提交 demo 课 自评 撰写自评报告 评课 接受管理者 推门听课 与复盘 （依据：2025-12-29、2026-07-14 会议） 第三条 过关清单 以下五项全部通过，方可独立承担出卷、监考等任务；未通过前须由教研组长复审把关。 [ ] 笔试通过 [ ] 试讲通过 [ ] 听课记录达标（累计时长与篇数） [ ] 教案审核通过 [ ] Demo 课 + 评课通过 <h4", "r": "s p t a"}, {"id": "第二章-带教-老带新", "t": "第二章 带教（老带新）", "s": "第二章 带教（老带新） 第四条 分层准入、动态延续 带教关系按教师实际需求配置， 不搞一刀切 禁止制度性排除外教参与 带教效果按学期评估，可延续或调整 （依据：2026-06-22 会议） 第五条 带教内容 教学常规（备课、上课、作业、反馈） 教材与考纲解读 学情分析与分层 家校沟通口径 第六条 师徒结对的技术手段 面对面教研时使用 AI 听记 记录，事后一起看要点，避免\"说过就忘\"。 （依据：2026-09-01 会议） <h4", "r": "s p t a"}, {"id": "第三章-听课与教研", "t": "第三章 听课与教研", "s": "第三章 听课与教研 第七条 无课教师集体听课 所有无课教师必须集体参与听课 ，不得以备课为由缺席。 （依据：2026-03-25 会议） 第八条 听课质量要求 听课反馈不得流于形式（\"备课认真、教态自然\"这类模板话不作数）。反馈须包含： 一个 具体 的教学片段（原话/动作） 一个 可操作 的改进建议 一条 可验证 的观察指标 第九条 组会规范 组会须有明确主线与核心观点， 避免流水账式汇报 。 （依据：2026-09-09 会议） <h4", "r": "s p t a"}, {"id": "第四章-教案与教研成果", "t": "第四章 教案与教研成果", "s": "第四章 教案与教研成果 第十条 教案要求 必修：教学步骤、提问设计、巡视安排、板书/课件要点、作业布置。 （依据：2025-12-29 会议） 第十一条 闭环 教案等教研成果必须形成「 使用—反馈—迭代 」闭环，避免资源浪费。 （依据：2026-03-30 会议） 第十二条 共享 同年级同科目教案须组内共享；更新时 用颜色标注改动 并附反思。 <h4", "r": "s p t a"}, {"id": "第五章-绩效与考核", "t": "第五章 绩效与考核", "s": "第五章 绩效与考核 第十三条 绩效系统 钉钉绩效系统 正式启用，用于： 教师日常工作记录 试用期考核 成长轨迹追踪 正能量优先 ：鼓励优先记录正向行为，循序渐进使用，避免变成\"抓错工具\"。 （依据：2026-03-24 会议） 第十四条 考核维度 不局限于工时 ，结合任务完成质量与重要性综合评定 教师 KPI 应依据 教学成果 ，而非仅课堂表现 （依据：2026-05-18、2026-03-09 会议） 第十五条 管理薄弱教师 对管理薄弱教师启动 专项培训并纳入考核 ，不是单纯批评。 （依据：2026-03-23 会议） 第十六条 实习生管理 实习生不配合的，带教老师须 及时向人事（Jessica）反馈 ，启动正式谈话流程。 （依据：2026-03-31 会议） 第十七条 考核结果的使用 考核结果用于：转正、课时安排、带教资格、管理岗位评估；不作为公开排名的依据。 <h4", "r": "s p t a"}, {"id": "第六章-教师行为红线", "t": "第六章 教师行为红线", "s": "第六章 教师行为红线 第十八条 六条红线（违反按师德失范处理） ❌ 体罚或变相体罚 （含蹲起、俯卧撑、超时罚站、刻意孤立） ❌ 因学业成绩 实施惩戒 ❌ 在 公共场合议论学生及其家庭 ❌ 私下承诺 升学结果、录取、降分 ❌ 向家长透露 其他学生 的成绩、表现、家庭情况 ❌ 私下换课、私自带课不报备 （依据：2026-06-09、2026-06-29、2026-10-26、2026-10-12 会议及《教育惩戒规则》第 12 条） 第十九条 课堂底线 无论出勤人数多少，教师必须按时上课，不得取消 。 （依据：2026-06-09 会议） <h4", "r": "s p t a"}, {"id": "第七章-教师发展", "t": "第七章 教师发展", "s": "第七章 教师发展 第二十条 个人发展计划 每位教师须制定 三年核心能力发展目标 ，由教研组长确认，纳入学期评估。 第二十一条 进阶路径 新教师 → 独立授课（过关清单） 成熟教师 → 带教资格（带教评估通过） 骨干教师 → 跨年级/跨组授课、教研引领 第二十二条 培训 每学期至少一次全员教学方法培训 新教师至少一次系统性入职培训（备课、监考、家校沟通、AI 工具） <h4", "r": "s p t a"}, {"id": "第八章-附则-2", "t": "第八章 附则", "s": "第八章 附则 第二十三条 生效 本办法自公布之日起施行，与《教育惩戒规则》等上位规定冲突时以上位为准。 第二十四条 附：教研组长月度检查清单 [ ] 组内新教师听课记录是否达标 [ ] 教案是否有更新标记与反思 [ ] 组会是否按主线推进（非流水账） [ ] 补课反馈是否含三项 [ ] 是否有未报备的换课/代课 起草说明：听记中关于教师发展的要求散落在述职、巡查、教研会议里，本篇按\"准入—带教—日常—考核—红线\"五段归并，重点是把\"新教师过关清单\"和\"红线六条\"写实，其余保持弹性。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "8-请假-调课与代课管理办法", "t": "8. 请假、调课与代课管理办法", "s": "8. 请假、调课与代课管理办法 〔原编号 P1-3〕 适用 ：全体学生与教师 状态 ：草案 整合来源 ：听记台账 C1–C10 及考试/教学相关请假条款（2025-09 至 2026-10） 目标 ：解决\"请假谁批、调课怎么走、代课怎么算\"三个高频争议 <h4", "r": "s p t a"}, {"id": "第一章-学生请假", "t": "第一章 学生请假", "s": "第一章 学生请假 第一条 基本要求 请假须由 家长提出 ，不得由学生自行请假 家长不再代为随意销假 ，以增强规则约束力 （依据：2025-12-10 会议） 第二条 病假 家长 至少提前一天 向班主任请假 提交 三甲医院 就诊证明或病假单（急症可当日联系、次日补交） 连续病假 3 天以上，须提供诊断证明与复课建议 第三条 事假 家长 至少提前一天 请假并说明事由 重要事假（升学面试、考试）须提供相应证明 第四条 考试期间请假 按《期中期末考试学生行为准则》第六章执行： 情形 后果 因病/因事获批 可参加学校统一补考 未请假擅自缺考（旷考） 不予补考 ，依《ICC 学业警示制度》给予 黄色警告 未参加考试 成绩单该栏记「 缺考 」，影响学期总评与成绩档案 第五条 请假审批权 时长 审批人 ≤ 1 天 班主任 2–3 天 班主任 + 年级负责人 > 3 天 年级负责人 + 教学主管 考试期间 ", "r": "s p t a"}, {"id": "第二章-教师请假与调休", "t": "第二章 教师请假与调休", "s": "第二章 教师请假与调休 第六条 审批权下放 教师请假审批权 下放至教研组长 。 （依据：2026-01-12 会议） 第七条 临时调休 2 小时以内 的临时调休，可通过 评论形式 提交，无需走正式审批流程。 超过 2 小时须走 OA 审批。 第八条 打卡时间 当前执行： 9:30 为打卡截止 调整后标准： 冬季学期 9:30，夏季学期 8:30 以每学期开学通知为准 （依据：2026-06-15 会议） <h4", "r": "s p t a"}, {"id": "第三章-调课与换课", "t": "第三章 调课与换课", "s": "第三章 调课与换课 第九条 禁止私下换课 所有换课、调课必须经教务 / OA 审批 ，禁止教师之间私下协商解决。 （依据：2026-10-12 会议） 第十条 跨学科调课 跨学科调课必须走 OA 审批，由 班主任、教学主管共同确认 后执行。 （依据：2026-01-12 会议） 第十一条 调课申请的必备信息 原课时间、调整后时间 调整原因 涉及班级与学生 承接教师确认 第十二条 学生课表异动 学生转班、换课、调层级仍走既有 OA 表单（班次课程异动 Change Schedule or Class），审批通过后由教务同步课表。 <h4", "r": "s p t a"}, {"id": "第四章-代课与顶岗", "t": "第四章 代课与顶岗", "s": "第四章 代课与顶岗 第十三条 校外教师缺勤时的顶岗 校外老师缺勤需内部顶岗的，须提交 OA 替课/换课审批 ，即时生效。 （依据：2026-10-12 会议） 第十四条 代课报酬 代课若进行了 实质性备课与教学 （如代为执教完整课时），可按更高标准或正常课时费核算 须经 OA 审批留痕 ，否则不予认定 未实际授课的\"看班\"按值班处理 （依据：2026-10-12 会议） 第十五条 监考加班 身份 处理 班主任 计 加班费 纳入当月工资 非班主任 须在 本月之内调休完 ；未休完按加班费计入工资 （依据：《监考教师须知-202410》） <h4", "r": "s p t a"}, {"id": "第五章-补课申请", "t": "第五章 补课申请", "s": "第五章 补课申请 第十六条 审批通道 补课走 OA「补课申请」通道（已有独立选项），填写： 补课科目、课时 形式（一对一 / 一对二） 抄送菲欧娜及教学老师 （依据：2026-05-11 会议） 第十七条 小语种补课 日语、德语、俄语等小语种补课 单独设 OA 选项 。 （依据：2026-05-11 会议） 第十八条 补课反馈 所有补课反馈 必须包含三项 ：课堂内容描述、学生表现、作业点评。 （依据：2026-04-20 会议） 第十九条 收费口径 一对一/一对二： 每人每小时 150 元 超 6 人班： 每小时 100 元/人 具体以当学期通知为准【待财务确认】 （依据：2026-06-30、2026-09-28 会议） <h4", "r": "s p t a"}, {"id": "第六章-值班", "t": "第六章 值班", "s": "第六章 值班 第二十条 晚自习值班 值班教师 必须在 503 坐班 ，不得长期滞留办公室或 518 每 20–30 分钟巡视一次 ，检查外出签字情况 楼层负责人 每 30 分钟巡查 并记录，结束拍照发群 （依据：2026-01-06、2025-09-04 会议） 第二十一条 值班交接 点名设备、手机、iPad、签到表 须放回 518 教室 ，不得留在原教室。 （依据：2026-05-19 会议） <h4", "r": "s p t a"}, {"id": "第七章-附则-2", "t": "第七章 附则", "s": "第七章 附则 第二十二条 生效 本办法自公布之日起施行。与既有 OA 表单冲突处，以本办法为准并同步更新表单。 第二十三条 表单清单 本办法涉及的表单（需在 OA 中可查）： 表单 用途 请假 Leave 教师请假 加班 Overtime 监考/活动加班 班次课程异动 Change Schedule or Class 学生调课 替课/换课审批 教师调课、顶岗 补课申请 补课（含小语种） 晚自习异动 学生晚自习调整 起草说明：听记中关于请假与调课的表述分散在 10 余次会议里，且存在\"组长口头批\"与\"必须 OA\"并存的情况。本办法的核心是 按事项定审批人、按事项定表单 ，减少临场判断。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "第四编-家校与升学-2", "t": "第四编  家校与升学", "s": "第四编 家校与升学 <div class=\"blk\" data-roles=\"p t a\"", "r": "s p t a"}, {"id": "9-家校沟通规范", "t": "9. 家校沟通规范", "s": "9. 家校沟通规范 〔原编号 P1-4〕 适用 ：全体班主任、任课教师、升学指导 状态 ：草案 整合来源 ：听记台账 F1–F14（2025-12 至 2026-10） 目标 ：统一对外出口，减少\"同一个通知三种说法\" <h4", "r": "p t a"}, {"id": "第一章-渠道与出口", "t": "第一章 渠道与出口", "s": "第一章 渠道与出口 第一条 作业：唯一出口是钉钉家校本 全校作业发布 统一使用钉钉家校本 严禁 在微信、钉钉群、其他小程序之间来回切换 家长只需记住一个入口 （依据：2026-09-21 会议） 第二条 必须配套教程 发布作业前须提供 家校本操作教程 （图文或视频），清晰展示：进入链接 → 查找文本 → 录音/拍照 → 提交。 经验判据：家长对数字化工具的抵触，多数源于 指引缺失 ，不是能力不足。 （依据：2026-09-21 会议） 第三条 渠道分工 渠道 用途 禁忌 钉钉家校本 作业发布与提交 不得用微信群替代 钉钉班级群 正式通知、材料 不得发布未审核信息 班主任微信群 提醒、催促 不得发布成绩、排名 电话 紧急事项、个性化沟通 不得用于群发通知 第四条 双渠道提醒 重要节点（报名、缴费、考试）须在 钉钉群 + 班主任微信群双渠道 同步发送。 （依据：2026-09-21 会议） <", "r": "s p t a"}, {"id": "第二章-通知规范", "t": "第二章 通知规范", "s": "第二章 通知规范 第五条 提醒节奏 首次通知：事项发布当日 二次提醒：截止前 2 天 （如 17 日提醒 18 日截止） 逾期未完成：由班主任单独跟进，不在群里点名 （依据：2026-09-21 会议） 第六条 弃考/报考提醒 报考完成后 一周内 ，由考务（Nicole）在班主任群发布下一节点提醒， 班主任转发至家长群 。 （依据：2026-04-20 会议） 第七条 通知内容 必含： 做什么、什么时候截止、在哪做、出问题找谁 。 不使用\"尽快\"\"抓紧\"等模糊表述。 <h4", "r": "s p t a"}, {"id": "第三章-周反馈", "t": "第三章 周反馈", "s": "第三章 周反馈 第八条 频率与内容 每周向家长反馈一次，内容包含： 作业完成率 课堂表现（含违规使用电子设备等记录） 本周学习重点与下周提醒 （依据：2026-09-02、2025-11-11 会议） 第九条 审核 教师填写 → 组长审核 → 统一发送。 未经审核不得直接发给家长 。 第十条 作业验收 假期/离校作业须在 返校后验收 ，并在当周周反馈中向家长通报。 （依据：2026-04-28 会议） <h4", "r": "s p t a"}, {"id": "第四章-家长会", "t": "第四章 家长会", "s": "第四章 家长会 第十一条 定位 家长会用于：同步教学理念、作业量标准、学习方法指导；面向 全体家长 ，不用于公布排名。 （依据：2026-09-07、2026-04-20 会议） 第十二条 分层沟通 对学业风险学生，可在家长会前后安排 一对一分层沟通 ，内容聚焦：现状事实 → 具体动作 → 时间节点。 第十三条 班级公约 班级公约由班主任在周五班会宣导并张贴， 无需家长逐个签字 。 （依据：2026-03-10 会议） <h4", "r": "s p t a"}, {"id": "第五章-家长接入与材料", "t": "第五章 家长接入与材料", "s": "第五章 家长接入与材料 第十四条 系统接入 家长 须接入钉钉系统 ，以便连接学校云谷平台，保障信息一致。 （依据：2025-12-25 会议） 第十五条 入学材料 学生手册作为 入学必备材料 ，家长须 阅读并签字确认 。 （依据：2025-12-29 会议） 第十六条 档案与邮寄 所有升学档案材料 由学校统一准备与封装 ，家长不得自行放入未经审核的文件。 （依据：2026-10-26 会议） <h4", "r": "s p t a"}, {"id": "第六章-隐私与沟通红线", "t": "第六章 隐私与沟通红线", "s": "第六章 隐私与沟通红线 第十七条 不得泄露他人信息 不得向家长透露 其他学生 的成绩、表现、家庭情况 信息隐私是红线 ，学校不为教师个人判断背书 （依据：2026-10-26 会议） 第十八条 不得公开排名 家长会、群里 不公布学生排名 ，只反馈个人相对自身的变化。 第十九条 不得私下承诺 所有升学相关事项 必须在指定钉钉群内公开沟通，禁止私下承诺 。 （依据：2026-06-29 会议） 第二十条 沟通口径 处理家长投诉或争议时： 只陈述事实与判定结果 不解释过程、不过度道歉 不做结果承诺 （依据：2026-10-19、2026-10-26 会议） <h4", "r": "s p t a"}, {"id": "第七章-响应时效", "t": "第七章 响应时效", "s": "第七章 响应时效 第二十一条 班主任响应 班主任职责底线： 对家长的响应速度必须达标 ——工作时间内 4 小时内 回复（含\"已收到，稍后详答\"）。 （依据：2026-09-14 会议） 第二十二条 转办 超出职责范围的诉求，班主任须在 1 个工作日内 转交对应负责人，并告知家长已转办。 <h4", "r": "s p t a"}, {"id": "第八章-附则-3", "t": "第八章 附则", "s": "第八章 附则 第二十三条 生效 本规范自公布之日起施行。 第二十四条 附：家长最常问的 5 个问题（建议统一话术） 问题 标准答复要点 作业在哪看？ 钉钉 → 家校本（附教程链接） 成绩怎么查？ 云谷平台；如需看试卷走 OA 审批 孩子请假怎么办？ 家长提前一天联系班主任 考试时间？ 见班级群通知，考前一周发布 想找科任老师？ 通过班主任转达，不私加联系方式 起草说明：听记中家校沟通的规则分散且多有重复（作业平台、提醒频次、周反馈），本篇统一为可执行的流程，并把\"隐私红线\"和\"口径一致\"单列——这两条是过去争议最多的。 <div class=\"blk\" data-roles=\"s p t a\"", "r": "s p t a"}, {"id": "10-升学指导工作规范", "t": "10. 升学指导工作规范", "s": "10. 升学指导工作规范 〔原编号 P2-1〕 适用 ：升学指导教师、班主任、学科教师、学生与家长 状态 ：草案 整合来源 ：听记台账 G1–G10 及报考、推荐信、文书相关条款（2025-09 至 2026-10） 目标 ：把\"谁能说、说什么、怎么留痕\"定下来，减少家长对口径的质疑 <h4", "r": "s p t a"}, {"id": "第一章-总则-3", "t": "第一章 总则", "s": "第一章 总则 第一条 定位 升学指导是 学校提供的专业服务 ，不是个人代办。所有对外表述代表学校，不代表个人。 第二条 三条底线 底线 内容 依据 公开留痕 所有升学事项必须在 指定钉钉群内 沟通， 禁止私下承诺 2026-06-29 真实 推荐信、活动记录、成绩材料 不得造假 2026-10-17 不自作主张 弃科、改目标、改申请方案须经流程，不得教师个人拍板 2025-10-23 <h4", "r": "s p t a"}, {"id": "第二章-沟通与留痕", "t": "第二章 沟通与留痕", "s": "第二章 沟通与留痕 第三条 沟通渠道 建立 固定的升学沟通群 （按年级或按申请方向） 咨询、方案调整、材料确认 全部在群内进行 一对一沟通后，须在群内 同步结论 （一句话即可） 第四条 禁止事项 ❌ 私下向家长承诺录取结果、降分、保录 ❌ 以个人名义对外出具推荐、证明材料 ❌ 在群内讨论其他学生的申请情况 第五条 可追溯 所有关键决策（定校、改方向、弃科）须留下： 谁提出 → 谁确认 → 何时定 。 <h4", "r": "s p t a"}, {"id": "第三章-申请渠道与规范", "t": "第三章 申请渠道与规范", "s": "第三章 申请渠道与规范 第六条 必须走学校官方渠道 所有申请通过学校 官方渠道 提交（UCAS 中心号 / Bus Code） 严禁学生或家长在校外私自申请 学校盖章是申请有效性的前提 （依据：2026-09-28 会议） 第七条 香港方向特别规定 预估分 最高提两档 ，超出须书面说明理由 必须通过学校渠道提交并盖章 学校需掌握录取数据以做背书 （依据：2026-09-28 会议） 第八条 预估分的条件性 开具预估分时须 书面告知 ：预估分以学生后续达成实际成绩为前提。 （依据：2026-03-12 会议） 第九条 外部信息核实 不得采信外部机构的绝对化说法（如\"必须全科实考\"）。 学校更看重来源学校的信誉度 ；对外统一由升学指导核实后表述。 （依据：2025-12-03 会议） <h4", "r": "s p t a"}, {"id": "第四章-弃科与选科", "t": "第四章 弃科与选科", "s": "第四章 弃科与选科 第十条 教师不得直接建议弃考 学科教师 不得直接建议学生弃考某科 。弃科决策须由 申请老师依据 offer 条件 提供依据，教学团队仅负责执行标准要求。 （依据：2025-10-23 会议） 第十一条 弃科的时间风险 弃科建议若在一模后才提出，易与 考试缴费截止时间冲突 。因此： 弃科评估须在 报考截止前 完成 涉及费用变化的，按考试局弃考规则执行（逾期不退） （依据：2026-04-20 会议） 第十二条 弃考流程 见《考试与成绩管理办法》。弃考/加考统一走 OA → 爱德思考试异动 。 <h4", "r": "s p t a"}, {"id": "第五章-文书与推荐信", "t": "第五章 文书与推荐信", "s": "第五章 文书与推荐信 第十三条 真实性 推荐信内容 必须真实 ，任何造假都会导致严重后果 实习/活动证明须由组织方出具，教师不得代写事实性内容 （依据：2026-10-17 会议） 第十四条 定制化要求 重点院校（如 LSE 金融）文书 必须定制化 ，不得与其他学校共用通用 PS。 （依据：2026-03-09 会议） 第十五条 可解释性 PS 中提到的任何内容，学生 必须能用英文清晰阐述 ，避免面试时无法解释。 （依据：2025-12-29 会议） 第十六条 交付周期 文书交付引入时间约束（建议 5–10 个工作日 ），通过系统设置提醒与强制节点，避免无限拖延。 （依据：2026-10-15 会议） <h4", "r": "s p t a"}, {"id": "第六章-时间轴与节点", "t": "第六章 时间轴与节点", "s": "第六章 时间轴与节点 第十七条 申请时间轴 每届学生须在 高二下 形成申请时间轴，明确： 语言考试节点（雅思/托福） 文书初稿、定稿 推荐信邀约 各校截止日期 第十八条 提交节奏 建议在 首轮截止前 （约 11 月中旬）提交，但不必过早 早申/滚动录取院校单独标注 （依据：2026-03-09 会议） 第十九条 定校确认 定校名单须在 OA 审批系统中正式确认 后方可执行。 （依据：2025-09-22 会议） <h4", "r": "s p t a"}, {"id": "第七章-材料与档案", "t": "第七章 材料与档案", "s": "第七章 材料与档案 第二十条 统一封装 所有申请档案材料由 学校统一准备与封装 ，家长不得自行放入未经审核的文件。 （依据：2026-10-26 会议） 第二十一条 归档 毕业生档案按《档案管理要求》统一归档、盖章、邮寄；电子件同步存档。 <h4", "r": "s p t a"}, {"id": "第八章-与相邻制度的衔接", "t": "第八章 与相邻制度的衔接", "s": "第八章 与相邻制度的衔接 事项 走哪份文件 特殊照顾（Special Consideration） 《特殊照顾申请判定标准》 弃考/加考 《考试与成绩管理办法》 与家长沟通的口径 《家校沟通规范》第六章 学生行为/纪律 《学生违纪处理与教育惩戒办法》 <h4", "r": "s p t a"}, {"id": "第九章-附则-2", "t": "第九章 附则", "s": "第九章 附则 第二十二条 生效 本规范自公布之日起施行。对外发布材料须经教学管理部门审核。 第二十三条 附：升学沟通标准话术 场景 标准表述 家长问\"能保录吗\" \"学校提供申请指导，录取由大学决定，我们不做任何录取承诺。\" 家长问\"能不能校外申请\" \"所有申请须通过学校官方渠道提交并盖章，校外私申学校无法背书。\" 家长问\"预估分能再高吗\" \"预估分上限为两档，且需学生后续达成相应成绩。\" 家长问\"老师能帮忙写推荐信吗\" \"推荐信由了解学生的教师出具，内容必须真实，不能代写事实。\" 起草说明：听记中升学相关的规则集中在 2026-03、2026-09 两轮讨论，本条把\"渠道唯一、留痕、真实\"三条作为骨架，其余为执行细则。 <div class=\"blk\" data-roles=\"t a\"", "r": "s p t a"}, {"id": "第五编-治理与技术支持-2", "t": "第五编  治理与技术支持", "s": "第五编 治理与技术支持 <div class=\"blk\" data-roles=\"t a\"", "r": "t a"}, {"id": "11-ai-使用与数据治理规范", "t": "11. AI 使用与数据治理规范", "s": "11. AI 使用与数据治理规范 〔原编号 P2-3〕 适用 ：全体教职员工、学生（涉及作业与考试部分） 状态 ：草案 整合来源 ：听记台账 I1–I6 及学术诚信条款（2026-09 至 2026-10） 目标 ：让 AI 用得住、用得起、不惹事——把\"能用什么、不能用什么、出了事谁负责\"写清楚 <h4", "r": "t a"}, {"id": "第一章-总则-4", "t": "第一章 总则", "s": "第一章 总则 第一条 定位 AI 是 提升效率的工具 ，不替代教师判断，不替代学生的独立思考。 第二条 三句话原则 引用要能追 ：用 AI 得到的结论，必须能指回来源 判断要人做 ：AI 可以生成，教师必须复核 数据要干净 ：喂给 AI 的数据先做治理，否则结论不可信 <h4", "r": "s p t a"}, {"id": "第二章-使用原则", "t": "第二章 使用原则", "s": "第二章 使用原则 第三条 必须保留来源 使用 AI 生成的事实性内容， 必须要求其给出引用来源 ；无来源的数据不得直接进入对外材料。 （依据：2026-09-21 会议） 第四条 先思考，后润色 不得让 AI 代替 你形成总结或方案。正确顺序是： 自己先独立思考、理出结构 → 用 AI 润色/查漏 → 自己再终审 （依据：2026-10-20 会议） 第五条 人机边界 AI 可起草， 责任人必须是具体的人 对外发布的任何材料（家长通知、报告、文书）， 署名者承担全部责任 <h4", "r": "s p t a"}, {"id": "第三章-可用与禁用场景", "t": "第三章 可用与禁用场景", "s": "第三章 可用与禁用场景 第六条 教师可用场景 场景 允许 要求 备课素材整理 ✅ 须核对学科准确性 听课记录整理与归因 ✅ 结论须基于原始记录 试卷分析（错因归类） ✅ 须人工抽查核分 家长通知起草 ✅ 须按《家校沟通规范》口径改写 数据汇总与统计 ✅ 原始数据须先治理 学生个性化建议初稿 ✅ 不得直接发给家长 ，须教师改写 第七条 教师禁用场景 场景 禁止理由 ❌ 直接生成学生评语并发送家长 缺少真实观察，易失真 ❌ 用 AI 判定学生纪律问题 涉及权益，须人判 ❌ 把学生成绩、名单、家庭信息上传公共 AI 隐私泄露 ❌ 用 AI 生成推荐信事实性内容 造假风险 ❌ 用 AI 结果替代评分标准判分 学术公平 第八条 学生使用边界 允许：语言润色、思路启发、知识点讲解、错题变式 禁止 ：提交由 AI 或其他工具 代答 的内容（适用一切书面与口试环节） 违规按《学生违纪处理与教育惩戒办法》处", "r": "s p t a"}, {"id": "第四章-数据治理-前置条件", "t": "第四章 数据治理（前置条件）", "s": "第四章 数据治理（前置条件） 第九条 三步治理 接入 AI 前，数据必须完成： 去重 ——同一份文件不重复入库 版本校验 ——剔除过期版本（如钉钉里的旧文件） 结构化整理 ——统一命名、分类、字段 判据： 数据不干净，AI 输出必然不可信。 这一步不做，后面全是返工。 （依据：2026-09-21、2026-09-24 会议） 第十条 数据分级 级别 内容 AI 处理 L1 公开 招生简章、课程介绍 可自由使用 L2 内部 教案、会议纪要、教研材料 可用，须内部工具 L3 敏感 学生成绩、考勤、家庭情况、心理记录 仅限校内环境 ，须脱敏 L4 禁止 身份证号、银行信息、医疗诊断原件 禁止进入任何 AI 工具 第十一条 最小必要 只提供完成任务所必需的数据，不做\"全量上传看看能干什么\"。 <h4", "r": "s p t a"}, {"id": "第五章-工具与权限", "t": "第五章 工具与权限", "s": "第五章 工具与权限 第十二条 工具准入 学校统一评估并授权的 AI 工具方可使用 个人擅自采购、注册、接入的，责任自负，且不得处理 L3 以上数据 第十三条 账号管理 学校账号专人专用，不得共享 离职人员账号须在办理离职时同步停用 第十四条 云谷与钉钉 教学数据以云谷、钉钉为准，AI 工具只做加工，不另建数据源 两套系统间的一致性由教务负责核对 （依据：2026-09-21 会议） <h4", "r": "s p t a"}, {"id": "第六章-记录-审计与责任", "t": "第六章 记录、审计与责任", "s": "第六章 记录、审计与责任 第十五条 留痕 涉及 L3 数据的 AI 处理，须记录： 谁、什么时间、用什么工具、处理了什么、结论是什么 。 第十六条 抽查 每学期至少抽查一次 AI 生成材料的准确性（重点：成绩统计、学生评语、家长通知）。 第十七条 责任 使用人：对内容真实性负责 审核人（组长/主管）：对发布合规性负责 学校：对工具选型与数据边界负责 <h4", "r": "s p t a"}, {"id": "第七章-附则-3", "t": "第七章 附则", "s": "第七章 附则 第十八条 生效 本规范自公布之日起施行，遇新工具或新法规及时修订。 第十九条 附：一页速查 能问 AI 的： ✅ 帮我查这个概念的准确定义（要求给来源） ✅ 把这份听课记录归纳成三条要点（我自己再核） ✅ 这份家长通知改得更清楚一点（不改变事实） 不能问 AI 的： ❌ 这个学生该不该处分？ ❌ 帮我写这个孩子的期末评语，直接发家长 ❌ 这是全班成绩单，帮我分析（未脱敏） 起草说明：听记中 AI 相关讨论集中在 2026-09（工具选型、数据治理）与 2026-10（AI 使用边界），本篇把散落的\"要用 AI\"\"AI 不能乱用\"两类表述落成可执行的红线，重点是 分级 与 责任到人 。 <div class=\"blk\" data-roles=\"t a\"", "r": "s p t a"}, {"id": "附录-a-待确认事项清单-10-项", "t": "附录 A  待确认事项清单（10 项）", "s": "附录 A 待确认事项清单（10 项） 填实后方可定稿发布。每项标注责任方。 # 事项 出自 责任方 1 各年级合格线具体标准 上卷·学业警示 各教研组 2 单科最低要求（留级触发线） 上卷·学业警示 教学主管 3 缺勤率统计口径（是否含请假） 上卷·学业警示 教务 4 迟到标准最终确认 上卷·入场规定 考务 + 教学 5 考前 30 分钟内允许入场的准确含义 上卷·入场规定 考务 6 特殊照顾申请时限（考试局规定） 上卷·特殊照顾 考务 7 补课收费标准（150 元/人/小时） 上卷·请假调课 财务 + 校长 8 巅峰计划前 20 名硬性留存的适用范围 上卷·考试管理 升学 + 校长 9 素质课是否适用同一考试规则 — 教学主管 10 各制度统一生效日期 — 校长办公会 <div class=\"blk\" data-roles=\"a\"", "r": "t a"}, {"id": "附录-b-剩余缺口-3-项", "t": "附录 B  剩余缺口（3 项）", "s": "附录 B 剩余缺口（3 项） # 缺口 现状 需要谁提供 1 教师 KPI 具体标准 只有原则（依教学成果），无维度与权重 教学主管 + 人事 2 补课收费与分成细则 散见 150/100 元，无正式定价文件 财务 3 家长进校报备流程 会议提及已建新规则，未见文件 校办 <div class=\"blk\" data-roles=\"a\"", "r": "a"}, {"id": "附录-c-来源覆盖与统计", "t": "附录 C  来源覆盖与统计", "s": "附录 C 来源覆盖与统计 来源 覆盖范围 条目/规模 听记笔记（全量版） 2025-09-22 至 2026-10-21，N001–N194 194 条笔记 AI 听记（台账） 2024-07-11 至 2026-10-29，267 条 110 条制度条目 成文文件 制度 PDF/DOCX 原件 11 份制度 + 2 本手册 本汇编融合自：《ICC 制度汇编》11 份成文制度 + 《学校制度性内容汇编（全量版）》194 条听记笔记 + 267 场会议记录。 上卷执行以正式发布文件为准；下卷仅作记录与追溯之用。", "r": "a"}];
+const $ = s => document.querySelector(s);
+const side = $('#side'), mask = $('#mask'), results = $('#results');
+const NAMES = {'s':'学生端','p':'家长端','t':'教师端','a':'管理者','':'全部'};
+
+/* 角色 */
+function setRole(r) {
+  if (r) document.body.dataset.role = r; else delete document.body.dataset.role;
+  localStorage.setItem('icc-role', r || '');
+  $('#rolename').textContent = NAMES[r] || '全部';
+  document.querySelectorAll('#rolechip button').forEach(b => b.classList.toggle('on', b.dataset.role === (r || '')));
+  filterNav();
+}
+function filterNav() {
+  const r = document.body.dataset.role || '';
+  document.querySelectorAll('#nav li[data-roles]').forEach(li => {
+    const ok = !r || li.dataset.roles.split(' ').includes(r);
+    li.style.display = ok ? '' : 'none';
+  });
+  // 子项全隐藏的父项也隐藏
+  document.querySelectorAll('#nav li').forEach(li => {
+    const ul = li.querySelector(':scope > ul');
+    if (!ul) return;
+    const any = [...ul.children].some(c => c.style.display !== 'none');
+    if (!any && r) li.style.display = 'none';
+  });
+}
+document.querySelectorAll('.rbtn, #rolechip button').forEach(b => {
+  b.addEventListener('click', e => {
+    const r = b.dataset.role || '';
+    setRole(r);
+    if (b.classList.contains('rbtn')) window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+});
+$('#switch-btn').onclick = () => { setRole(''); window.scrollTo({top:0, behavior:'smooth'}); };
+const saved = localStorage.getItem('icc-role');
+const urlRole = new URLSearchParams(location.search).get('role');
+setRole(urlRole !== null ? urlRole : (saved || ''));
+
+/* 目录开关 */
+$('#menu-btn').onclick = () => { side.classList.toggle('open'); mask.classList.toggle('on'); };
+mask.onclick = () => { side.classList.remove('open'); mask.classList.remove('on'); };
+$('#print-btn').onclick = () => window.print();
+
+/* 密度切换 */
+const dBtn = $('#density-btn');
+function setDensity(on) {
+  document.body.classList.toggle('compact', on);
+  localStorage.setItem('icc-compact', on ? '1' : '');
+  dBtn.textContent = on ? '舒适' : '紧凑';
+}
+const urlDensity = new URLSearchParams(location.search).get('density');
+setDensity(urlDensity ? urlDensity === 'compact' : localStorage.getItem('icc-compact') === '1');
+dBtn.onclick = () => setDensity(!document.body.classList.contains('compact'));
+
+/* 阅读进度 */
+const progBar = document.querySelector('#prog i');
+function updProg() {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = h > 0 ? Math.min(100, window.scrollY / h * 100) : 0;
+  progBar.style.width = p + '%';
+}
+document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => {
+  if (window.innerWidth <= 960) { side.classList.remove('open'); mask.classList.remove('on'); }
+}));
+
+/* 搜索（按角色过滤） */
+const q = $('#q'), rlist = $('#rlist');
+let timer = null;
+function esc2(s) { return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function hilite(s, kw) {
+  if (!kw) return esc2(s);
+  const re = new RegExp('(' + kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  return esc2(s).replace(re, '<mark>$1</mark>');
+}
+q.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(runSearch, 120); });
+function runSearch() {
+  const kw = q.value.trim();
+  if (!kw) { results.classList.remove('on'); return; }
+  const low = kw.toLowerCase();
+  const role = document.body.dataset.role || '';
+  const hits = INDEX.filter(x => (!role || x.r.split(' ').includes(role)) && (x.t + ' ' + x.s).toLowerCase().includes(low)).slice(0, 120);
+  rlist.innerHTML = hits.length
+    ? hits.map(h => `<div class="r"><a href="#${h.id}">${hilite(h.t, kw)}</a><div class="sn">${hilite(h.s.slice(0,180), kw)}…</div></div>`).join('')
+    : '<p style="color:#6b7684">没有匹配的内容</p>';
+  results.classList.add('on');
+  rlist.querySelectorAll('a').forEach(a => a.onclick = () => { results.classList.remove('on'); q.blur(); });
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') results.classList.remove('on');
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); q.focus(); q.select(); }
+});
+
+/* 滚动高亮 / 面包屑 / 回顶 */
+const links = [...document.querySelectorAll('#nav a')];
+const map = new Map(links.map(a => [a.dataset.id, a]));
+const hs = [...document.querySelectorAll('article h1,article h2,article h3,article h4')];
+const totop = $('#totop');
+let lastActive = null;
+function onScroll() {
+  totop.classList.toggle('on', window.scrollY > 600);
+  updProg();
+  let cur = null;
+  for (const h of hs) {
+    if (h.offsetParent === null) continue;
+    if (h.getBoundingClientRect().top <= 90) cur = h; else break;
+  }
+  if (!cur) return;
+  const a = map.get(cur.id);
+  if (a && a !== lastActive) {
+    if (lastActive) lastActive.classList.remove('active');
+    a.classList.add('active'); lastActive = a;
+    const r = a.getBoundingClientRect();
+    if (r.top < 0 || r.bottom > window.innerHeight) a.scrollIntoView({block:'nearest'});
+  }
+  $('#crumb').textContent = cur.textContent.trim();
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+totop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+
+/* 深链接 */
+(function () {
+  const raw = new URLSearchParams(location.search).get('goto');
+  const target = raw || decodeURIComponent(location.hash.replace('#',''));
+  if (!target) return;
+  const el = document.getElementById(target);
+  if (!el) return;
+  document.documentElement.style.scrollBehavior = 'auto';
+  el.scrollIntoView({block:'start'});
+})();
+</script>
+</body>
+</html>
